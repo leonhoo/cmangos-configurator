@@ -1,0 +1,1032 @@
+- "items":
+  - "desc": "RealmID must match the realmlist inside the realmd database"
+    "key": "RealmID"
+    "value": 1
+  - "desc": "Data directory setting. Important: DataDir needs to be quoted, as it is a string which may contain space characters. Example: 'D:/Temp/cmangos/output/share/mangos'"
+    "key": "DataDir"
+    "value": "."
+  - "desc": "Logs directory setting. Important: Logs dir must exists, or all logs need to be disabled. Default: '' - no log directory prefix. if used log names aren't absolute paths then logs will be stored in the current directory of the running program."
+    "key": "LogsDir"
+    "value": ""
+  - "desc": "Database connection settings for the world server. Default: ---MYSQL--- hostname;port;username;password;database .;somenumber;username;password;database - use named pipes at Windows Named pipes: mySQL required adding 'enable-named-pipe' to [mysqld] section my.ini .;/path/to/unix_socket;username;password;database - use Unix sockets at Unix/Linux ---PGSQL--- hostname;port;username;password;database .;/path/to/unix_socket/DIRECTORY or . for default path;username;password;database - use Unix sockets at Unix/Linux"
+    "key": "LoginDatabaseInfo"
+    "value": "127.0.0.1;3306;mangos;mangos;classicrealmd"
+  - "desc": "Database connection settings for the world server. Default: ---MYSQL--- hostname;port;username;password;database .;somenumber;username;password;database - use named pipes at Windows Named pipes: mySQL required adding 'enable-named-pipe' to [mysqld] section my.ini .;/path/to/unix_socket;username;password;database - use Unix sockets at Unix/Linux ---PGSQL--- hostname;port;username;password;database .;/path/to/unix_socket/DIRECTORY or . for default path;username;password;database - use Unix sockets at Unix/Linux"
+    "key": "WorldDatabaseInfo"
+    "value": "127.0.0.1;3306;mangos;mangos;classicmangos"
+  - "desc": "Database connection settings for the world server. Default: ---MYSQL--- hostname;port;username;password;database .;somenumber;username;password;database - use named pipes at Windows Named pipes: mySQL required adding 'enable-named-pipe' to [mysqld] section my.ini .;/path/to/unix_socket;username;password;database - use Unix sockets at Unix/Linux ---PGSQL--- hostname;port;username;password;database .;/path/to/unix_socket/DIRECTORY or . for default path;username;password;database - use Unix sockets at Unix/Linux"
+    "key": "CharacterDatabaseInfo"
+    "value": "127.0.0.1;3306;mangos;mangos;classiccharacters"
+  - "desc": "Database connection settings for the world server. Default: ---MYSQL--- hostname;port;username;password;database .;somenumber;username;password;database - use named pipes at Windows Named pipes: mySQL required adding 'enable-named-pipe' to [mysqld] section my.ini .;/path/to/unix_socket;username;password;database - use Unix sockets at Unix/Linux ---PGSQL--- hostname;port;username;password;database .;/path/to/unix_socket/DIRECTORY or . for default path;username;password;database - use Unix sockets at Unix/Linux"
+    "key": "LogsDatabaseInfo"
+    "value": "127.0.0.1;3306;mangos;mangos;classiclogs"
+  - "desc": "Amount of connections to database which will be used for SELECT queries. Maximum 16 connections per database. Please, note, for data consistency only one connection for each database is used for transactions and async SELECTs. So formula to find out how many connections will be established: X = #_connections + 1. Default: 1 connection for SELECT statements"
+    "key": "LoginDatabaseConnections"
+    "value": 1
+  - "desc": "Amount of connections to database which will be used for SELECT queries. Maximum 16 connections per database. Please, note, for data consistency only one connection for each database is used for transactions and async SELECTs. So formula to find out how many connections will be established: X = #_connections + 1. Default: 1 connection for SELECT statements"
+    "key": "WorldDatabaseConnections"
+    "value": 1
+  - "desc": "Amount of connections to database which will be used for SELECT queries. Maximum 16 connections per database. Please, note, for data consistency only one connection for each database is used for transactions and async SELECTs. So formula to find out how many connections will be established: X = #_connections + 1. Default: 1 connection for SELECT statements"
+    "key": "CharacterDatabaseConnections"
+    "value": 1
+  - "desc": "Amount of connections to database which will be used for SELECT queries. Maximum 16 connections per database. Please, note, for data consistency only one connection for each database is used for transactions and async SELECTs. So formula to find out how many connections will be established: X = #_connections + 1. Default: 1 connection for SELECT statements"
+    "key": "LogsDatabaseConnections"
+    "value": 1
+  - "desc": "Settings for maximum database-ping interval (minutes between pings)"
+    "key": "MaxPingTime"
+    "value": 30
+  - "desc": "Port on which the server will listen"
+    "key": "WorldServerPort"
+    "value": 8085
+  - "desc": "Bind World Server to specific IP address. This option is useful for running multiple worldd/realmd instances on different IP addresses using default ports. DO NOT CHANGE THIS UNLESS YOU _REALLY_ KNOW WHAT YOU'RE DOING"
+    "key": "BindIP"
+    "value": "0.0.0.0"
+  - "desc": "Log File for SD2-Errors"
+    "key": "SD2ErrorLogFile"
+    "value": "SD2Errors.log"
+  - "desc": "Regenerates table creature_zone and gameobject_zone. Default: 0 - turned off"
+    "key": "Spawns.ZoneArea"
+    "value": 0
+  "name": "CONNECTIONS AND DIRECTORIES"
+- "items":
+  - "desc": "Used processors mask for multi-processors system (Used only at Windows). Default: 0 (selected by OS) number (bitmask value of selected processors)"
+    "key": "UseProcessors"
+    "value": 0
+  - "desc": "Process priority setting (Used only at Windows). Default: 1 (HIGH) 0 (Normal)"
+    "key": "ProcessPriority"
+    "value": 1
+  - "desc": "Compression level for update packages sent to client (1..9). Default: 1 (speed) 9 (best compression)"
+    "key": "Compression"
+    "value": 1
+  - "desc": "Maximum number of players in the world. Excluding Mods, GM's and Admins. Default: 100 0 (for infinite players) -1 (for Mods, GM's and Admins only) -2 (for GM's and Admins only) -3 (for Admins only)"
+    "key": "PlayerLimit"
+    "value": 100
+  - "desc": "Save respawn time for creatures at death and for gameobjects at use/open. Default: 1 (save creature/gameobject respawn time without waiting grid unload) 0 (save creature/gameobject respawn time at grid unload)"
+    "key": "SaveRespawnTimeImmediately"
+    "value": 1
+  - "desc": "Maximum overspeed ping count before player kick (minimum is 2, 0 used to disable check). Default: 2"
+    "key": "MaxOverspeedPings"
+    "value": 2
+  - "desc": "Unload grids (if you have lot memory you can disable it to speed up player move to new grids second time). Default: 1 (unload grids) 0 (do not unload grids)"
+    "key": "GridUnload"
+    "value": 1
+  - "desc": "Load grids of maps at server startup (if you have lot memory you can try it to have a living world always loaded). This also allow ALL creatures on the given maps to update their grid without any player around. Default: '' (don't load all grids at startup) 'mapId1[,mapId2[..]]' (DO load all grids on the given maps- Experimental and very resource consumming)"
+    "key": "LoadAllGridsOnMaps"
+    "value": ""
+  - "desc": "Load active creatures that have ExtraFlags CREATURE_EXTRA_FLAG_ACTIVE or movementType WAYPOINT_MOTION_TYPE. This will allow creatures having these conditions to update their grid without any player around. Useful for running in debug mode. Default: True"
+    "key": "Autoload.Active"
+    "value": 1
+  - "desc": "Grid clean up delay (in milliseconds). Default: 300000 (5 min)"
+    "key": "GridCleanUpDelay"
+    "value": 300000
+  - "desc": "Map update interval (in milliseconds). Default: 100"
+    "key": "MapUpdateInterval"
+    "value": 100
+  - "desc": "Weather update interval (in milliseconds). Default: 600000 (10 min)"
+    "key": "ChangeWeatherInterval"
+    "value": 600000
+  - "desc": "Player save interval (in milliseconds). Default: 900000 (15 min)"
+    "key": "PlayerSave.Interval"
+    "value": 900000
+  - "desc": "Minimum level for saving character stats for external usage in database. Default: 0 (do not save character stats) 1+ (save stats for characters with level 1+)"
+    "key": "PlayerSave.Stats.MinLevel"
+    "value": 0
+  - "desc": "Enable/Disable saving of character stats only on logout. Default: 1 (only save on logout) 0 (save on every player save)"
+    "key": "PlayerSave.Stats.SaveOnlyOnLogout"
+    "value": 1
+  - "desc": "Enable/Disable VMaps support for line of sight and height calculation. You need to extract the VMaps in order to enable those options. Default: 1 (enable) 0 (disable)"
+    "key": "vmap.enableLOS"
+    "value": 1
+  - "desc": "Enable/Disable VMaps support for line of sight and height calculation. You need to extract the VMaps in order to enable those options. Default: 1 (enable) 0 (disable)"
+    "key": "vmap.enableHeight"
+    "value": 1
+  - "desc": "Enable/Disable VMap based indoor check to remove outdoor-only auras (mounts etc.). Requires VMaps enabled to work. Default: 1 (Enabled) 0 (Disabled)"
+    "key": "vmap.enableIndoorCheck"
+    "value": 1
+  - "desc": "Check final move position, summon position, etc for visible collision with other objects or wall (wall only if vmaps are enabled). Default: 1 (enable, requires more CPU power) 0 (disable, not so nice position selection but will require less CPU power)"
+    "key": "DetectPosCollision"
+    "value": 1
+  - "desc": "Enable/Disable pathfinding using mmaps. Default: 1 (enable) 0 (disable)"
+    "key": "mmap.enabled"
+    "value": 1
+  - "desc": "Disable mmap pathfinding on the listed maps. List of map ids with delimiter ','"
+    "key": "mmap.ignoreMapIds"
+    "value": ""
+  - "desc": "Enable/Disable preloading on first mapId load - expensive but thread safe - use only for big servers. 1 (enable) Default: 0 (disable)"
+    "key": "mmap.preload"
+    "value": 0
+  - "desc": "Use or not path finder path optimization (cut calculated points). 0 (disable) Default: 1 (enable)"
+    "key": "PathFinder.OptimizePath"
+    "value": 1
+  - "desc": "Correct calculated path points Z (height). Increase CPU usage, but fix Z accuracy. Default: 0 (disable) 1 (enable)"
+    "key": "PathFinder.NormalizeZ"
+    "value": 0
+  - "desc": "Update realm uptime period in minutes (for save data in 'uptime' table). Must be > 0. Default: 10 (minutes)"
+    "key": "UpdateUptimeInterval"
+    "value": 10
+  - "desc": "Number of threads to use for maps update. Default: 3. Don't put more thread then your number of CPU threads -1 for this to work stable."
+    "key": "MapUpdate.Threads"
+    "value": 3
+  - "desc": "Periodically check if the process got freezed, if this is the case force crash after the specified amount of seconds. Must be > 0. Recommended > 10 secs if you use this. Default: 0 (Disabled)"
+    "key": "MaxCoreStuckTime"
+    "value": 0
+  - "desc": "Permit/disable the use of the addon channel through the server (some client side addons can stop work correctly with disabled addon channel). Default: 1 (permit addon channel) 0 (do not permit addon channel)"
+    "key": "AddonChannel"
+    "value": 1
+  - "desc": "Perform character db cleanups on start up. Default: 1 (Enable) 0 (Disabled)"
+    "key": "CleanCharacterDB"
+    "value": 1
+  - "desc": "Set the max number of players returned in the /who list and interface (0 means unlimited). Default: 49 - (stable)"
+    "key": "MaxWhoListReturns"
+    "value": 49
+  "name": "PERFORMANCE SETTINGS"
+- "items":
+  - "desc": "Enable logging of GM commands - all SQL code will be written to a log file. All commands are written to a file: YYYY-MM-DD_logSQL.sql. If a new day starts (00:00:00), a new file is created - the old file will not be deleted. Default: 1 - Write SQL code to logfile 0 - Do not log"
+    "key": "LogSQL"
+    "value": 1
+  - "desc": "World daemon PID file. Default: '' - do not create PID file './worldd.pid' - create PID file (recommended name)"
+    "key": "PidFile"
+    "value": ""
+  - "desc": "Server console level of logging. 0 = Minimum; 1 = Basic&Error; 2 = Detail; 3 = Full/Debug. Default: 3"
+    "key": "LogLevel"
+    "value": 1
+  - "desc": "Include time in server console output [hh:mm:ss]. Default: 0 (no time) 1 (print time)"
+    "key": "LogTime"
+    "value": 0
+  - "desc": "Logfile name. Default: 'Server.log' '' - Empty name disable creating log file"
+    "key": "LogFile"
+    "value": "Server.log"
+  - "desc": "Description: Binary packet logging file for the world server. Filename extension must be .pkt to be parsable with WPP. Example: 'World.pkt' - (Enabled) Default: '' - (Disabled)"
+    "key": "PacketLogFile"
+    "value": ""
+  - "desc": "Logfile with timestamp of server start in name. Default: 0 - no timestamp in name 1 - add timestamp in name in form Logname_YYYY-MM-DD_HH-MM-SS.Ext for Logname.Ext"
+    "key": "LogTimestamp"
+    "value": 0
+  - "desc": "Server file level of logging. 0 = Minimum; 1 = Error; 2 = Detail; 3 = Full/Debug. Default: 0"
+    "key": "LogFileLevel"
+    "value": 0
+  - "desc": "Log filters (active by default - meaning: the filter is active, hence the log is not displayed). Default: 1 - not include with any log level 0 - include in log if log level permit"
+    "key": "LogFilter_TransportMoves"
+    "value": 1
+  - "desc": "Log filters (active by default - meaning: the filter is active, hence the log is not displayed). Default: 1 - not include with any log level 0 - include in log if log level permit"
+    "key": "LogFilter_CreatureMoves"
+    "value": 1
+  - "desc": "Log filters (active by default - meaning: the filter is active, hence the log is not displayed). Default: 1 - not include with any log level 0 - include in log if log level permit"
+    "key": "LogFilter_VisibilityChanges"
+    "value": 1
+  - "desc": "Log filters (active by default - meaning: the filter is active, hence the log is not displayed). Default: 1 - not include with any log level 0 - include in log if log level permit"
+    "key": "LogFilter_Weather"
+    "value": 1
+  - "desc": "Log filters (active by default - meaning: the filter is active, hence the log is not displayed). Default: 1 - not include with any log level 0 - include in log if log level permit"
+    "key": "LogFilter_DbStrictedCheck"
+    "value": 1
+  - "desc": "Log filters (active by default - meaning: the filter is active, hence the log is not displayed). Default: 1 - not include with any log level 0 - include in log if log level permit"
+    "key": "LogFilter_Pathfinding"
+    "value": 1
+  - "desc": "Log filters (active by default - meaning: the filter is active, hence the log is not displayed). Default: 1 - not include with any log level 0 - include in log if log level permit"
+    "key": "LogFilter_MapsLoading"
+    "value": 1
+  - "desc": "Log filters (active by default - meaning: the filter is active, hence the log is not displayed). Default: 1 - not include with any log level 0 - include in log if log level permit"
+    "key": "LogFilter_EventAiDev"
+    "value": 1
+  - "desc": "Log filters (active by default - meaning: the filter is active, hence the log is not displayed). Default: 1 - not include with any log level 0 - include in log if log level permit"
+    "key": "LogFilter_DbScriptDev"
+    "value": 1
+  - "desc": "Log filters (disabled by default, mostly debug only output affected cases). Default: 0 - include in log if log level permit 1 - not include with any log level"
+    "key": "LogFilter_PeriodicAffects"
+    "value": 0
+  - "desc": "Log filters (active by default - meaning: the filter is active, hence the log is not displayed). Default: 1 - not include with any log level 0 - include in log if log level permit"
+    "key": "LogFilter_PlayerMoves"
+    "value": 1
+  - "desc": "Log filters (active by default - meaning: the filter is active, hence the log is not displayed). Default: 1 - not include with any log level 0 - include in log if log level permit"
+    "key": "LogFilter_SQLText"
+    "value": 1
+  - "desc": "Log filters (disabled by default, mostly debug only output affected cases). Default: 0 - include in log if log level permit 1 - not include with any log level"
+    "key": "LogFilter_AIAndMovegens"
+    "value": 0
+  - "desc": "Log filters (disabled by default, mostly debug only output affected cases). Default: 0 - include in log if log level permit 1 - not include with any log level"
+    "key": "LogFilter_PlayerStats"
+    "value": 0
+  - "desc": "Log filters (disabled by default, mostly debug only output affected cases). Default: 0 - include in log if log level permit 1 - not include with any log level"
+    "key": "LogFilter_Damage"
+    "value": 0
+  - "desc": "Log filters (disabled by default, mostly debug only output affected cases). Default: 0 - include in log if log level permit 1 - not include with any log level"
+    "key": "LogFilter_Combat"
+    "value": 0
+  - "desc": "Log filters (disabled by default, mostly debug only output affected cases). Default: 0 - include in log if log level permit 1 - not include with any log level"
+    "key": "LogFilter_SpellCast"
+    "value": 0
+  - "desc": "Packet logging file for the worldserver. Default: '' - no log file created 'world.log' - recommended name to create a log file"
+    "key": "WorldLogFile"
+    "value": ""
+  - "desc": "Logfile with timestamp of server start in name. Default: 0 - no timestamp in name 1 - add timestamp in name in form Logname_YYYY-MM-DD_HH-MM-SS.Ext for Logname.Ext"
+    "key": "WorldLogTimestamp"
+    "value": 0
+  - "desc": "Log file of DB errors detected at server run. Default: 'DBErrors.log'"
+    "key": "DBErrorLogFile"
+    "value": "DBErrors.log"
+  - "desc": "Log file of EventAI errors detected at server run. Default: 'EventAIErrors.log'"
+    "key": "EventAIErrorLogFile"
+    "value": "EventAIErrors.log"
+  - "desc": "Character operations logfile name. Default: 'Char.log' '' - Empty name disable creating log file"
+    "key": "CharLogFile"
+    "value": "Char.log"
+  - "desc": "Logfile with timestamp of server start in name. Default: 0 - no timestamp in name 1 - add timestamp in name in form Logname_YYYY-MM-DD_HH-MM-SS.Ext for Logname.Ext"
+    "key": "CharLogTimestamp"
+    "value": 0
+  - "desc": "Write character dump before deleting in Char.log. For restoration, cut character data from log starting from line == START DUMP == to line == END DUMP == (without its) in file and load it using loadpdump command. Default: 0 - don't include dumping chars to log 1 - include dumping chars to log"
+    "key": "CharLogDump"
+    "value": 0
+  - "desc": "GM Log file of gm commands. Default: '' (Disable)"
+    "key": "GmLogFile"
+    "value": ""
+  - "desc": "GM Logfile with timestamp of server start in name. Default: 0 - no timestamp in name 1 - add timestamp in name in form Logname_YYYY-MM-DD_HH-MM-SS.Ext for Logname.Ext"
+    "key": "GmLogTimestamp"
+    "value": 0
+  - "desc": "GM Logfiles with GM account id (Note: logs not created if GmLogFile not set). Default: 0 - add gm log data to single log file 1 - add gm log data to account specific log files with name in form Logname_#ID_YYYY-MM-DD_HH-MM-SS.Ext or form Logname_#ID.Ext"
+    "key": "GmLogPerAccount"
+    "value": 0
+  - "desc": "Log file of RA commands. Default: 'Ra.log' '' - Empty name for disable"
+    "key": "RaLogFile"
+    "value": ""
+  - "desc": "Color for messages (format 'normal_color details_color debug_color error_color'). Colors: 0 - BLACK, 1 - RED, 2 - GREEN,  3 - BROWN, 4 - BLUE, 5 - MAGENTA, 6 -  CYAN, 7 - GREY, 8 - YELLOW, 9 - LRED, 10 - LGREEN, 11 - LBLUE, 12 - LMAGENTA, 13 - LCYAN, 14 - WHITE. Default: '' - none colors. Example: '13 7 11 9'"
+    "key": "LogColors"
+    "value": ""
+  "name": "SERVER LOGGING"
+- "items":
+  - "desc": "Server realm style. 0 = NORMAL; 1 = PVP; 4 = NORMAL; 6 = RP; 8 = RPPVP. also custom type: 16 FFA_PVP (free for all pvp mode like arena PvP in all zones except rest activated places and sanctuaries)"
+    "key": "GameType"
+    "value": 1
+  - "desc": "Server realm zone (set allowed alphabet in character names/etc). See also Strict*Names options. 1 Development - any language (Default) 2 United States - extended-Latin 3 Oceanic - extended-Latin 4 Latin America - extended-Latin 5 Tournament - basic-Latin at create, any at login 6 Korea - East-Asian 7 Tournament - basic-Latin at create, any at login 8 English - extended-Latin 9 German - extended-Latin 10 French - extended-Latin 11 Spanish - extended-Latin 12 Russian - Cyrillic 13 Tournament - basic-Latin at create, any at login 14 Taiwan - East-Asian 15 Tournament - basic-Latin at create, any at login 16 China - East-Asian 17 CN1 - basic-Latin at create, any at login 18 CN2 - basic-Latin at create, any at login 19 CN3 - basic-Latin at create, any at login 20 CN4 - basic-Latin at create, any at login 21 CN5 - basic-Latin at create, any at login 22 CN6 - basic-Latin at create, any at login 23 CN7 - basic-Latin at create, any at login 24 CN8 - basic-Latin at create, any at login 25 Tournament - basic-Latin at create, any at login 26 Test Server - any language 27 Tournament - basic-Latin at create, any at login 28 QA Server - any language 29 CN9 - basic-Latin at create, any at login"
+    "key": "RealmZone"
+    "value": 1
+  - "desc": "DBC Language Settings. 0 = English; 1 = Korean; 2 = French; 3 = German; 4 = Chinese; 5 = Taiwanese; 6 = Spanish; 255 = Auto Detect (Default)"
+    "key": "DBC.Locale"
+    "value": 255
+  - "desc": ""
+    "key": "DeclinedNames"
+    "value": 0
+  - "desc": "Limit player name to language specific symbols set, not allow create characters, and set rename request and disconnect at not allowed symbols name. Default: 0 disable (but limited server timezone dependent client check) 1 basic latin characters (strict) 2 realm zone specific (strict). See RealmZone setting. Note: In any case if you want correctly see character name at client this client must have apporopriate fonts (included in client by default, with active official localization or custom localization fonts in clientdir/Fonts). 3 basic latin characters + server timezone specific"
+    "key": "StrictPlayerNames"
+    "value": 0
+  - "desc": "Limit guild team charter names to language specific symbols set, not allow create charters with not allowed symbols in name. Default: 0 disable 1 basic latin characters (strict) 2 realm zone specific (strict). See RealmZone setting. Note: In any case if you want correctly see character name at client this client must have apporopriate fonts (included in client by default, with active official localization or custom localization fonts in clientdir/Fonts). 3 basic latin characters + server timezone specific"
+    "key": "StrictCharterNames"
+    "value": 0
+  - "desc": "Limit pet names to language specific symbols set. Default: 0 disable 1 basic latin characters (strict) 2 realm zone specific (strict). See RealmZone setting. Note: In any case if you want correctly see character name at client this client must have apporopriate fonts (included in client by default, with active official localization or custom localization fonts in clientdir/Fonts). 3 basic latin characters + server timezone specific"
+    "key": "StrictPetNames"
+    "value": 0
+  - "desc": "Minimal name length (1..12). Default: 2"
+    "key": "MinPlayerName"
+    "value": 2
+  - "desc": "Minimal name length (1..24). Default: 2"
+    "key": "MinCharterName"
+    "value": 2
+  - "desc": "Minimal name length (1..12). Default: 2"
+    "key": "MinPetName"
+    "value": 2
+  - "desc": "Disable characters creating for specific team or any (non-player accounts not affected). Default: 0 - enabled 1 - disabled only for Alliance 2 - disabled only for Horde 3 - disabled for both teams"
+    "key": "CharactersCreatingDisabled"
+    "value": 0
+  - "desc": "Limit numbers of characters per account (at all realms). Note: this setting limits the character creating at the _current_ realm base at characters amount at all realms. Default: 50. The number must be >= CharactersPerRealm"
+    "key": "CharactersPerAccount"
+    "value": 50
+  - "desc": "Limit numbers of characters for account at realm. Default: 10 (client limitation). The number must be between 1 and 10"
+    "key": "CharactersPerRealm"
+    "value": 10
+  - "desc": "Disable in-game script movie at first character's login(allows to prevent buggy intro in case of custom start location coordinates). Default: 0 - show intro for each new character 1 - show intro only for first character of selected race 2 - disable intro in all cases"
+    "key": "SkipCinematics"
+    "value": 0
+  - "desc": "Max level that can be reached by a player for experience (in range from 1 to 100). Change not recommended. Default: 60"
+    "key": "MaxPlayerLevel"
+    "value": 60
+  - "desc": "Staring level that have character at creating (in range 1 to MaxPlayerLevel). Default: 1"
+    "key": "StartPlayerLevel"
+    "value": 1
+  - "desc": "Amount of money that new players will start with. If you want to start with one silver, use for example 100 (100 copper = 1 silver). Default: 0"
+    "key": "StartPlayerMoney"
+    "value": 0
+  - "desc": "Max honor points that player can have. Default: 75000"
+    "key": "MaxHonorPoints"
+    "value": 75000
+  - "desc": "Amount of honor that new players will start with. Default: 0"
+    "key": "StartHonorPoints"
+    "value": 0
+  - "desc": "Min kills that players must obtain to enter in weekly honor calculation. Default: 15"
+    "key": "MinHonorKills"
+    "value": 15
+  - "desc": "The day of the week is performed server maintenance ( currently used for Honor distribution ). range (0..6): 0 is the first day of the week (normally sunday), 6 is the latest. Default: 3 (Wednesday in EU)"
+    "key": "MaintenanceDay"
+    "value": 3
+  - "desc": "Enable or disable instant logout for security level (0..4) or high (NOT in combat/while dueling/while falling). Default: 1 (Mods/GMs/Admins)"
+    "key": "InstantLogout"
+    "value": 1
+  - "desc": "Enable or disable Waterbreathing. Default: 4 (Console as noneone)"
+    "key": "DisableWaterBreath"
+    "value": 4
+  - "desc": "Controls whether quest greetings (used when NPC is a quest giver but does not have UNIT_NPC_FLAG_GOSSIP) is always shown, or is shown only if there are more than one menu items available to the player. Default: 0 (disabled, original behavior) 1 (enabled)"
+    "key": "AlwaysShowQuestGreeting"
+    "value": 0
+  - "desc": "Workaround for client bug: resuming taxi flight on login causes missing chat channels until the flight ends. When enabled allows clients to join local channels of the zone they are flying over on login and all custom channels. Default: 0 (disabled, original client behavior) 1 (enabled)"
+    "key": "TaxiFlightChatFix"
+    "value": 0
+  - "desc": "Controls whether logging out in multi-destination taxi flight will resume entire flight or the nearest destination only. Default: 0 (false) 1 (true)"
+    "key": "LongFlightPathsPersistence"
+    "value": 0
+  - "desc": "Players will start with all flight paths (Note: ALL flight paths, not only player's team). Default: 0 (true) 1 (false)"
+    "key": "AllFlightPaths"
+    "value": 0
+  - "desc": "Players will automatically gain max level dependent (weapon/defense) skill when logging in, leveling up etc. Default: 0 (false) 1 (true)"
+    "key": "AlwaysMaxSkillForLevel"
+    "value": 0
+  - "desc": "Activate weather system. Default: 1 (true) 0 (false)"
+    "key": "ActivateWeather"
+    "value": 1
+  - "desc": "Allow cast Unstuck spell at .start or client Help option use. Default: 1 (true) 0 (false)"
+    "key": "CastUnstuck"
+    "value": 1
+  - "desc": "Max amount triggered spell casts in chain by one caster, prevent stack overflow crash. Too Low value will make some correct triggered casts fail. 0 (no limit) Default: 20"
+    "key": "MaxSpellCastsInChain"
+    "value": 20
+  - "desc": "Set to Rabbit Day (date in unix time), only the day and month are considered, the year is not important. Default: 0 (off) Suggested: 954547200 (April 1st, 2000)"
+    "key": "RabbitDay"
+    "value": 0
+  - "desc": "Ignore level requirement to enter instance. Default: 0 (false) 1 (true)"
+    "key": "Instance.IgnoreLevel"
+    "value": 0
+  - "desc": "Ignore raid requirement to enter instance. Default: 0 (false) 1 (true)"
+    "key": "Instance.IgnoreRaid"
+    "value": 0
+  - "desc": "This setting determines whether its possible to leave combat mode through additional means (such as Feign Death) when zone is set in combat. Default: 0 (false, drop combat, default pre-2.3.0) 1 (true, combat persists, default post-2.3.0)"
+    "key": "Instance.StrictCombatLockdown"
+    "value": 0
+  - "desc": "The hour of the day (0-23) when the global instance resets occur. Default: 4"
+    "key": "Instance.ResetTimeHour"
+    "value": 4
+  - "desc": "Unload the instance map from memory after some time if no players are inside. Default: 1800000 (miliseconds, i.e 30 minutes) 0 (instance maps are kept in memory until they are reset)"
+    "key": "Instance.UnloadDelay"
+    "value": 1800000
+  - "desc": "Disables relocation of player upon entering instance after 15 minutes or instance reset. Default: 0 - false - relocates player after being logged out in instance for more than 15 minutes or instance reset 1 - true - location is kept"
+    "key": "Instance.DisableRelocate"
+    "value": 0
+  - "desc": "Quest level difference to hide for player low level quests: if player_level > quest_level + LowLevelQuestsHideDiff then quest '!' mark not show for quest giver. Default: 5 -1 (show all available quests marks)"
+    "key": "Quests.LowLevelHideDiff"
+    "value": 5
+  - "desc": "Quest level difference to hide for player high level quests: if player_level < quest_min_level - HighLevelQuestsHideDiff then quest '!' mark not show for quest giver. Default: 7 -1 (show all available quests marks)"
+    "key": "Quests.HighLevelHideDiff"
+    "value": 7
+  - "desc": "Non-raid quests allowed in raids. Default: 0 (not allowed) 1 (allowed)"
+    "key": "Quests.IgnoreRaid"
+    "value": 0
+  - "desc": "A grace period for an offline group leader to reconnect before tranfering leadership to a next suitable member of the group (in secs). Default: 300 (5 minutes) 0 (Do not transfer group leadership)"
+    "key": "Group.OfflineLeaderDelay"
+    "value": 300
+  - "desc": "Count of guild event log records stored in guild_eventlog table. Increase to store more guild events in table, minimum is 100. You can set it to very high value to prevent oldest guild events to be rewritten by latest guild events - but it can slow down performance. Default: 100"
+    "key": "Guild.EventLogRecordsCount"
+    "value": 100
+  - "desc": "Fatigue max timer value (in secs). Default: 60 (1 minute) 0 (instant exhaustion damage start)"
+    "key": "MirrorTimer.Fatigue.Max"
+    "value": 60
+  - "desc": "Waterbreathing max timer value (in secs). Default: 60 0 (instant underwater breathing damage start)"
+    "key": "MirrorTimer.Breath.Max"
+    "value": 60
+  - "desc": "Generic environmental (lava/slime/etc) damage delay max timer value (in secs). Default: 1 0 (instant in liquid damage start)"
+    "key": "MirrorTimer.Environmental.Max"
+    "value": 1
+  - "desc": "Generic environmental (lava/slime/etc) damage range. Min/max damage per tick. Default: 605-610"
+    "key": "EnvironmentalDamage.Min"
+    "value": 605
+  - "desc": "Generic environmental (lava/slime/etc) damage range. Min/max damage per tick. Default: 605-610"
+    "key": "EnvironmentalDamage.Max"
+    "value": 610
+  - "desc": "Creatures will pause waypoint movement for the specified time (in milliseconds) when a player interacts with them"
+    "key": "InteractionPauseTimer"
+    "value": 180000
+  - "desc": "Max count that player can learn the primary trade skill. Max: 10"
+    "key": "MaxPrimaryTradeSkill"
+    "value": 2
+  - "desc": "GM level starting from max primary skill count requirement ignored. (Console as noneone)"
+    "key": "TradeSkill.GMIgnore.MaxPrimarySkillsCount"
+    "value": 4
+  - "desc": "GM level starting from trade skill level requirement ignored. (Console as noneone)"
+    "key": "TradeSkill.GMIgnore.Level"
+    "value": 4
+  - "desc": "GM level starting from trade skill skill requirement ignored. (Console as noneone)"
+    "key": "TradeSkill.GMIgnore.Skill"
+    "value": 4
+  - "desc": "Min signatures count to creating guild (0..9)."
+    "key": "MinPetitionSigns"
+    "value": 9
+  - "desc": "Max distance to creature for group memeber to get XP at creature death."
+    "key": "MaxGroupXPDistance"
+    "value": 74
+  - "desc": "Mail delivery delay time for item sending (Default: 3600 sec (1 hour))"
+    "key": "MailDeliveryDelay"
+    "value": 3600
+  - "desc": "Max amount mail send each tick from mails list scheduled for mass mailer proccesing. More mails increase server load but speedup mass mail proccess. Normal tick length: 50 msecs, so 20 ticks in sec and 200 mails in sec by default."
+    "key": "MassMailer.SendPerTick"
+    "value": 10
+  - "desc": "Permanent pet will unsummoned at player mount. Default: 0 - not unsummon, 1 - unsummon for any mount"
+    "key": "PetUnsummonAtMount"
+    "value": 0
+  - "desc": "Player controlled pet will attack from behind. Default: 0 - Engage from any angle, 1 - Engage from behind"
+    "key": "PetAttackFromBehind"
+    "value": 0
+  - "desc": "Automatically select correct rank when buffing/healing lower level players. Default: 0 (false), 1 (true)"
+    "key": "AutoDownrank"
+    "value": 0
+  - "desc": "Default: 0 (false), 1 (true)"
+    "key": "Event.Announce"
+    "value": 0
+  - "desc": "Beep at mangosd start finished (mostly work only at Unix/Linux systems). Default: 1 (true), 0 (false)"
+    "key": "BeepAtStart"
+    "value": 1
+  - "desc": "Control show progress bars for load steps at server startup. Default: 0 (false), 1 (true)"
+    "key": "ShowProgressBars"
+    "value": 0
+  - "desc": "After startup error report wait <Enter> or some time before continue (and possible close console window). -1 (wait until <Enter> press), Default: 0 (not wait), N (>0, wait N secs)"
+    "key": "WaitAtStartupError"
+    "value": 0
+  - "desc": "Message of the Day. Displayed at worldlogin for every user ('@' for a newline)."
+    "key": "Motd"
+    "value": "Welcome to the Continued Massive Network Game Object Server."
+  - "desc": "Should player chat be parsed for GM commands. Default: 1 (parse commands), 0 (ignore commands)"
+    "key": "PlayerCommands"
+    "value": 1
+  "name": "SERVER SETTINGS"
+- "items":
+  - "desc": "Allow accounts to create characters in both teams in any game type. Default: 0 (Not allowed), 1 (Allowed)"
+    "key": "AllowTwoSide.Accounts"
+    "value": 0
+  - "desc": "Allow or disallow players from different teams to chat with each other (say, yell). Default: 0 (Not allowed), 1 (Allowed)"
+    "key": "AllowTwoSide.Interaction.Chat"
+    "value": 0
+  - "desc": "Allow or disallow players from different teams to have merged chat channels. Default: 0 (Not allowed), 1 (Allowed)"
+    "key": "AllowTwoSide.Interaction.Channel"
+    "value": 0
+  - "desc": "Allow or disallow players from different teams to join each other's groups. Default: 0 (Not allowed), 1 (Allowed)"
+    "key": "AllowTwoSide.Interaction.Group"
+    "value": 0
+  - "desc": "Allow or disallow players from different teams to join each other's guilds. Default: 0 (Not allowed), 1 (Allowed)"
+    "key": "AllowTwoSide.Interaction.Guild"
+    "value": 0
+  - "desc": "Allow or disallow players from different teams to trade with each other when not in group. Default: 0 (Not allowed), 1 (Allowed)"
+    "key": "AllowTwoSide.Interaction.Trade"
+    "value": 0
+  - "desc": "Allow or disallow players from different teams to have merged auction house listings. Default: 0 (Not allowed), 1 (Allowed)"
+    "key": "AllowTwoSide.Interaction.Auction"
+    "value": 0
+  - "desc": "Allow or disallow players from different teams to send in-game mail. Default: 0 (Not allowed), 1 (Allowed)"
+    "key": "AllowTwoSide.Interaction.Mail"
+    "value": 0
+  - "desc": "Allow show player from both team in who list. Default: 0 (Not allowed), 1 (Allowed)"
+    "key": "AllowTwoSide.WhoList"
+    "value": 0
+  - "desc": "Allow adding friends from other team in friend list. Default: 0 (Not allowed), 1 (Allowed)"
+    "key": "AllowTwoSide.AddFriend"
+    "value": 0
+  - "desc": "Allow other players see character talents in inspect dialog (Characters in Gamemaster mode can inspect talents always). Default: 1 (allow), 0 (not allow)"
+    "key": "TalentsInspecting"
+    "value": 1
+  "name": "PLAYER INTERACTION"
+- "items":
+  - "desc": "Aggro radius percent or off. Default: 1 - 100%, 1.5 - 150%, 0 - off (0%)"
+    "key": "Rate.Creature.Aggro"
+    "value": 1
+  - "desc": "The delay between when a creature spawns and when it can be aggroed by nearby movement. Default: 5000 (5s)"
+    "key": "CreatureRespawnAggroDelay"
+    "value": 5000
+  - "desc": "Radius for default leash due to being too far from refresh position. Default: 30 (yards)"
+    "key": "LeashRadius"
+    "value": 30
+  - "desc": "Radius which creature will use to seek for a near creature for assistance. Creature will flee to this creature. Default: 30, 0 - off"
+    "key": "CreatureFamilyFleeAssistanceRadius"
+    "value": 30
+  - "desc": "Radius which creature will use to call assistance without moving. Default: 5, 0 - off"
+    "key": "CreatureFamilyAssistanceRadius"
+    "value": 5
+  - "desc": "Reaction time for creature assistance call. Default: 1500 (1.5s)"
+    "key": "CreatureFamilyAssistanceDelay"
+    "value": 1500
+  - "desc": "Range at which a close moving npc can be assisted. Default: 5 yards"
+    "key": "CreatureCheckForHelpRadius"
+    "value": 5
+  - "desc": "Time during which at combat start check for help is disabled. Default: 2000 (2 seconds)"
+    "key": "CreatureCheckForHelpAggroDelay"
+    "value": 2000
+  - "desc": "Time after which spawn_group and linking aggro is triggered. Default: 2000 (2 seconds)"
+    "key": "CreatureLinkingAggroDelay"
+    "value": 2000
+  - "desc": "Time during which creature can flee when no assistant found. Default: 10000 (10s)"
+    "key": "CreatureFamilyFleeDelay"
+    "value": 10000
+  - "desc": "Difference for boss dynamic level with target. Default: 3"
+    "key": "WorldBossLevelDiff"
+    "value": 3
+  - "desc": "If target can have loot (or can be skining after loot) but no loot generated still show loot window. Default: 1 (show), 0 (not show)"
+    "key": "Corpse.EmptyLootShow"
+    "value": 1
+  - "desc": "In master loot mode every one can see the loot content under or over treshold. Only the master loot can still distrube it. Default: 0 (not show), 1 (show)"
+    "key": "Corpse.AllowAllItemsShowInMasterLoot"
+    "value": 1
+  - "desc": "Seconds until creature corpse will decay without being looted or skinned (not used when creature does not have loot initially). Default: 300"
+    "key": "Corpse.Decay.NORMAL"
+    "value": 300
+  - "desc": "Seconds until creature corpse will decay without being looted or skinned (not used when creature does not have loot initially). Default: 900"
+    "key": "Corpse.Decay.RARE"
+    "value": 900
+  - "desc": "Seconds until creature corpse will decay without being looted or skinned (not used when creature does not have loot initially). Default: 600"
+    "key": "Corpse.Decay.ELITE"
+    "value": 600
+  - "desc": "Seconds until creature corpse will decay without being looted or skinned (not used when creature does not have loot initially). Default: 1200"
+    "key": "Corpse.Decay.RAREELITE"
+    "value": 1200
+  - "desc": "Seconds until creature corpse will decay without being looted or skinned (not used when creature does not have loot initially). Default: 3600"
+    "key": "Corpse.Decay.WORLDBOSS"
+    "value": 3600
+  - "desc": "Controls how long the creature corpse stays after it had been looted, as a multiplier of its Corpse.Decay.* config. Default: 0.0 (will use modifier /3 of the creatures spawntimesecs when 0.0)"
+    "key": "Rate.Corpse.Decay.Looted"
+    "value": 0.0
+  - "desc": "Creature Damage Rates. Examples: 2 - creatures will damage 2x, 1.7 - 1.7x."
+    "key": "Rate.Creature.Normal.Damage"
+    "value": 1
+  - "desc": "Creature Damage Rates. Examples: 2 - creatures will damage 2x, 1.7 - 1.7x."
+    "key": "Rate.Creature.Elite.Elite.Damage"
+    "value": 1
+  - "desc": "Creature Damage Rates. Examples: 2 - creatures will damage 2x, 1.7 - 1.7x."
+    "key": "Rate.Creature.Elite.RAREELITE.Damage"
+    "value": 1
+  - "desc": "Creature Damage Rates. Examples: 2 - creatures will damage 2x, 1.7 - 1.7x."
+    "key": "Rate.Creature.Elite.WORLDBOSS.Damage"
+    "value": 1
+  - "desc": "Creature Damage Rates. Examples: 2 - creatures will damage 2x, 1.7 - 1.7x."
+    "key": "Rate.Creature.Elite.RARE.Damage"
+    "value": 1
+  - "desc": "Creature Spell Damage Rates. Examples: 2 - creatures will damage with spells 2x, 1.7 - 1.7x."
+    "key": "Rate.Creature.Normal.SpellDamage"
+    "value": 1
+  - "desc": "Creature Spell Damage Rates. Examples: 2 - creatures will damage with spells 2x, 1.7 - 1.7x."
+    "key": "Rate.Creature.Elite.Elite.SpellDamage"
+    "value": 1
+  - "desc": "Creature Spell Damage Rates. Examples: 2 - creatures will damage with spells 2x, 1.7 - 1.7x."
+    "key": "Rate.Creature.Elite.RAREELITE.SpellDamage"
+    "value": 1
+  - "desc": "Creature Spell Damage Rates. Examples: 2 - creatures will damage with spells 2x, 1.7 - 1.7x."
+    "key": "Rate.Creature.Elite.WORLDBOSS.SpellDamage"
+    "value": 1
+  - "desc": "Creature Spell Damage Rates. Examples: 2 - creatures will damage with spells 2x, 1.7 - 1.7x."
+    "key": "Rate.Creature.Elite.RARE.SpellDamage"
+    "value": 1
+  - "desc": "Creature Health Ammount Modifier. Examples: 2 - creatures have 2x health, 1.7 - 1.7x."
+    "key": "Rate.Creature.Normal.HP"
+    "value": 1
+  - "desc": "Creature Health Ammount Modifier. Examples: 2 - creatures have 2x health, 1.7 - 1.7x."
+    "key": "Rate.Creature.Elite.Elite.HP"
+    "value": 1
+  - "desc": "Creature Health Ammount Modifier. Examples: 2 - creatures have 2x health, 1.7 - 1.7x."
+    "key": "Rate.Creature.Elite.RAREELITE.HP"
+    "value": 1
+  - "desc": "Creature Health Ammount Modifier. Examples: 2 - creatures have 2x health, 1.7 - 1.7x."
+    "key": "Rate.Creature.Elite.WORLDBOSS.HP"
+    "value": 1
+  - "desc": "Creature Health Ammount Modifier. Examples: 2 - creatures have 2x health, 1.7 - 1.7x."
+    "key": "Rate.Creature.Elite.RARE.HP"
+    "value": 1
+  - "desc": "Distance from player to listen text that creature (or other world object) say. Default: 25"
+    "key": "ListenRange.Say"
+    "value": 25
+  - "desc": "Distance from player to listen textemote that creature (or other world object) say. Default: 25"
+    "key": "ListenRange.TextEmote"
+    "value": 25
+  - "desc": "Distance from player to listen text that creature (or other world object) yell. Default: 300"
+    "key": "ListenRange.Yell"
+    "value": 300
+  - "desc": "Amount guids reserved for .npc add/.gobject add directly after last used in DB static spawned creature/gameobject guid. Commands .npc add/.gobject add can be used only for guids from this reserve and required server restart if all guids from reserve used before above commands can be used in like case. Less size increase amount guids for dynamic spawns in game from other side. Default: 100"
+    "key": "GuidReserveSize.Creature"
+    "value": 10000
+  - "desc": "Amount guids reserved for .npc add/.gobject add directly after last used in DB static spawned creature/gameobject guid. Commands .npc add/.gobject add can be used only for guids from this reserve and required server restart if all guids from reserve used before above commands can be used in like case. Less size increase amount guids for dynamic spawns in game from other side. Default: 100"
+    "key": "GuidReserveSize.GameObject"
+    "value": 10000
+  - "desc": "Time for pickpocket restock in seconds. Default: 600 (10 minutes)"
+    "key": "CreaturePickpocketRestockDelay"
+    "value": 600
+  "name": "CREATURE AND GAMEOBJECT SETTINGS"
+- "items":
+  - "desc": "Chat protection from creating fake messages using a lot spaces (other invisible symbols), not applied to addon language messages, but can prevent working old addons that use normal languages for sending data to another clients. Default: 0 (disable fake messages preventing), 1 (enable fake messages preventing)"
+    "key": "ChatFakeMessagePreventing"
+    "value": 0
+  - "desc": "Check chat messages for ingame links to spells, items, quests, achievements etc. Default: 0 (disable link checking), 1 (check if only valid pipe commands are used. This prevents posting pictures for example), 2 (verifiy that pipe commands are used in a correct order), 3 (check if color, entry and name don't contradict each other. For correct work, please assure that you have extracted locale DBCs of every language specific client playing on this server.)"
+    "key": "ChatStrictLinkChecking.Severity"
+    "value": 0
+  - "desc": "Defines, what should be done if a message is considered to contain invalid pipe commands. Default: 0 (silently ignore message), 1 (kick players who sent invalid formed messages)"
+    "key": "ChatStrictLinkChecking.Kick"
+    "value": 0
+  - "desc": "Chat anti-flood protection, haste message count to activate protection. Default: 10, 0 (disable anti-flood protection)"
+    "key": "ChatFlood.MessageCount"
+    "value": 10
+  - "desc": "Chat anti-flood protection, minimum message delay to count message. Default: 1 (in secs)"
+    "key": "ChatFlood.MessageDelay"
+    "value": 1
+  - "desc": "Chat anti-flood protection, mute time at activation flood protection (not saved). Default: 10 (in secs)"
+    "key": "ChatFlood.MuteTime"
+    "value": 10
+  - "desc": "Chat anti-flood protection, mute time at activation flood protection (not saved). Default: 1 (restricted: only allow use in raids by leader and assitants), 0 (unrestricted: allow use in parties by all members of the group) (2.0.0 - 3.3.0 behavior)"
+    "key": "Chat.RestrictedRaidWarnings"
+    "value": 1
+  - "desc": "Restrict usage of non-latin characters according to RealmZone. Default: 0 (no restrictions, any characters in all channels), 1 (characters limited by RealmZone language in global channels only), 2 (characters limited by RealmZone language in global and custom static channels), 3 (characters limited by RealmZone language in global and all custom channels)"
+    "key": "Channel.RestrictedLanguageMode"
+    "value": 0
+  - "desc": "Static custom channels are custom channels pre-configured with global-like properties in a 'world chat' manner. By default they have no owner, no moderators, no password and no premoderation (unless overriden by a GM). This setting is responsible for automatic conversion to static upon eligible channel reaching number of members. Default: 0 (disabled)"
+    "key": "Channel.StaticAutoTreshold"
+    "value": 0
+  "name": "CHAT SETTINGS"
+- "items":
+  - "desc": "GM mode at login. Default: 2 (last save state), 0 (disable), 1 (enable)"
+    "key": "GM.LoginState"
+    "value": 2
+  - "desc": "GM visibility at login. Default: 2 (last save state), 0 (invisible), 1 (visible)"
+    "key": "GM.Visible"
+    "value": 2
+  - "desc": "Is GM accepting tickets from player by default or not. Default: 2 (last save state), 0 (disable), 1 (enable)"
+    "key": "GM.AcceptTickets"
+    "value": 2
+  - "desc": "Min GM account security level required for accepting ticket notifications, alerts and using some commands. Default: 2 (only gamemasters and above), 0 (disabled for everyone), 1 (only moderators and above), 3 (only administrators)"
+    "key": "GM.AcceptTicketsLevel"
+    "value": 2
+  - "desc": "GM chat mode at login. Default: 2 (last save state), 0 (disable), 1 (enable)"
+    "key": "GM.Chat"
+    "value": 2
+  - "desc": "Min GM account security level required to be eligible for using GM chat tag. Default: 1 (only moderators and above), 0 (disabled for everyone), 2 (only gamemasters and above), 3 (only administrators)"
+    "key": "GM.ChatLevel"
+    "value": 1
+  - "desc": "Min GM account security level required for executing moderator in-game commands in the channels. This also bypasses password prompts on joining channels which require password. Default: 1 (enabled for moderators and above), 0 (in-game channel moderator privileges only), 2 (enabled for gamemasters and above), 3 (enabled only for administrators)"
+    "key": "GM.ChannelModerationLevel"
+    "value": 1
+  - "desc": "Min GM account security level required for silently joining and leaving channels. Default: 0 (join and leave announcements enabled for everyone), 1 (disabled for moderators and above), 2 (disabled for gamemasters and above), 3 (disabled only for administrators)"
+    "key": "GM.ChannelSilentJoinLevel"
+    "value": 0
+  - "desc": "Is GM accepting whispers from player by default or not. Default: 2 (last save state), 0 (disable), 1 (enable)"
+    "key": "GM.WhisperingTo"
+    "value": 2
+  - "desc": "Max GM account security level showed in GM list (if visible) in non-GM state (.gm off). Default: 3 (anyone), 0 (none), 1 (only moderators), 2 (only gamemasters)"
+    "key": "GM.InGMList.Level"
+    "value": 3
+  - "desc": "Max GM account security level showed in who list (if visible). Default: 3 (anyone), 0 (only players), 1 (only moderators), 2 (only gamemasters)"
+    "key": "GM.InWhoList.Level"
+    "value": 3
+  - "desc": "Include GM trade and trade slot enchanting operations in GM log if it enable. Default: 1 (include), 0 (not include)"
+    "key": "GM.LogTrade"
+    "value": 1
+  - "desc": "GM starting level (1-255). Default: 1"
+    "key": "GM.StartLevel"
+    "value": 1
+  - "desc": "Disallow a lower security member to interact with a higher one using commands. Default: 0 (disable), 1 (enable)"
+    "key": "GM.LowerSecurity"
+    "value": 0
+  - "desc": "A spell that will be cast when a gm uses '.gm visible off' (Must be aura spell). Default: 31748 (Spirit Particles, big), 0 (Disabled)"
+    "key": "GM.InvisibleAura"
+    "value": 31748
+  - "desc": "GM tickets queue status on startup, when disabled server will not accept any GM tickets from players. Default: 1 (Enabled), 0 (Disabled)"
+    "key": "GM.TicketsQueueStatus"
+    "value": 1
+  "name": "GAME MASTER SETTINGS"
+- "items":
+  - "desc": "Sets visibility mode for invisible units. Fog Of War settings are not applied to GMs. Default: 0 (standard setting: players can see invisibile units in their own group), 1 (players can see same faction invisibile units)"
+    "key": "Visibility.FogOfWar.Stealth"
+    "value": 0
+  - "desc": "Sets visibility mode for absolute health values. Fog Of War settings are not applied to GMs. Default: 0 (Pre-3.0 standard setting: players can see health values of units in their own group), 1 (players can see health values of same faction units), 2 (Post-3.0 standard setting: players can see health values of all units)"
+    "key": "Visibility.FogOfWar.Health"
+    "value": 0
+  - "desc": "Sets visibility mode for values of character attributes and attack stats. Fog Of War settings are not applied to GMs. Default: 0 (standard setting: players can see own values and values of their pets), 1 (players can see values of same faction units), 2 (players can see values of all units)"
+    "key": "Visibility.FogOfWar.Stats"
+    "value": 0
+  - "desc": "Visibility distance for different ingame object in different maps. Visibility on continents on offy 100 yards. In BG/Arenas 533. For instances default 170. Max limited by active player zone: 533. Min limit is max aggro radius (45) * Rate.Creature.Aggro"
+    "key": "Visibility.Distance.Continents"
+    "value": 100
+  - "desc": "Visibility distance for different ingame object in different maps. Visibility on continents on offy 100 yards. In BG/Arenas 533. For instances default 170. Max limited by active player zone: 533. Min limit is max aggro radius (45) * Rate.Creature.Aggro"
+    "key": "Visibility.Distance.Instances"
+    "value": 170
+  - "desc": "Visibility distance for different ingame object in different maps. Visibility on continents on offy 100 yards. In BG/Arenas 533. For instances default 170. Max limited by active player zone: 533. Min limit is max aggro radius (45) * Rate.Creature.Aggro"
+    "key": "Visibility.Distance.BGArenas"
+    "value": 533
+  - "desc": "Object's visibility update called, when distance between current object's position and position, where visiblity was updated last time, reaches RelocationLoverLimit value. Default: 10 (yards)"
+    "key": "Visibility.RelocationLowerLimit"
+    "value": 10
+  - "desc": "Delay time between creature AI reactions on nearby movements. Default: 1000 (milliseconds)"
+    "key": "Visibility.AIRelocationNotifyDelay"
+    "value": 1000
+  "name": "VISIBILITY AND RADIUSES"
+- "items":
+  - "desc": "Health and power regeneration and rage income from damage. Default: 1"
+    "key": "Rate.Health"
+    "value": 1
+  - "desc": "Health and power regeneration and rage income from damage. Default: 1"
+    "key": "Rate.Mana"
+    "value": 1
+  - "desc": "Health and power regeneration and rage income from damage. Default: 1"
+    "key": "Rate.Rage.Income"
+    "value": 1
+  - "desc": "Health and power regeneration and rage income from damage. Default: 1"
+    "key": "Rate.Rage.Loss"
+    "value": 1
+  - "desc": "Health and power regeneration and rage income from damage. Default: 1"
+    "key": "Rate.Focus"
+    "value": 1
+  - "desc": "Health and power regeneration and rage income from damage. Default: 1"
+    "key": "Rate.Loyalty"
+    "value": 1
+  - "desc": "Health and power regeneration and rage income from damage. Default: 1 (Rogue)"
+    "key": "Rate.Energy"
+    "value": 1
+  - "desc": "Skill Discovery Rates. Default: 1"
+    "key": "Rate.Skill.Discovery"
+    "value": 1
+  - "desc": "Drop rates (items by quality and money). Default: 1"
+    "key": "Rate.Drop.Item.Poor"
+    "value": 1
+  - "desc": "Drop rates (items by quality and money). Default: 1"
+    "key": "Rate.Drop.Item.Normal"
+    "value": 1
+  - "desc": "Drop rates (items by quality and money). Default: 1"
+    "key": "Rate.Drop.Item.Uncommon"
+    "value": 1
+  - "desc": "Drop rates (items by quality and money). Default: 1"
+    "key": "Rate.Drop.Item.Rare"
+    "value": 1
+  - "desc": "Drop rates (items by quality and money). Default: 1"
+    "key": "Rate.Drop.Item.Epic"
+    "value": 1
+  - "desc": "Drop rates (items by quality and money). Default: 1"
+    "key": "Rate.Drop.Item.Legendary"
+    "value": 1
+  - "desc": "Drop rates (items by quality and money). Default: 1"
+    "key": "Rate.Drop.Item.Artifact"
+    "value": 1
+  - "desc": "Drop rates (items by quality and money). Default: 1"
+    "key": "Rate.Drop.Item.Referenced"
+    "value": 1
+  - "desc": "Drop rates (items by quality and money). Default: 1"
+    "key": "Rate.Drop.Item.Quest"
+    "value": 1
+  - "desc": "Drop rates (items by quality and money). Default: 1"
+    "key": "Rate.Drop.Money"
+    "value": 1
+  - "desc": "XP rates. Default: 1"
+    "key": "Rate.Pet.XP.Kill"
+    "value": 1
+  - "desc": "XP rates. Default: 1"
+    "key": "Rate.XP.Kill"
+    "value": 1
+  - "desc": "XP rates. Default: 1"
+    "key": "Rate.XP.Quest"
+    "value": 1
+  - "desc": "XP rates. Default: 1"
+    "key": "Rate.XP.Explore"
+    "value": 1
+  - "desc": "Resting points grow rates (1 - normal, 2 - double rate, 0.5 - half rate, etc) from standard values. Default: 1"
+    "key": "Rate.Rest.InGame"
+    "value": 1
+  - "desc": "Resting points grow rates (1 - normal, 2 - double rate, 0.5 - half rate, etc) from standard values. Default: 1"
+    "key": "Rate.Rest.Offline.InTavernOrCity"
+    "value": 1
+  - "desc": "Resting points grow rates (1 - normal, 2 - double rate, 0.5 - half rate, etc) from standard values. Default: 1"
+    "key": "Rate.Rest.Offline.InWilderness"
+    "value": 1
+  - "desc": "Damage after fall rate. (1 - standard, 2 - double damage, 0.5 - half damage, etc). Default: 1"
+    "key": "Rate.Damage.Fall"
+    "value": 1
+  - "desc": "Auction rates (auction time, deposit get at auction start, auction cut from price at auction end). Default: 1"
+    "key": "Rate.Auction.Time"
+    "value": 1
+  - "desc": "Auction rates (auction time, deposit get at auction start, auction cut from price at auction end). Default: 1"
+    "key": "Rate.Auction.Deposit"
+    "value": 1
+  - "desc": "Auction rates (auction time, deposit get at auction start, auction cut from price at auction end). Default: 1"
+    "key": "Rate.Auction.Cut"
+    "value": 1
+  - "desc": "Minimum auction deposit size in copper. Default: 0"
+    "key": "Auction.Deposit.Min"
+    "value": 0
+  - "desc": "Honor gain rate. Default: 1"
+    "key": "Rate.Honor"
+    "value": 1
+  - "desc": "Mining Rates (Mining.Amount changes minimum/maximum usetimes of a deposit, Mining.Next changes chance to have next use of a deposit). Default: 1"
+    "key": "Rate.Mining.Amount"
+    "value": 1
+  - "desc": "Mining Rates (Mining.Amount changes minimum/maximum usetimes of a deposit, Mining.Next changes chance to have next use of a deposit). Default: 1"
+    "key": "Rate.Mining.Next"
+    "value": 1
+  - "desc": "Talent Point rates. Default: 1"
+    "key": "Rate.Talent"
+    "value": 1
+  - "desc": "Reputation Gain rate. Default: 1"
+    "key": "Rate.Reputation.Gain"
+    "value": 1
+  - "desc": "Lowest Reputation Gain rate from low level kill. Default: 0.2"
+    "key": "Rate.Reputation.LowLevel.Kill"
+    "value": 0.2
+  - "desc": "Lowest Reputation Gain rate from low level quest. Default: 0.2"
+    "key": "Rate.Reputation.LowLevel.Quest"
+    "value": 0.2
+  - "desc": "Multiplier for the number of days in between global raid/heroic instance resets. Default: 1"
+    "key": "Rate.InstanceResetTime"
+    "value": 1
+  - "desc": "crafting/defense/gathering/weapon skills gain at skill grow (1,2,...). Default: 1"
+    "key": "SkillGain.Crafting"
+    "value": 1
+  - "desc": "crafting/defense/gathering/weapon skills gain at skill grow (1,2,...). Default: 1"
+    "key": "SkillGain.Defense"
+    "value": 1
+  - "desc": "crafting/defense/gathering/weapon skills gain at skill grow (1,2,...). Default: 1"
+    "key": "SkillGain.Gathering"
+    "value": 1
+  - "desc": "crafting/defense/gathering/weapon skills gain at skill grow (1,2,...). Default: 1"
+    "key": "SkillGain.Weapon"
+    "value": 1
+  - "desc": "Skill chance values (0..100). Default: 100-75-25-0"
+    "key": "SkillChance.Orange"
+    "value": 100
+  - "desc": "Skill chance values (0..100). Default: 100-75-25-0"
+    "key": "SkillChance.Yellow"
+    "value": 75
+  - "desc": "Skill chance values (0..100). Default: 100-75-25-0"
+    "key": "SkillChance.Green"
+    "value": 25
+  - "desc": "Skill chance values (0..100). Default: 100-75-25-0"
+    "key": "SkillChance.Grey"
+    "value": 0
+  - "desc": "For skinning and Mining chance decrease with skill level. Default: 0 - no decrease, 75 - in 2 times each 75 skill points"
+    "key": "SkillChance.MiningSteps"
+    "value": 0
+  - "desc": "For skinning and Mining chance decrease with skill level. Default: 0 - no decrease, 75 - in 2 times each 75 skill points"
+    "key": "SkillChance.SkinningSteps"
+    "value": 0
+  - "desc": "For fishing instead fail provided junk loot. Default: 0 (disabled), 1 (enabled)"
+    "key": "SkillFail.Loot.Fishing"
+    "value": 0
+  - "desc": "For fishing skill gain possible at fail also. Default: 0 (disabled), 1 (enabled)"
+    "key": "SkillFail.Gain.Fishing"
+    "value": 0
+  - "desc": "For fishing pool impossible fail from low skill by default. Default: 1 (enabled), 0 (disabled)"
+    "key": "SkillFail.Possible.FishingPool"
+    "value": 1
+  - "desc": "Chance lost one from equiped items durability point at damage apply or receive. Default: 0.5 (100/0.5 = 200) Each 200 damage apply one from 19 possible equipped items"
+    "key": "DurabilityLossChance.Damage"
+    "value": 0.5
+  - "desc": "Chance lost one from armor items durability point at damage absorb. Default: 0.5 (100/0.5 = 200) Each 200 absorbs apply one from 15 possible armor equipped items"
+    "key": "DurabilityLossChance.Absorb"
+    "value": 0.5
+  - "desc": "Chance lost weapon durability point at parry. Default: 0.05 (100/0.05 = 2000) Each 2000 parry attacks main weapon lost point"
+    "key": "DurabilityLossChance.Parry"
+    "value": 0.05
+  - "desc": "Chance lost sheild durability point at damage block. Default: 0.05 (100/0.05 = 2000) Each 2000 partly or full blocked attacks shield lost point"
+    "key": "DurabilityLossChance.Block"
+    "value": 0.05
+  - "desc": "Starting Character start gain sickness at spirit resurrection (1 min). Default: 11, -10 - character will have full time (10min) sickness at 1 level, maxplayerlevel+1 - character will not have sickness at any level"
+    "key": "Death.SicknessLevel"
+    "value": 11
+  - "desc": "Enabled/disabled increase corpse reclaim delay at often PvP deaths. Default: 1 (enabled), 0 (disabled)"
+    "key": "Death.CorpseReclaimDelay.PvP"
+    "value": 1
+  - "desc": "Enabled/disabled increase corpse reclaim delay at often PvP/PvE deaths. Default: 1 (enabled), 0 (disabled)"
+    "key": "Death.CorpseReclaimDelay.PvE"
+    "value": 1
+  - "desc": "Enabled/disabled creating bones instead corpse at resurrection (in normal zones/instacnes, or battleground). Default: 1 (enabled), 0 (disabled)"
+    "key": "Death.Bones.World"
+    "value": 1
+  - "desc": "Enabled/disabled creating bones instead corpse at resurrection (in normal zones/instacnes, or battleground). Default: 1 (enabled), 0 (disabled)"
+    "key": "Death.Bones.Battleground"
+    "value": 1
+  - "desc": "Modifies the speed of player's ghosts, removed upon reviving, not permanent/saved, in non-BG and BG maps. Default: 1.0 (normal speed)"
+    "key": "Death.Ghost.RunSpeed.World"
+    "value": 1.0
+  - "desc": "Modifies the speed of player's ghosts, removed upon reviving, not permanent/saved, in non-BG and BG maps. Default: 1.0 (normal speed)"
+    "key": "Death.Ghost.RunSpeed.Battleground"
+    "value": 1.0
+  "name": "SERVER RATES"
+- "items":
+  - "desc": "Cast Deserter spell at player who leave battleground in progress. Default: 1 (enable), 0 (disable)"
+    "key": "Battleground.CastDeserter"
+    "value": 1
+  - "desc": "Enable queue announcer posting to chat at join. Default: 0 (not send), 1 (send to joined player only), 2 (send to all players)"
+    "key": "Battleground.QueueAnnouncer.Join"
+    "value": 0
+  - "desc": "Enable queue announcer posting to chat at BG start. Default: 0 (disable), 1 (enable)"
+    "key": "Battleground.QueueAnnouncer.Start"
+    "value": 0
+  - "desc": "Enable Battleground scores storage in database. Default: 0 - (Disabled), 1 - (Enabled)"
+    "key": "Battleground.ScoreStatistics"
+    "value": 0
+  - "desc": "Set Battleground invitation type. Default: 0 (normal - invite as much players to bg as possible, don't bother with ballance), 1 (Experimental - don't allow to invite much more players of one faction)"
+    "key": "Battleground.InvitationType"
+    "value": 0
+  - "desc": "The time to end the bg if there are less than MinPlayersPerTeam on one side in milliseconds. Default: 300000 (5 minutes), 0 - disable (not recommended)"
+    "key": "BattleGround.PrematureFinishTimer"
+    "value": 300000
+  - "desc": "The time in which premade group of 1 faction waits in BG Queue for premade group of other faction. Default: 0 - disable premade group matches (group always added to bg team in normal way), 1800000 (30 minutes)"
+    "key": "BattleGround.PremadeGroupWaitForMatch"
+    "value": 0
+  "name": "BATTLEGROUND CONFIG"
+- "items":
+  - "desc": "Enable Silithus Outdoor pvp. Default: 1 (enable), 0 (disable)"
+    "key": "OutdoorPvp.SIEnabled"
+    "value": 1
+  - "desc": "Enable Eastern Plaguelands Outdoor pvp. Default: 1 (enable), 0 (disable)"
+    "key": "OutdoorPvp.EPEnabled"
+    "value": 1
+  "name": "OUTDOOR PVP CONFIG"
+- "items":
+  - "desc": "Check talents of players in queue when making a group. Default: 0 (disable - disregard talents, use class priorities, e.g. warrior - tank, paladin - healer) 1 (enable - set role based on talent tree that has more talent points)"
+    "key": "LFG.Matchmaking"
+    "value": 0
+  - "desc": "The time (in seconds) before player in LFG queue stops using matchmaking to find group faster. Only works if matchmaking is enabled. Default: 600 (5 minutes)"
+    "key": "LFG.MatchmakingTimer"
+    "value": 600
+  "name": "MEETING STONE LFG CONFIG"
+- "items":
+  - "desc": "Number of threads for network, recommend 1 thread per 1000 connections. Default: 1"
+    "key": "Network.Threads"
+    "value": 1
+  - "desc": "The size of the output kernel buffer used ( SO_SNDBUF socket option, tcp manual ). Default: -1 (Use system default setting)"
+    "key": "Network.OutKBuff"
+    "value": -1
+  - "desc": "Userspace buffer for output. This is amount of memory reserved per each connection. Default: 65536"
+    "key": "Network.OutUBuff"
+    "value": 65536
+  - "desc": "TCP Nagle algorithm setting. Default: 0 (enable Nagle algorithm, less traffic, more latency) 1 (TCP_NO_DELAY, disable Nagle algorithm, more traffic but less latency)"
+    "key": "Network.TcpNodelay"
+    "value": 1
+  - "desc": "Kick player on bad packet format. Default: 0 - do not kick 1 - kick"
+    "key": "Network.KickOnBadPacket"
+    "value": 0
+  "name": "NETWORK CONFIG"
+- "items":
+  - "desc": "Enable console. Default: 1 - on 0 - off"
+    "key": "Console.Enable"
+    "value": 1
+  - "desc": "Enable remote console. Default: 0 - off 1 - on"
+    "key": "Ra.Enable"
+    "value": 0
+  - "desc": "Default remote console ip address, use 0.0.0.0 for every address"
+    "key": "Ra.IP"
+    "value": "0.0.0.0"
+  - "desc": "Default remote console port. Default: 3443"
+    "key": "Ra.Port"
+    "value": 3443
+  - "desc": "Minimum level that's required to login,3 by default. Default: 3 (Administrator)"
+    "key": "Ra.MinLevel"
+    "value": 3
+  - "desc": "Kick client on wrong pass. Default: 1 - on 0 - off"
+    "key": "Ra.Secure"
+    "value": 1
+  - "desc": "Not allow execute console level only commands remotly by RA. Default: 1 - on 0 - off"
+    "key": "Ra.Restricted"
+    "value": 1
+  - "desc": "Enable soap service. Default: 0 - off 1 - on"
+    "key": "SOAP.Enabled"
+    "value": 0
+  - "desc": "Bound SOAP service ip address, use 0.0.0.0 to access from everywhere. Default: 127.0.0.1"
+    "key": "SOAP.IP"
+    "value": "127.0.0.1"
+  - "desc": "SOAP port. Default: 7878"
+    "key": "SOAP.Port"
+    "value": 7878
+  "name": "CONSOLE, REMOTE ACCESS AND SOAP"
+- "items":
+  - "desc": "Character deletion behavior. Default: 0  - Completely remove the character from the database 1  - Unlinking, the character gets unlinked from the account, the name gets freed up and appears as deleted ingame"
+    "key": "CharDelete.Method"
+    "value": 0
+  - "desc": "Character gets deleted by CharDelete.Method=0 when the character hasn't the specified level yet. Default: 0  - For all characters the specified mode will be used 1+ - Only for players which have reached the specified level will be deleted by the specified mode. the rest will be deleted by CharDelete.Method=0"
+    "key": "CharDelete.MinLevel"
+    "value": 0
+  - "desc": "Define the amount of days for which the characters are kept in the database before they will be removed. Default: 30 0  - Don't delete any characters, they stay in the database forever."
+    "key": "CharDelete.KeepDays"
+    "value": 30
+  "name": "CharDelete Configuration"
+- "items":
+  - "desc": "Enable or disable metric logging. Default: 0  - Disabled(default) 1  - Enable"
+    "key": "Metric.Enable"
+    "value": 0
+  - "desc": "IP / Hostname for the InfluxDB where measurements are stored. Default: '127.0.0.1'"
+    "key": "Metric.Address"
+    "value": "127.0.0.1"
+  - "desc": "Port for the InfluxDB where measurements are stored. Default: 8086"
+    "key": "Metric.Port"
+    "value": 8086
+  - "desc": "Database name for the InfluxDB where measurements are stored. Default: 'perfd'"
+    "key": "Metric.Database"
+    "value": "perfd"
+  - "desc": "Username of the InfluxDB where measurements are stored. Default: ''"
+    "key": "Metric.Username"
+    "value": ""
+  - "desc": "Password of the InfluxDB where measurements are stored. Default: ''"
+    "key": "Metric.Password"
+    "value": ""
+  "name": "METRICS CONFIGURATION -> Require core builded with BUILD_METRICS option"
+- "items":
+  - "desc": ""
+    "key": "Dummy.Debug1"
+    "value": 0
+  - "desc": ""
+    "key": "Dummy.Debug2"
+    "value": 0
+  "name": "Dummy Configuration"

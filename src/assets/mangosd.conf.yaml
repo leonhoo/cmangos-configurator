@@ -1,0 +1,1364 @@
+- group_name: CONNECTIONS AND DIRECTORIES
+  group_items:
+  - key: "RealmID"
+    default_value: 1
+    desc_en: "RealmID must match the realmlist inside the realmd database"
+    desc_cn: "RealmID必须与realmd数据库中的服务器列表（realmlist）相匹配，用于标识当前世界服务器对应的服务器编号"
+  - key: "DataDir"
+    default_value: "."
+    desc_en: "Data directory setting. Important: DataDir needs to be quoted, as it is a string which may contain space characters. Example: \"D:/Temp/cmangos/output/share/mangos\""
+    desc_cn: "数据目录设置。重要提示：DataDir需要加引号，因为它是一个可能包含空格字符的字符串。示例：\"D:/Temp/cmangos/output/share/mangos\"，默认值为当前目录（.）"
+  - key: "LogsDir"
+    default_value: ""
+    desc_en: "Logs directory setting. Important: Logs dir must exists, or all logs need to be disabled. Default: \"\" - no log directory prefix. if used log names aren't absolute paths then logs will be stored in the current directory of the running program."
+    desc_cn: "日志目录设置。重要提示：日志目录必须存在，否则需要禁用所有日志功能。默认值为空字符串，表示无日志目录前缀；如果使用的日志名称不是绝对路径，那么日志将存储在运行程序的当前目录中"
+  - key: "LoginDatabaseInfo"
+    default_value: "127.0.0.1;3306;mangos;mangos;classicrealmd"
+    desc_en: "Database connection settings for the world server. Default: ---MYSQL--- hostname;port;username;password;database .;somenumber;username;password;database - use named pipes at Windows Named pipes: mySQL required adding \"enable-named-pipe\" to [mysqld] section my.ini .;/path/to/unix_socket;username;password;database - use Unix sockets at Unix/Linux ---PGSQL--- hostname;port;username;password;database .;/path/to/unix_socket/DIRECTORY or . for default path;username;password;database - use Unix sockets at Unix/Linux"
+    desc_cn: "世界服务器的登录数据库连接设置。默认采用MySQL数据库，格式为“主机名;端口;用户名;密码;数据库名”；Windows系统下可使用命名管道（需在my.ini的[mysqld]段添加\"enable-named-pipe\"），格式为“.；端口/管道名；用户名；密码；数据库名”；Unix/Linux系统下可使用Unix套接字，格式为“.；套接字路径；用户名；密码；数据库名”。PGSQL数据库也有对应的连接格式，默认值为连接本地3306端口的classicrealmd数据库，用户名和密码均为mangos"
+  - key: "WorldDatabaseInfo"
+    default_value: "127.0.0.1;3306;mangos;mangos;classicmangos"
+    desc_en: "Database connection settings for the world server. Default: ---MYSQL--- hostname;port;username;password;database .;somenumber;username;password;database - use named pipes at Windows Named pipes: mySQL required adding \"enable-named-pipe\" to [mysqld] section my.ini .;/path/to/unix_socket;username;password;database - use Unix sockets at Unix/Linux ---PGSQL--- hostname;port;username;password;database .;/path/to/unix_socket/DIRECTORY or . for default path;username;password;database - use Unix sockets at Unix/Linux"
+    desc_cn: "世界服务器的世界数据库连接设置。默认采用MySQL数据库，格式为“主机名;端口;用户名;密码;数据库名”；Windows系统下可使用命名管道（需在my.ini的[mysqld]段添加\"enable-named-pipe\"），格式为“.；端口/管道名；用户名；密码；数据库名”；Unix/Linux系统下可使用Unix套接字，格式为“.；套接字路径；用户名；密码；数据库名”。PGSQL数据库也有对应的连接格式，默认值为连接本地3306端口的classicmangos数据库，用户名和密码均为mangos"
+  - key: "CharacterDatabaseInfo"
+    default_value: "127.0.0.1;3306;mangos;mangos;classiccharacters"
+    desc_en: "Database connection settings for the world server. Default: ---MYSQL--- hostname;port;username;password;database .;somenumber;username;password;database - use named pipes at Windows Named pipes: mySQL required adding \"enable-named-pipe\" to [mysqld] section my.ini .;/path/to/unix_socket;username;password;database - use Unix sockets at Unix/Linux ---PGSQL--- hostname;port;username;password;database .;/path/to/unix_socket/DIRECTORY or . for default path;username;password;database - use Unix sockets at Unix/Linux"
+    desc_cn: "世界服务器的角色数据库连接设置。默认采用MySQL数据库，格式为“主机名;端口;用户名;密码;数据库名”；Windows系统下可使用命名管道（需在my.ini的[mysqld]段添加\"enable-named-pipe\"），格式为“.；端口/管道名；用户名；密码；数据库名”；Unix/Linux系统下可使用Unix套接字，格式为“.；套接字路径；用户名；密码；数据库名”。PGSQL数据库也有对应的连接格式，默认值为连接本地3306端口的classiccharacters数据库，用户名和密码均为mangos"
+  - key: "LogsDatabaseInfo"
+    default_value: "127.0.0.1;3306;mangos;mangos;classiclogs"
+    desc_en: "Database connection settings for the world server. Default: ---MYSQL--- hostname;port;username;password;database .;somenumber;username;password;database - use named pipes at Windows Named pipes: mySQL required adding \"enable-named-pipe\" to [mysqld] section my.ini .;/path/to/unix_socket;username;password;database - use Unix sockets at Unix/Linux ---PGSQL--- hostname;port;username;password;database .;/path/to/unix_socket/DIRECTORY or . for default path;username;password;database - use Unix sockets at Unix/Linux"
+    desc_cn: "世界服务器的日志数据库连接设置。默认采用MySQL数据库，格式为“主机名;端口;用户名;密码;数据库名”；Windows系统下可使用命名管道（需在my.ini的[mysqld]段添加\"enable-named-pipe\"），格式为“.；端口/管道名；用户名；密码；数据库名”；Unix/Linux系统下可使用Unix套接字，格式为“.；套接字路径；用户名；密码；数据库名”。PGSQL数据库也有对应的连接格式，默认值为连接本地3306端口的classiclogs数据库，用户名和密码均为mangos"
+  - key: "LoginDatabaseConnections"
+    default_value: 1
+    desc_en: "Amount of connections to database which will be used for SELECT queries. Maximum 16 connections per database. Please, note, for data consistency only one connection for each database is used for transactions and async SELECTs. So formula to find out how many connections will be established: X = #_connections + 1. Default: 1 connection for SELECT statements"
+    desc_cn: "用于SELECT查询的登录数据库连接数量。每个数据库最多支持16个连接。请注意，为保证数据一致性，每个数据库仅使用一个连接来处理事务和异步SELECT查询。因此实际建立的连接数计算公式为：X = 设置的连接数 + 1。默认值为1，表示仅使用1个连接处理SELECT语句"
+  - key: "WorldDatabaseConnections"
+    default_value: 1
+    desc_en: "Amount of connections to database which will be used for SELECT queries. Maximum 16 connections per database. Please, note, for data consistency only one connection for each database is used for transactions and async SELECTs. So formula to find out how many connections will be established: X = #_connections + 1. Default: 1 connection for SELECT statements"
+    desc_cn: "用于SELECT查询的世界数据库连接数量。每个数据库最多支持16个连接。请注意，为保证数据一致性，每个数据库仅使用一个连接来处理事务和异步SELECT查询。因此实际建立的连接数计算公式为：X = 设置的连接数 + 1。默认值为1，表示仅使用1个连接处理SELECT语句"
+  - key: "CharacterDatabaseConnections"
+    default_value: 1
+    desc_en: "Amount of connections to database which will be used for SELECT queries. Maximum 16 connections per database. Please, note, for data consistency only one connection for each database is used for transactions and async SELECTs. So formula to find out how many connections will be established: X = #_connections + 1. Default: 1 connection for SELECT statements"
+    desc_cn: "用于SELECT查询的角色数据库连接数量。每个数据库最多支持16个连接。请注意，为保证数据一致性，每个数据库仅使用一个连接来处理事务和异步SELECT查询。因此实际建立的连接数计算公式为：X = 设置的连接数 + 1。默认值为1，表示仅使用1个连接处理SELECT语句"
+  - key: "LogsDatabaseConnections"
+    default_value: 1
+    desc_en: "Amount of connections to database which will be used for SELECT queries. Maximum 16 connections per database. Please, note, for data consistency only one connection for each database is used for transactions and async SELECTs. So formula to find out how many connections will be established: X = #_connections + 1. Default: 1 connection for SELECT statements"
+    desc_cn: "用于SELECT查询的日志数据库连接数量。每个数据库最多支持16个连接。请注意，为保证数据一致性，每个数据库仅使用一个连接来处理事务和异步SELECT查询。因此实际建立的连接数计算公式为：X = 设置的连接数 + 1。默认值为1，表示仅使用1个连接处理SELECT语句"
+  - key: "MaxPingTime"
+    default_value: 30
+    desc_en: "Settings for maximum database-ping interval (minutes between pings)"
+    desc_cn: "数据库最大心跳检测间隔设置，单位为分钟，默认值30表示每30分钟对数据库进行一次心跳检测，确保数据库连接正常"
+  - key: "WorldServerPort"
+    default_value: 8085
+    desc_en: "Port on which the server will listen"
+    desc_cn: "世界服务器监听的端口号，默认值为8085，客户端将通过该端口连接到世界服务器"
+  - key: "BindIP"
+    default_value: "0.0.0.0"
+    desc_en: "Bind World Server to specific IP address. This option is useful for running multiple worldd/realmd instances on different IP addresses using default ports. DO NOT CHANGE THIS UNLESS YOU _REALLY_ KNOW WHAT YOU'RE DOING"
+    desc_cn: "将世界服务器绑定到指定的IP地址。该选项适用于在不同IP地址上使用默认端口运行多个worldd/realmd实例的场景。除非确实清楚操作的后果，否则不要修改该配置，默认值0.0.0.0表示绑定到所有可用的网络接口"
+  - key: "SD2ErrorLogFile"
+    default_value: "SD2Errors.log"
+    desc_en: "Log File for SD2-Errors"
+    desc_cn: "用于记录SD2相关错误的日志文件名称，默认值为SD2Errors.log，SD2相关的错误信息会写入该文件中"
+  - key: "Spawns.ZoneArea"
+    default_value: 0
+    desc_en: "Regenerates table creature_zone and gameobject_zone. Default: 0 - turned off"
+    desc_cn: "用于重新生成creature_zone和gameobject_zone数据表的开关，默认值0表示关闭该功能，1表示开启，开启后会重新生成这两个与生物和游戏对象区域关联的表"
+- group_name: PERFORMANCE SETTINGS
+  group_items:
+  - key: "UseProcessors"
+    default_value: 0
+    desc_en: "Used processors mask for multi-processors system (Used only at Windows). Default: 0 (selected by OS) number (bitmask value of selected processors)"
+    desc_cn: "多处理器系统下的处理器掩码设置（仅在Windows系统生效）。默认值0表示由操作系统选择使用的处理器；若设置为具体数字，则为所选处理器的位掩码值，用于指定服务器进程使用哪些CPU核心"
+  - key: "ProcessPriority"
+    default_value: 1
+    desc_en: "Process priority setting (Used only at Windows). Default: 1 (HIGH) 0 (Normal)"
+    desc_cn: "进程优先级设置（仅在Windows系统生效）。默认值1表示高优先级，0表示普通优先级，设置该值可以调整服务器进程在系统中的资源调度优先级"
+  - key: "Compression"
+    default_value: 1
+    desc_en: "Compression level for update packages sent to client (1..9). Default: 1 (speed) 9 (best compression)"
+    desc_cn: "发送给客户端的更新数据包的压缩级别，取值范围1-9。默认值1表示优先考虑压缩速度，9表示优先考虑压缩效果（压缩率最高），该设置影响服务器向客户端传输数据的带宽占用和处理耗时"
+  - key: "PlayerLimit"
+    default_value: 100
+    desc_en: "Maximum number of players in the world. Excluding Mods, GM's and Admins. Default: 100 0 (for infinite players) -1 (for Mods, GM's and Admins only) -2 (for GM's and Admins only) -3 (for Admins only)"
+    desc_cn: "世界服务器中允许的最大普通玩家数量（不包括模组管理员、游戏管理员和系统管理员）。默认值100表示最多允许100名普通玩家；0表示无玩家数量限制；-1表示仅允许模组管理员、游戏管理员和系统管理员进入；-2表示仅允许游戏管理员和系统管理员进入；-3表示仅允许系统管理员进入"
+  - key: "SaveRespawnTimeImmediately"
+    default_value: 1
+    desc_en: "Save respawn time for creatures at death and for gameobjects at use/open. Default: 1 (save creature/gameobject respawn time without waiting grid unload) 0 (save creature/gameobject respawn time at grid unload)"
+    desc_cn: "控制生物死亡时、游戏对象被使用/打开时是否立即保存其重生时间。默认值1表示立即保存，无需等待网格卸载；0表示仅在网格卸载时才保存生物/游戏对象的重生时间"
+  - key: "MaxOverspeedPings"
+    default_value: 2
+    desc_en: "Maximum overspeed ping count before player kick (minimum is 2, 0 used to disable check). Default: 2"
+    desc_cn: "玩家因超速检测被踢出服务器前允许的最大超速心跳次数（最小值为2，0表示禁用该检测）。默认值2表示当玩家检测到2次超速心跳后，将被踢出服务器，用于防止玩家使用加速类作弊手段"
+  - key: "GridUnload"
+    default_value: 1
+    desc_en: "Unload grids (if you have lot memory you can disable it to speed up player move to new grids second time). Default: 1 (unload grids) 0 (do not unload grids)"
+    desc_cn: "控制是否卸载游戏网格（如果服务器内存充足，禁用该功能可以加快玩家第二次移动到新网格的速度）。默认值1表示启用网格卸载；0表示禁用网格卸载，网格会一直驻留在内存中"
+  - key: "LoadAllGridsOnMaps"
+    default_value: ""
+    desc_en: "Load grids of maps at server startup (if you have lot memory you can try it to have a living world always loaded). This also allow ALL creatures on the given maps to update their grid without any player around. Default: \"\" (don't load all grids at startup) \"mapId1[,mapId2[..]]\" (DO load all grids on the given maps- Experimental and very resource consumming)"
+    desc_cn: "控制服务器启动时是否加载指定地图的所有网格（如果服务器内存充足，启用该功能可以让游戏世界始终处于加载状态，更“鲜活”）。该设置还允许指定地图上的所有生物在无玩家在场时也更新其所在网格。默认值为空字符串，表示启动时不加载所有网格；若设置为“mapId1[,mapId2[..]]”格式（如“1,2,3”），则会加载指定地图ID的所有网格（该功能为实验性，且非常消耗资源）"
+  - key: "Autoload.Active"
+    default_value: 1
+    desc_en: "Load active creatures that have ExtraFlags CREATURE_EXTRA_FLAG_ACTIVE or movementType WAYPOINT_MOTION_TYPE. This will allow creatures having these conditions to update their grid without any player around. Useful for running in debug mode. Default: True"
+    desc_cn: "控制是否加载带有ExtraFlags为CREATURE_EXTRA_FLAG_ACTIVE或移动类型为WAYPOINT_MOTION_TYPE的活跃生物。启用该设置后，满足这些条件的生物即使在无玩家在场时也能更新其所在网格，在调试模式下运行时非常有用。默认值1（True）表示启用该功能"
+  - key: "GridCleanUpDelay"
+    default_value: 300000
+    desc_en: "Grid clean up delay (in milliseconds). Default: 300000 (5 min)"
+    desc_cn: "网格清理延迟时间，单位为毫秒。默认值300000表示5分钟，即网格在满足卸载条件后，会延迟5分钟再进行清理卸载操作"
+  - key: "MapUpdateInterval"
+    default_value: 100
+    desc_en: "Map update interval (in milliseconds). Default: 100"
+    desc_cn: "地图更新间隔时间，单位为毫秒。默认值100表示每100毫秒更新一次地图相关数据，包括生物移动、游戏对象状态等"
+  - key: "ChangeWeatherInterval"
+    default_value: 600000
+    desc_en: "Weather update interval (in milliseconds). Default: 600000 (10 min)"
+    desc_cn: "天气更新间隔时间，单位为毫秒。默认值600000表示10分钟，即服务器每10分钟更新一次游戏内的天气状态"
+  - key: "PlayerSave.Interval"
+    default_value: 900000
+    desc_en: "Player save interval (in milliseconds). Default: 900000 (15 min)"
+    desc_cn: "玩家数据保存间隔时间，单位为毫秒。默认值900000表示15分钟，即服务器每15分钟自动保存一次玩家的角色数据（如等级、装备、金币等）"
+  - key: "PlayerSave.Stats.MinLevel"
+    default_value: 0
+    desc_en: "Minimum level for saving character stats for external usage in database. Default: 0 (do not save character stats) 1+ (save stats for characters with level 1+)"
+    desc_cn: "用于控制将角色属性保存到数据库供外部使用的最低角色等级。默认值0表示不保存任何角色的属性；若设置为1及以上，则仅保存等级达到该值及以上的角色属性"
+  - key: "PlayerSave.Stats.SaveOnlyOnLogout"
+    default_value: 1
+    desc_en: "Enable/Disable saving of character stats only on logout. Default: 1 (only save on logout) 0 (save on every player save)"
+    desc_cn: "控制是否仅在玩家登出时保存角色属性。默认值1表示仅在玩家登出时保存；0表示在每次玩家数据保存（按PlayerSave.Interval设置的间隔）时都保存角色属性"
+  - key: "vmap.enableLOS"
+    default_value: 1
+    desc_en: "Enable/Disable VMaps support for line of sight and height calculation. You need to extract the VMaps in order to enable those options. Default: 1 (enable) 0 (disable)"
+    desc_cn: "控制是否启用VMaps（虚拟地图）支持视线（LOS）和高度计算功能。要启用该选项，需要先提取VMaps数据。默认值1表示启用；0表示禁用"
+  - key: "vmap.enableHeight"
+    default_value: 1
+    desc_en: "Enable/Disable VMaps support for line of sight and height calculation. You need to extract the VMaps in order to enable those options. Default: 1 (enable) 0 (disable)"
+    desc_cn: "控制是否启用VMaps（虚拟地图）支持高度计算功能。要启用该选项，需要先提取VMaps数据。默认值1表示启用；0表示禁用"
+  - key: "vmap.enableIndoorCheck"
+    default_value: 1
+    desc_en: "Enable/Disable VMap based indoor check to remove outdoor-only auras (mounts etc.). Requires VMaps enabled to work. Default: 1 (Enabled) 0 (Disabled)"
+    desc_cn: "控制是否启用基于VMap的室内检测功能，用于移除仅在户外生效的光环（如坐骑等）。该功能需要先启用VMaps才能生效。默认值1表示启用；0表示禁用"
+  - key: "DetectPosCollision"
+    default_value: 1
+    desc_en: "Check final move position, summon position, etc for visible collision with other objects or wall (wall only if vmaps are enabled). Default: 1 (enable, requires more CPU power) 0 (disable, not so nice position selection but will require less CPU power)"
+    desc_cn: "控制是否检查玩家最终移动位置、召唤位置等是否与其他对象或墙体（仅在启用vmaps时检查墙体）发生可见碰撞。默认值1表示启用该检测（会消耗更多CPU资源）；0表示禁用（位置选择的效果可能变差，但会减少CPU资源消耗）"
+  - key: "mmap.enabled"
+    default_value: 1
+    desc_en: "Enable/Disable pathfinding using mmaps. Default: 1 (enable) 0 (disable)"
+    desc_cn: "控制是否启用基于mmaps（移动地图）的寻路功能。默认值1表示启用；0表示禁用"
+  - key: "mmap.ignoreMapIds"
+    default_value: ""
+    desc_en: "Disable mmap pathfinding on the listed maps. List of map ids with delimiter ','"
+    desc_cn: "指定禁用mmaps寻路功能的地图ID列表，多个地图ID之间用逗号分隔。默认值为空字符串，表示所有地图都启用mmaps寻路"
+  - key: "mmap.preload"
+    default_value: 0
+    desc_en: "Enable/Disable preloading on first mapId load - expensive but thread safe - use only for big servers. 1 (enable) Default: 0 (disable)"
+    desc_cn: "控制在首次加载地图ID时是否启用预加载功能（该操作消耗资源大，但线程安全，仅适用于大型服务器）。默认值0表示禁用；1表示启用"
+  - key: "PathFinder.OptimizePath"
+    default_value: 1
+    desc_en: "Use or not path finder path optimization (cut calculated points). 0 (disable) Default: 1 (enable)"
+    desc_cn: "控制是否启用寻路器的路径优化功能（裁剪计算出的路径点）。默认值1表示启用；0表示禁用"
+  - key: "PathFinder.NormalizeZ"
+    default_value: 0
+    desc_en: "Correct calculated path points Z (height). Increase CPU usage, but fix Z accuracy. Default: 0 (disable) 1 (enable)"
+    desc_cn: "控制是否修正寻路计算出的路径点的Z轴（高度）值。启用该功能会增加CPU占用，但能提高Z轴精度。默认值0表示禁用；1表示启用"
+  - key: "UpdateUptimeInterval"
+    default_value: 10
+    desc_en: "Update realm uptime period in minutes (for save data in 'uptime' table). Must be > 0. Default: 10 (minutes)"
+    desc_cn: "更新服务器在线时长的周期，单位为分钟（用于将数据保存到'uptime'表中）。该值必须大于0，默认值10表示每10分钟更新一次服务器在线时长数据"
+  - key: "MapUpdate.Threads"
+    default_value: 3
+    desc_en: "Number of threads to use for maps update. Default: 3. Don't put more thread then your number of CPU threads -1 for this to work stable."
+    desc_cn: "用于地图更新的线程数量。默认值为3，为保证稳定运行，设置的线程数不应超过CPU线程数减1"
+  - key: "MaxCoreStuckTime"
+    default_value: 0
+    desc_en: "Periodically check if the process got freezed, if this is the case force crash after the specified amount of seconds. Must be > 0. Recommended > 10 secs if you use this. Default: 0 (Disabled)"
+    desc_cn: "定期检查进程是否冻结，若冻结则在指定秒数后强制崩溃。该值必须大于0，若启用建议设置大于10秒。默认值0表示禁用该检测功能"
+  - key: "AddonChannel"
+    default_value: 1
+    desc_en: "Permit/disable the use of the addon channel through the server (some client side addons can stop work correctly with disabled addon channel). Default: 1 (permit addon channel) 0 (do not permit addon channel)"
+    desc_cn: "控制是否允许通过服务器使用插件频道（禁用插件频道后，部分客户端插件可能无法正常工作）。默认值1表示允许；0表示禁止"
+  - key: "CleanCharacterDB"
+    default_value: 1
+    desc_en: "Perform character db cleanups on start up. Default: 1 (Enable) 0 (Disabled)"
+    desc_cn: "控制服务器启动时是否执行角色数据库清理操作。默认值1表示启用；0表示禁用"
+  - key: "MaxWhoListReturns"
+    default_value: 49
+    desc_en: "Set the max number of players returned in the /who list and interface (0 means unlimited). Default: 49 - (stable)"
+    desc_cn: "设置/who命令和游戏界面中返回的最大玩家数量（0表示无限制）。默认值49是经过验证的稳定值"
+- group_name: SERVER LOGGING
+  group_items:
+  - key: "LogSQL"
+    default_value: 1
+    desc_en: "Enable logging of GM commands - all SQL code will be written to a log file. All commands are written to a file: YYYY-MM-DD_logSQL.sql. If a new day starts (00:00:00), a new file is created - the old file will not be deleted. Default: 1 - Write SQL code to logfile 0 - Do not log"
+    desc_cn: "控制是否启用游戏管理员（GM）命令的SQL日志记录功能，所有执行的SQL代码都会写入日志文件。日志文件命名格式为YYYY-MM-DD_logSQL.sql，每天0点会创建新文件，旧文件不会被删除。默认值1表示启用日志记录；0表示禁用"
+  - key: "PidFile"
+    default_value: ""
+    desc_en: "World daemon PID file. Default: \"\" - do not create PID file \"./worldd.pid\" - create PID file (recommended name)"
+    desc_cn: "世界服务器守护进程的PID文件设置。默认值为空字符串，表示不创建PID文件；若设置为\"./worldd.pid\"则会创建该PID文件（推荐名称），PID文件用于存储进程ID"
+  - key: "LogLevel"
+    default_value: 1
+    desc_en: "Server console level of logging. 0 = Minimum; 1 = Basic&Error; 2 = Detail; 3 = Full/Debug. Default: 3"
+    desc_cn: "服务器控制台日志级别设置。0表示最低级别（仅记录关键信息）；1表示基础和错误信息；2表示详细信息；3表示完整/调试信息。默认值实际配置为1（文件中默认注释为3，但实际赋值为1）"
+  - key: "LogTime"
+    default_value: 0
+    desc_en: "Include time in server console output [hh:mm:ss]. Default: 0 (no time) 1 (print time)"
+    desc_cn: "控制服务器控制台输出是否包含时间戳[时:分:秒]。默认值0表示不包含；1表示包含"
+  - key: "LogFile"
+    default_value: "Server.log"
+    desc_en: "Logfile name. Default: \"Server.log\" \"\" - Empty name disable creating log file"
+    desc_cn: "日志文件名称设置。默认值为\"Server.log\"，若设置为空字符串则禁用日志文件创建"
+  - key: "PacketLogFile"
+    default_value: ""
+    desc_en: "Description: Binary packet logging file for the world server. Filename extension must be .pkt to be parsable with WPP. Example: \"World.pkt\" - (Enabled) Default: \"\" - (Disabled)"
+    desc_cn: "世界服务器的二进制数据包日志文件设置。文件名扩展名必须为.pkt才能被WPP工具解析。示例值\"World.pkt\"表示启用该日志；默认值为空字符串表示禁用"
+  - key: "LogTimestamp"
+    default_value: 0
+    desc_en: "Logfile with timestamp of server start in name. Default: 0 - no timestamp in name 1 - add timestamp in name in form Logname_YYYY-MM-DD_HH-MM-SS.Ext for Logname.Ext"
+    desc_cn: "控制日志文件名是否包含服务器启动的时间戳。默认值0表示不包含；1表示在日志文件名中添加时间戳，格式为Logname_YYYY-MM-DD_HH-MM-SS.Ext（基于原日志名Logname.Ext）"
+  - key: "LogFileLevel"
+    default_value: 0
+    desc_en: "Server file level of logging. 0 = Minimum; 1 = Error; 2 = Detail; 3 = Full/Debug. Default: 0"
+    desc_cn: "服务器日志文件的日志级别设置。0表示最低级别（仅记录关键信息）；1表示仅记录错误信息；2表示详细信息；3表示完整/调试信息。默认值为0"
+  - key: "LogFilter_TransportMoves"
+    default_value: 1
+    desc_en: "Log filters (active by default - meaning: the filter is active, hence the log is not displayed). Default: 1 - not include with any log level 0 - include in log if log level permit"
+    desc_cn: "日志过滤器（默认激活，即过滤器生效，对应的日志不会显示）。默认值1表示在任何日志级别下都不记录运输工具移动相关日志；0表示若日志级别允许则记录"
+  - key: "LogFilter_CreatureMoves"
+    default_value: 1
+    desc_en: "Log filters (active by default - meaning: the filter is active, hence the log is not displayed). Default: 1 - not include with any log level 0 - include in log if log level permit"
+    desc_cn: "日志过滤器（默认激活，即过滤器生效，对应的日志不会显示）。默认值1表示在任何日志级别下都不记录生物移动相关日志；0表示若日志级别允许则记录"
+  - key: "LogFilter_VisibilityChanges"
+    default_value: 1
+    desc_en: "Log filters (active by default - meaning: the filter is active, hence the log is not displayed). Default: 1 - not include with any log level 0 - include in log if log level permit"
+    desc_cn: "日志过滤器（默认激活，即过滤器生效，对应的日志不会显示）。默认值1表示在任何日志级别下都不记录可见性变化相关日志；0表示若日志级别允许则记录"
+  - key: "LogFilter_Weather"
+    default_value: 1
+    desc_en: "Log filters (active by default - meaning: the filter is active, hence the log is not displayed). Default: 1 - not include with any log level 0 - include in log if log level permit"
+    desc_cn: "日志过滤器（默认激活，即过滤器生效，对应的日志不会显示）。默认值1表示在任何日志级别下都不记录天气相关日志；0表示若日志级别允许则记录"
+  - key: "LogFilter_DbStrictedCheck"
+    default_value: 1
+    desc_en: "Log filters (active by default - meaning: the filter is active, hence the log is not displayed). Default: 1 - not include with any log level 0 - include in log if log level permit"
+    desc_cn: "日志过滤器（默认激活，即过滤器生效，对应的日志不会显示）。默认值1表示在任何日志级别下都不记录数据库严格检查相关日志；0表示若日志级别允许则记录"
+  - key: "LogFilter_Pathfinding"
+    default_value: 1
+    desc_en: "Log filters (active by default - meaning: the filter is active, hence the log is not displayed). Default: 1 - not include with any log level 0 - include in log if log level permit"
+    desc_cn: "日志过滤器（默认激活，即过滤器生效，对应的日志不会显示）。默认值1表示在任何日志级别下都不记录寻路相关日志；0表示若日志级别允许则记录"
+  - key: "LogFilter_MapsLoading"
+    default_value: 1
+    desc_en: "Log filters (active by default - meaning: the filter is active, hence the log is not displayed). Default: 1 - not include with any log level 0 - include in log if log level permit"
+    desc_cn: "日志过滤器（默认激活，即过滤器生效，对应的日志不会显示）。默认值1表示在任何日志级别下都不记录地图加载相关日志；0表示若日志级别允许则记录"
+  - key: "LogFilter_EventAiDev"
+    default_value: 1
+    desc_en: "Log filters (active by default - meaning: the filter is active, hence the log is not displayed). Default: 1 - not include with any log level 0 - include in log if log level permit"
+    desc_cn: "日志过滤器（默认激活，即过滤器生效，对应的日志不会显示）。默认值1表示在任何日志级别下都不记录EventAI开发相关日志；0表示若日志级别允许则记录"
+  - key: "LogFilter_DbScriptDev"
+    default_value: 1
+    desc_en: "Log filters (active by default - meaning: the filter is active, hence the log is not displayed). Default: 1 - not include with any log level 0 - include in log if log level permit"
+    desc_cn: "日志过滤器（默认激活，即过滤器生效，对应的日志不会显示）。默认值1表示在任何日志级别下都不记录数据库脚本开发相关日志；0表示若日志级别允许则记录"
+  - key: "LogFilter_PeriodicAffects"
+    default_value: 0
+    desc_en: "Log filters (disabled by default, mostly debug only output affected cases). Default: 0 - include in log if log level permit 1 - not include with any log level"
+    desc_cn: "日志过滤器（默认禁用，主要影响仅调试相关的输出）。默认值0表示若日志级别允许则记录周期性效果相关日志；1表示在任何日志级别下都不记录"
+  - key: "LogFilter_PlayerMoves"
+    default_value: 1
+    desc_en: "Log filters (active by default - meaning: the filter is active, hence the log is not displayed). Default: 1 - not include with any log level 0 - include in log if log level permit"
+    desc_cn: "日志过滤器（默认激活，即过滤器生效，对应的日志不会显示）。默认值1表示在任何日志级别下都不记录玩家移动相关日志；0表示若日志级别允许则记录"
+  - key: "LogFilter_SQLText"
+    default_value: 1
+    desc_en: "Log filters (active by default - meaning: the filter is active, hence the log is not displayed). Default: 1 - not include with any log level 0 - include in log if log level permit"
+    desc_cn: "日志过滤器（默认激活，即过滤器生效，对应的日志不会显示）。默认值1表示在任何日志级别下都不记录SQL文本相关日志；0表示若日志级别允许则记录"
+  - key: "LogFilter_AIAndMovegens"
+    default_value: 0
+    desc_en: "Log filters (disabled by default, mostly debug only output affected cases). Default: 0 - include in log if log level permit 1 - not include with any log level"
+    desc_cn: "日志过滤器（默认禁用，主要影响仅调试相关的输出）。默认值0表示若日志级别允许则记录AI和移动生成器相关日志；1表示在任何日志级别下都不记录"
+  - key: "LogFilter_PlayerStats"
+    default_value: 0
+    desc_en: "Log filters (disabled by default, mostly debug only output affected cases). Default: 0 - include in log if log level permit 1 - not include with any log level"
+    desc_cn: "日志过滤器（默认禁用，主要影响仅调试相关的输出）。默认值0表示若日志级别允许则记录玩家属性相关日志；1表示在任何日志级别下都不记录"
+  - key: "LogFilter_Damage"
+    default_value: 0
+    desc_en: "Log filters (disabled by default, mostly debug only output affected cases). Default: 0 - include in log if log level permit 1 - not include with any log level"
+    desc_cn: "日志过滤器（默认禁用，主要影响仅调试相关的输出）。默认值0表示若日志级别允许则记录伤害相关日志；1表示在任何日志级别下都不记录"
+  - key: "LogFilter_Combat"
+    default_value: 0
+    desc_en: "Log filters (disabled by default, mostly debug only output affected cases). Default: 0 - include in log if log level permit 1 - not include with any log level"
+    desc_cn: "日志过滤器（默认禁用，主要影响仅调试相关的输出）。默认值0表示若日志级别允许则记录战斗相关日志；1表示在任何日志级别下都不记录"
+  - key: "LogFilter_SpellCast"
+    default_value: 0
+    desc_en: "Log filters (disabled by default, mostly debug only output affected cases). Default: 0 - include in log if log level permit 1 - not include with any log level"
+    desc_cn: "日志过滤器（默认禁用，主要影响仅调试相关的输出）。默认值0表示若日志级别允许则记录法术施放相关日志；1表示在任何日志级别下都不记录"
+  - key: "WorldLogFile"
+    default_value: ""
+    desc_en: "Packet logging file for the worldserver. Default: \"\" - no log file created \"world.log\" - recommended name to create a log file"
+    desc_cn: "世界服务器的数据包日志文件设置。默认值为空字符串，表示不创建该日志文件；若设置为\"world.log\"则创建该日志文件（推荐名称）"
+  - key: "WorldLogTimestamp"
+    default_value: 0
+    desc_en: "Logfile with timestamp of server start in name. Default: 0 - no timestamp in name 1 - add timestamp in name in form Logname_YYYY-MM-DD_HH-MM-SS.Ext for Logname.Ext"
+    desc_cn: "控制WorldLogFile日志文件名是否包含服务器启动的时间戳。默认值0表示不包含；1表示在日志文件名中添加时间戳，格式为Logname_YYYY-MM-DD_HH-MM-SS.Ext（基于原日志名Logname.Ext）"
+  - key: "DBErrorLogFile"
+    default_value: "DBErrors.log"
+    desc_en: "Log file of DB errors detected at server run. Default: \"DBErrors.log\""
+    desc_cn: "服务器运行时检测到的数据库错误的日志文件名称，默认值为\"DBErrors.log\"，数据库错误信息会写入该文件"
+  - key: "EventAIErrorLogFile"
+    default_value: "EventAIErrors.log"
+    desc_en: "Log file of EventAI errors detected at server run. Default: \"EventAIErrors.log\""
+    desc_cn: "服务器运行时检测到的EventAI错误的日志文件名称，默认值为\"EventAIErrors.log\"，EventAI相关错误信息会写入该文件"
+  - key: "CharLogFile"
+    default_value: "Char.log"
+    desc_en: "Character operations logfile name. Default: \"Char.log\" \"\" - Empty name disable creating log file"
+    desc_cn: "角色操作日志文件名称设置。默认值为\"Char.log\"，若设置为空字符串则禁用该日志文件创建"
+  - key: "CharLogTimestamp"
+    default_value: 0
+    desc_en: "Logfile with timestamp of server start in name. Default: 0 - no timestamp in name 1 - add timestamp in name in form Logname_YYYY-MM-DD_HH-MM-SS.Ext for Logname.Ext"
+    desc_cn: "控制CharLogFile日志文件名是否包含服务器启动的时间戳。默认值0表示不包含；1表示在日志文件名中添加时间戳，格式为Logname_YYYY-MM-DD_HH-MM-SS.Ext（基于原日志名Logname.Ext）"
+  - key: "CharLogDump"
+    default_value: 0
+    desc_en: "Write character dump before deleting in Char.log. For restoration, cut character data from log starting from line == START DUMP == to line == END DUMP == (without its) in file and load it using loadpdump command. Default: 0 - don't include dumping chars to log 1 - include dumping chars to log"
+    desc_cn: "控制在删除角色前是否将角色数据转储写入Char.log日志文件。要恢复角色数据，可从日志中截取从== START DUMP ==行到== END DUMP ==行（不包含这两行）的角色数据，然后使用loadpdump命令加载。默认值0表示不将角色转储写入日志；1表示写入"
+  - key: "GmLogFile"
+    default_value: ""
+    desc_en: "GM Log file of gm commands. Default: \"\" (Disable)"
+    desc_cn: "游戏管理员（GM）命令的日志文件设置，默认值为空字符串，表示禁用该日志功能"
+  - key: "GmLogTimestamp"
+    default_value: 0
+    desc_en: "GM Logfile with timestamp of server start in name. Default: 0 - no timestamp in name 1 - add timestamp in name in form Logname_YYYY-MM-DD_HH-MM-SS.Ext for Logname.Ext"
+    desc_cn: "控制GmLogFile日志文件名是否包含服务器启动的时间戳。默认值0表示不包含；1表示在日志文件名中添加时间戳，格式为Logname_YYYY-MM-DD_HH-MM-SS.Ext（基于原日志名Logname.Ext）"
+  - key: "GmLogPerAccount"
+    default_value: 0
+    desc_en: "GM Logfiles with GM account id (Note: logs not created if GmLogFile not set). Default: 0 - add gm log data to single log file 1 - add gm log data to account specific log files with name in form Logname_#ID_YYYY-MM-DD_HH-MM-SS.Ext or form Logname_#ID.Ext"
+    desc_cn: "控制是否按GM账号ID拆分GM日志文件（注意：若未设置GmLogFile则不会创建日志）。默认值0表示将所有GM日志数据写入单个日志文件；1表示按账号拆分，日志文件名格式为Logname_#ID_YYYY-MM-DD_HH-MM-SS.Ext或Logname_#ID.Ext"
+  - key: "RaLogFile"
+    default_value: ""
+    desc_en: "Log file of RA commands. Default: \"Ra.log\" \"\" - Empty name for disable"
+    desc_cn: "RA命令的日志文件设置。默认值为空字符串表示禁用该日志；若设置为\"Ra.log\"则启用并将日志写入该文件"
+  - key: "LogColors"
+    default_value: ""
+    desc_en: "Color for messages (format \"normal_color details_color debug_color error_color\"). Colors: 0 - BLACK, 1 - RED, 2 - GREEN,  3 - BROWN, 4 - BLUE, 5 - MAGENTA, 6 -  CYAN, 7 - GREY, 8 - YELLOW, 9 - LRED, 10 - LGREEN, 11 - LBLUE, 12 - LMAGENTA, 13 - LCYAN, 14 - WHITE. Default: \"\" - none colors. Example: \"13 7 11 9\""
+    desc_cn: "设置日志消息的颜色，格式为“normal_color details_color debug_color error_color”（普通信息颜色 详细信息颜色 调试信息颜色 错误信息颜色）。颜色值对应：0-黑色、1-红色、2-绿色、3-棕色、4-蓝色、5-品红、6-青色、7-灰色、8-黄色、9-亮红、10-亮绿、11-亮蓝、12-亮品红、13-亮青、14-白色。默认值为空字符串，表示不使用颜色；示例值\"13 7 11 9\"表示普通信息为亮青、详细信息为灰色、调试信息为亮蓝、错误信息为亮红"
+- group_name: SERVER SETTINGS
+  group_items:
+  - key: "GameType"
+    default_value: 1
+    desc_en: "Server realm style. 0 = NORMAL; 1 = PVP; 4 = NORMAL; 6 = RP; 8 = RPPVP. also custom type: 16 FFA_PVP (free for all pvp mode like arena PvP in all zones except rest activated places and sanctuaries)"
+    desc_cn: "服务器领域类型设置。0表示普通（NORMAL）；1表示玩家对战玩家（PVP）；4表示普通（NORMAL）；6表示角色扮演（RP）；8表示角色扮演玩家对战玩家（RPPVP）；还有自定义类型16（FFA_PVP，自由对战模式，除休息区和保护区外所有区域都像竞技场一样允许PVP）。默认值为1（PVP）"
+  - key: "RealmZone"
+    default_value: 1
+    desc_en: "Server realm zone (set allowed alphabet in character names/etc). See also Strict*Names options. 1 Development - any language (Default) 2 United States - extended-Latin 3 Oceanic - extended-Latin 4 Latin America - extended-Latin 5 Tournament - basic-Latin at create, any at login 6 Korea - East-Asian 7 Tournament - basic-Latin at create, any at login 8 English - extended-Latin 9 German - extended-Latin 10 French - extended-Latin 11 Spanish - extended-Latin 12 Russian - Cyrillic 13 Tournament - basic-Latin at create, any at login 14 Taiwan - East-Asian 15 Tournament - basic-Latin at create, any at login 16 China - East-Asian 17 CN1 - basic-Latin at create, any at login 18 CN2 - basic-Latin at create, any at login 19 CN3 - basic-Latin at create, any at login 20 CN4 - basic-Latin at create, any at login 21 CN5 - basic-Latin at create, any at login 22 CN6 - basic-Latin at create, any at login 23 CN7 - basic-Latin at create, any at login 24 CN8 - basic-Latin at create, any at login 25 Tournament - basic-Latin at create, any at login 26 Test Server - any language 27 Tournament - basic-Latin at create, any at login 28 QA Server - any language 29 CN9 - basic-Latin at create, any at login"
+    desc_cn: "服务器区域设置（用于设定角色名称等允许使用的字符集），需配合Strict*Names相关选项使用。1表示开发环境（允许任何语言，默认值）；2表示美国（扩展拉丁字符）；3表示大洋洲（扩展拉丁字符）；4表示拉丁美洲（扩展拉丁字符）；5表示锦标赛（创建时仅允许基础拉丁字符，登录时允许任何字符）；6表示韩国（东亚字符）；7表示锦标赛（创建时仅允许基础拉丁字符，登录时允许任何字符）；8表示英国（扩展拉丁字符）；9表示德国（扩展拉丁字符）；10表示法国（扩展拉丁字符）；11表示西班牙（扩展拉丁字符）；12表示俄罗斯（西里尔字符）；13表示锦标赛（创建时仅允许基础拉丁字符，登录时允许任何字符）；14表示中国台湾（东亚字符）；15表示锦标赛（创建时仅允许基础拉丁字符，登录时允许任何字符）；16表示中国（东亚字符）；17表示CN1（创建时仅允许基础拉丁字符，登录时允许任何字符）；18表示CN2（创建时仅允许基础拉丁字符，登录时允许任何字符）；19表示CN3（创建时仅允许基础拉丁字符，登录时允许任何字符）；20表示CN4（创建时仅允许基础拉丁字符，登录时允许任何字符）；21表示CN5（创建时仅允许基础拉丁字符，登录时允许任何字符）；22表示CN6（创建时仅允许基础拉丁字符，登录时允许任何字符）；23表示CN7（创建时仅允许基础拉丁字符，登录时允许任何字符）；24表示CN8（创建时仅允许基础拉丁字符，登录时允许任何字符）；25表示锦标赛（创建时仅允许基础拉丁字符，登录时允许任何字符）；26表示测试服务器（允许任何语言）；27表示锦标赛（创建时仅允许基础拉丁字符，登录时允许任何字符）；28表示QA服务器（允许任何语言）；29表示CN9（创建时仅允许基础拉丁字符，登录时允许任何字符）。默认值为1"
+  - key: "DBC.Locale"
+    default_value: 255
+    desc_en: "DBC Language Settings. 0 = English; 1 = Korean; 2 = French; 3 = German; 4 = Chinese; 5 = Taiwanese; 6 = Spanish; 255 = Auto Detect (Default)"
+    desc_cn: "DBC（数据库缓存文件）语言设置。0表示英语；1表示韩语；2表示法语；3表示德语；4表示中文；5表示繁体中文（台湾）；6表示西班牙语；255表示自动检测（默认值）"
+  - key: "DeclinedNames"
+    default_value: 0
+    desc_en: ""
+    desc_cn: "拒绝名称相关设置，文件中未标注具体说明，默认值为0"
+  - key: "StrictPlayerNames"
+    default_value: 0
+    desc_en: "Limit player name to language specific symbols set, not allow create characters, and set rename request and disconnect at not allowed symbols name. Default: 0 disable (but limited server timezone dependent client check) 1 basic latin characters (strict) 2 realm zone specific (strict). See RealmZone setting. Note: In any case if you want correctly see character name at client this client must have apporopriate fonts (included in client by default, with active official localization or custom localization fonts in clientdir/Fonts). 3 basic latin characters + server timezone specific"
+    desc_cn: "限制玩家名称为特定语言的字符集，若使用不允许的字符则不允许创建角色，并会触发改名请求且断开连接。默认值0表示禁用该限制（但仍有基于服务器时区的客户端有限检查）；1表示严格限制为基础拉丁字符；2表示严格限制为RealmZone设置对应的服务器区域特定字符集（注意：无论哪种情况，若要在客户端正确显示角色名称，客户端必须有相应字体，默认包含在客户端中，或在clientdir/Fonts目录下有官方/自定义本地化字体）；3表示基础拉丁字符 + 服务器时区特定字符。默认值为0"
+  - key: "StrictCharterNames"
+    default_value: 0
+    desc_en: "Limit guild team charter names to language specific symbols set, not allow create charters with not allowed symbols in name. Default: 0 disable 1 basic latin characters (strict) 2 realm zone specific (strict). See RealmZone setting. Note: In any case if you want correctly see character name at client this client must have apporopriate fonts (included in client by default, with active official localization or custom localization fonts in clientdir/Fonts). 3 basic latin characters + server timezone specific"
+    desc_cn: "限制公会团队宪章名称为特定语言的字符集，不允许创建包含不允许字符的宪章。默认值0表示禁用该限制；1表示严格限制为基础拉丁字符；2表示严格限制为RealmZone设置对应的服务器区域特定字符集（注意：无论哪种情况，若要在客户端正确显示角色名称，客户端必须有相应字体，默认包含在客户端中，或在clientdir/Fonts目录下有官方/自定义本地化字体）；3表示基础拉丁字符 + 服务器时区特定字符。默认值为0"
+  - key: "StrictPetNames"
+    default_value: 0
+    desc_en: "Limit pet names to language specific symbols set. Default: 0 disable 1 basic latin characters (strict) 2 realm zone specific (strict). See RealmZone setting. Note: In any case if you want correctly see character name at client this client must have apporopriate fonts (included in client by default, with active official localization or custom localization fonts in clientdir/Fonts). 3 basic latin characters + server timezone specific"
+    desc_cn: "限制宠物名称为特定语言的字符集。默认值0表示禁用该限制；1表示严格限制为基础拉丁字符；2表示严格限制为RealmZone设置对应的服务器区域特定字符集（注意：无论哪种情况，若要在客户端正确显示角色名称，客户端必须有相应字体，默认包含在客户端中，或在clientdir/Fonts目录下有官方/自定义本地化字体）；3表示基础拉丁字符 + 服务器时区特定字符。默认值为0"
+  - key: "MinPlayerName"
+    default_value: 2
+    desc_en: "Minimal name length (1..12). Default: 2"
+    desc_cn: "玩家名称的最小长度限制，取值范围1-12，默认值为2"
+  - key: "MinCharterName"
+    default_value: 2
+    desc_en: "Minimal name length (1..24). Default: 2"
+    desc_cn: "公会宪章名称的最小长度限制，取值范围1-24，默认值为2"
+  - key: "MinPetName"
+    default_value: 2
+    desc_en: "Minimal name length (1..12). Default: 2"
+    desc_cn: "宠物名称的最小长度限制，取值范围1-12，默认值为2"
+  - key: "CharactersCreatingDisabled"
+    default_value: 0
+    desc_en: "Disable characters creating for specific team or any (non-player accounts not affected). Default: 0 - enabled 1 - disabled only for Alliance 2 - disabled only for Horde 3 - disabled for both teams"
+    desc_cn: "禁用特定阵营或所有阵营的角色创建功能（非玩家账号不受影响）。默认值0表示启用角色创建（所有阵营都可创建）；1表示仅禁用联盟阵营角色创建；2表示仅禁用部落阵营角色创建；3表示禁用联盟和部落两个阵营的角色创建。默认值为0"
+  - key: "CharactersPerAccount"
+    default_value: 50
+    desc_en: "Limit numbers of characters per account (at all realms). Note: this setting limits the character creating at the _current_ realm base at characters amount at all realms. Default: 50. The number must be >= CharactersPerRealm"
+    desc_cn: "限制每个账号可创建的角色总数（所有服务器）。注意：该设置基于所有服务器的角色数量，限制当前服务器的角色创建。默认值为50，且该数值必须大于等于CharactersPerRealm的设置值"
+  - key: "CharactersPerRealm"
+    default_value: 10
+    desc_en: "Limit numbers of characters for account at realm. Default: 10 (client limitation). The number must be between 1 and 10"
+    desc_cn: "限制每个账号在单个服务器上可创建的角色数量。默认值为10（客户端限制），该数值必须在1到10之间"
+  - key: "SkipCinematics"
+    default_value: 0
+    desc_en: "Disable in-game script movie at first character's login(allows to prevent buggy intro in case of custom start location coordinates). Default: 0 - show intro for each new character 1 - show intro only for first character of selected race 2 - disable intro in all cases"
+    desc_cn: "控制是否禁用首次登录角色时的游戏脚本动画（在自定义起始位置坐标的情况下，可防止有问题的开场动画）。默认值0表示为每个新角色显示开场动画；1表示仅为所选种族的第一个角色显示开场动画；2表示在所有情况下都禁用开场动画。默认值为0"
+  - key: "MaxPlayerLevel"
+    default_value: 60
+    desc_en: "Max level that can be reached by a player for experience (in range from 1 to 100). Change not recommended. Default: 60"
+    desc_cn: "玩家可通过获取经验达到的最高等级，取值范围1-100，不建议修改该值，默认值为60"
+  - key: "StartPlayerLevel"
+    default_value: 1
+    desc_en: "Staring level that have character at creating (in range 1 to MaxPlayerLevel). Default: 1"
+    desc_cn: "创建角色时的起始等级，取值范围1到MaxPlayerLevel（最高玩家等级），默认值为1"
+  - key: "StartPlayerMoney"
+    default_value: 0
+    desc_en: "Amount of money that new players will start with. If you want to start with one silver, use for example 100 (100 copper = 1 silver). Default: 0"
+    desc_cn: "新玩家创建角色时初始拥有的货币数量。例如，若想初始拥有1银币，需设置为100（100铜币=1银币），默认值为0（无初始货币）"
+  - key: "MaxHonorPoints"
+    default_value: 75000
+    desc_en: "Max honor points that player can have. Default: 75000"
+    desc_cn: "玩家可拥有的最高荣誉点数，默认值为75000"
+  - key: "StartHonorPoints"
+    default_value: 0
+    desc_en: "Amount of honor that new players will start with. Default: 0"
+    desc_cn: "新玩家创建角色时初始拥有的荣誉点数，默认值为0"
+  - key: "MinHonorKills"
+    default_value: 15
+    desc_en: "Min kills that players must obtain to enter in weekly honor calculation. Default: 15"
+    desc_cn: "玩家要参与每周荣誉计算必须获得的最少击杀数，默认值为15"
+  - key: "MaintenanceDay"
+    default_value: 3
+    desc_en: "The day of the week is performed server maintenance ( currently used for Honor distribution ). range (0..6): 0 is the first day of the week (normally sunday), 6 is the latest. Default: 3 (Wednesday in EU)"
+    desc_cn: "执行服务器维护的星期几（目前用于荣誉分配），取值范围0-6：0表示一周的第一天（通常是周日），6表示最后一天。默认值3表示周三（欧洲服务器默认）"
+  - key: "InstantLogout"
+    default_value: 1
+    desc_en: "Enable or disable instant logout for security level (0..4) or high (NOT in combat/while dueling/while falling). Default: 1 (Mods/GMs/Admins)"
+    desc_cn: "控制是否允许特定安全等级（0-4）或高权限用户（非战斗中/非决斗中/非坠落中）立即登出。默认值1表示允许模组管理员、游戏管理员和系统管理员立即登出"
+  - key: "DisableWaterBreath"
+    default_value: 4
+    desc_en: "Enable or disable Waterbreathing. Default: 4 (Console as noneone)"
+    desc_cn: "控制是否禁用水下呼吸功能，默认值4表示控制台用户不受限制（无具体说明，推测为按权限控制，4为最高权限等级）"
+  - key: "AlwaysShowQuestGreeting"
+    default_value: 0
+    desc_en: "Controls whether quest greetings (used when NPC is a quest giver but does not have UNIT_NPC_FLAG_GOSSIP) is always shown, or is shown only if there are more than one menu items available to the player. Default: 0 (disabled, original behavior) 1 (enabled)"
+    desc_cn: "控制任务问候语（当NPC是任务给予者但没有UNIT_NPC_FLAG_GOSSIP标志时使用）是否始终显示，还是仅当玩家有多个菜单选项时显示。默认值0表示禁用（原始行为，仅多选项时显示）；1表示启用（始终显示）"
+  - key: "TaxiFlightChatFix"
+    default_value: 0
+    desc_en: "Workaround for client bug: resuming taxi flight on login causes missing chat channels until the flight ends. When enabled allows clients to join local channels of the zone they are flying over on login and all custom channels. Default: 0 (disabled, original client behavior) 1 (enabled)"
+    desc_cn: "用于解决客户端bug的临时方案：登录时恢复飞行坐骑行程会导致聊天频道丢失，直到飞行结束。启用该设置后，客户端登录时会加入飞越区域的本地频道和所有自定义频道。默认值0表示禁用（原始客户端行为）；1表示启用"
+  - key: "LongFlightPathsPersistence"
+    default_value: 0
+    desc_en: "Controls whether logging out in multi-destination taxi flight will resume entire flight or the nearest destination only. Default: 0 (false) 1 (true)"
+    desc_cn: "控制在多目的地飞行坐骑行程中登出后，重新登录是恢复整个行程还是仅恢复到最近的目的地。默认值0表示仅恢复到最近目的地（false）；1表示恢复整个行程（true）"
+  - key: "AllFlightPaths"
+    default_value: 0
+    desc_en: "Players will start with all flight paths (Note: ALL flight paths, not only player's team). Default: 0 (true) 1 (false)"
+    desc_cn: "控制玩家创建后是否初始拥有所有飞行路线（注意：是所有飞行路线，不仅限于玩家所属阵营）。默认值0表示拥有所有飞行路线（true）；1表示不拥有（false）"
+  - key: "AlwaysMaxSkillForLevel"
+    default_value: 0
+    desc_en: "Players will automatically gain max level dependent (weapon/defense) skill when logging in, leveling up etc. Default: 0 (false) 1 (true)"
+    desc_cn: "控制玩家登录、升级等时是否自动获得对应等级的最高（武器/防御）技能。默认值0表示禁用（false）；1表示启用（true）"
+  - key: "ActivateWeather"
+    default_value: 1
+    desc_en: "Activate weather system. Default: 1 (true) 0 (false)"
+    desc_cn: "控制是否启用天气系统，默认值1表示启用（true）；0表示禁用（false）"
+  - key: "CastUnstuck"
+    default_value: 1
+    desc_en: "Allow cast Unstuck spell at .start or client Help option use. Default: 1 (true) 0 (false)"
+    desc_cn: "控制是否允许通过.start命令或客户端帮助选项施放“解除卡死”法术。默认值1表示允许（true）；0表示禁止（false）"
+  - key: "MaxSpellCastsInChain"
+    default_value: 20
+    desc_en: "Max amount triggered spell casts in chain by one caster, prevent stack overflow crash. Too Low value will make some correct triggered casts fail. 0 (no limit) Default: 20"
+    desc_cn: "单个施法者可触发的链式法术施放的最大次数，用于防止栈溢出崩溃。值过低会导致部分正常的触发施法失败，0表示无限制，默认值为20"
+  - key: "RabbitDay"
+    default_value: 0
+    desc_en: "Set to Rabbit Day (date in unix time), only the day and month are considered, the year is not important. Default: 0 (off) Suggested: 954547200 (April 1st, 2000)"
+    desc_cn: "设置“兔子节”（Rabbit Day）的日期（Unix时间戳），仅考虑月和日，年份不重要。默认值0表示关闭该功能；推荐值954547200对应2000年4月1日（愚人节）"
+  - key: "Instance.IgnoreLevel"
+    default_value: 0
+    desc_en: "Ignore level requirement to enter instance. Default: 0 (false) 1 (true)"
+    desc_cn: "控制是否忽略进入副本的等级要求，默认值0表示不忽略（false）；1表示忽略（true）"
+  - key: "Instance.IgnoreRaid"
+    default_value: 0
+    desc_en: "Ignore raid requirement to enter instance. Default: 0 (false) 1 (true)"
+    desc_cn: "控制是否忽略进入副本的团队要求，默认值0表示不忽略（false）；1表示忽略（true）"
+  - key: "Instance.StrictCombatLockdown"
+    default_value: 0
+    desc_en: "This setting determines whether its possible to leave combat mode through additional means (such as Feign Death) when zone is set in combat. Default: 0 (false, drop combat, default pre-2.3.0) 1 (true, combat persists, default post-2.3.0)"
+    desc_cn: "该设置决定当区域处于战斗状态时，是否可以通过额外方式（如假死）离开战斗模式。默认值0表示可以脱离战斗（false，2.3.0版本前的默认行为）；1表示战斗状态持续（true，2.3.0版本后的默认行为）"
+  - key: "Instance.ResetTimeHour"
+    default_value: 4
+    desc_en: "The hour of the day (0-23) when the global instance resets occur. Default: 4"
+    desc_cn: "全局副本重置发生的当天小时数（0-23），默认值为4（凌晨4点）"
+  - key: "Instance.UnloadDelay"
+    default_value: 1800000
+    desc_en: "Unload the instance map from memory after some time if no players are inside. Default: 1800000 (miliseconds, i.e 30 minutes) 0 (instance maps are kept in memory until they are reset)"
+    desc_cn: "若副本内无玩家，延迟指定时间后将副本地图从内存中卸载。默认值1800000毫秒（即30分钟）；0表示副本地图一直驻留在内存中，直到副本重置"
+  - key: "Instance.DisableRelocate"
+    default_value: 0
+    desc_en: "Disables relocation of player upon entering instance after 15 minutes or instance reset. Default: 0 - false - relocates player after being logged out in instance for more than 15 minutes or instance reset 1 - true - location is kept"
+    desc_cn: "控制是否禁用玩家在15分钟后进入副本或副本重置时的重新定位。默认值0表示启用重新定位（false），即玩家在副本内登出超过15分钟或副本重置后，再次进入会被重新定位；1表示禁用重新定位（true），即保留玩家位置"
+  - key: "Quests.LowLevelHideDiff"
+    default_value: 5
+    desc_en: "Quest level difference to hide for player low level quests: if player_level > quest_level + LowLevelQuestsHideDiff then quest \"!\" mark not show for quest giver. Default: 5 -1 (show all available quests marks)"
+    desc_cn: "用于隐藏玩家低等级任务的等级差值：若玩家等级 > 任务等级 + 该值，则任务给予者不会显示任务“！”标记。默认值为5；-1表示显示所有可用任务的标记"
+  - key: "Quests.HighLevelHideDiff"
+    default_value: 7
+    desc_en: "Quest level difference to hide for player high level quests: if player_level < quest_min_level - HighLevelQuestsHideDiff then quest \"!\" mark not show for quest giver. Default: 7 -1 (show all available quests marks)"
+    desc_cn: "用于隐藏玩家高等级任务的等级差值：若玩家等级 < 任务最低等级 - 该值，则任务给予者不会显示任务“！”标记。默认值为7；-1表示显示所有可用任务的标记"
+  - key: "Quests.IgnoreRaid"
+    default_value: 0
+    desc_en: "Non-raid quests allowed in raids. Default: 0 (not allowed) 1 (allowed)"
+    desc_cn: "控制团队中是否允许进行非团队任务，默认值0表示不允许（not allowed）；1表示允许（allowed）"
+  - key: "Group.OfflineLeaderDelay"
+    default_value: 300
+    desc_en: "A grace period for an offline group leader to reconnect before tranfering leadership to a next suitable member of the group (in secs). Default: 300 (5 minutes) 0 (Do not transfer group leadership)"
+    desc_cn: "团队队长离线后，在将队长权限转移给下一个合适的团队成员之前的宽限期（秒）。默认值300（5分钟）；0表示不转移团队队长权限"
+  - key: "Guild.EventLogRecordsCount"
+    default_value: 100
+    desc_en: "Count of guild event log records stored in guild_eventlog table. Increase to store more guild events in table, minimum is 100. You can set it to very high value to prevent oldest guild events to be rewritten by latest guild events - but it can slow down performance. Default: 100"
+    desc_cn: "存储在guild_eventlog表中的公会事件日志记录数量。增加该值可存储更多公会事件，最小值为100。可将其设置为很高的值以防止最新的公会事件覆盖最旧的事件，但这会降低性能。默认值为100"
+  - key: "MirrorTimer.Fatigue.Max"
+    default_value: 60
+    desc_en: "Fatigue max timer value (in secs). Default: 60 (1 minute) 0 (instant exhaustion damage start)"
+    desc_cn: "疲劳值镜像计时器的最大值（秒）。默认值60（1分钟）；0表示立即开始因疲劳导致的伤害"
+  - key: "MirrorTimer.Breath.Max"
+    default_value: 60
+    desc_en: "Waterbreathing max timer value (in secs). Default: 60 0 (instant underwater breathing damage start)"
+    desc_cn: "水下呼吸镜像计时器的最大值（秒）。默认值60；0表示立即开始因水下呼吸耗尽导致的伤害"
+  - key: "MirrorTimer.Environmental.Max"
+    default_value: 1
+    desc_en: "Generic environmental (lava/slime/etc) damage delay max timer value (in secs). Default: 1 0 (instant in liquid damage start)"
+    desc_cn: "通用环境（熔岩/淤泥等）伤害延迟的镜像计时器最大值（秒）。默认值1；0表示立即开始受到液体环境伤害"
+  - key: "EnvironmentalDamage.Min"
+    default_value: 605
+    desc_en: "Generic environmental (lava/slime/etc) damage range. Min/max damage per tick. Default: 605-610"
+    desc_cn: "通用环境（熔岩、淤泥等）伤害的数值范围，配置每段伤害时间的最小和最大伤害值，默认区间为605到610"
+  - key: "EnvironmentalDamage.Max"
+    default_value: 610
+    desc_en: "Generic environmental (lava/slime/etc) damage range. Min/max damage per tick. Default: 605-610"
+    desc_cn: "通用环境（熔岩、淤泥等）伤害的数值范围，配置每段伤害时间的最小和最大伤害值，默认区间为605到610"
+  - key: "InteractionPauseTimer"
+    default_value: 180000
+    desc_en: "Creatures will pause waypoint movement for the specified time (in milliseconds) when a player interacts with them"
+    desc_cn: "当玩家与生物交互时，生物将暂停路径点移动，暂停时长为此处指定的时间（以毫秒为单位）"
+  - key: "MaxPrimaryTradeSkill"
+    default_value: 2
+    desc_en: "Max count that player can learn the primary trade skill. Max: 10"
+    desc_cn: "玩家可学习的主要专业技能的最大数量，最大值为10"
+  - key: "TradeSkill.GMIgnore.MaxPrimarySkillsCount"
+    default_value: 4
+    desc_en: "GM level starting from max primary skill count requirement ignored. (Console as noneone)"
+    desc_cn: "从该GM等级开始，忽略对主要专业技能最大数量的要求（控制台无此限制）"
+  - key: "TradeSkill.GMIgnore.Level"
+    default_value: 4
+    desc_en: "GM level starting from trade skill level requirement ignored. (Console as noneone)"
+    desc_cn: "从该GM等级开始，忽略对专业技能等级的要求（控制台无此限制）"
+  - key: "TradeSkill.GMIgnore.Skill"
+    default_value: 4
+    desc_en: "GM level starting from trade skill skill requirement ignored. (Console as noneone)"
+    desc_cn: "从该GM等级开始，忽略对专业技能熟练度的要求（控制台无此限制）"
+  - key: "MinPetitionSigns"
+    default_value: 9
+    desc_en: "Min signatures count to creating guild (0..9)."
+    desc_cn: "创建公会所需的最小签名数量，取值范围为0到9"
+  - key: "MaxGroupXPDistance"
+    default_value: 74
+    desc_en: "Max distance to creature for group memeber to get XP at creature death."
+    desc_cn: "生物死亡时，团队成员要获得经验值所需与该生物保持的最大距离"
+  - key: "MailDeliveryDelay"
+    default_value: 3600
+    desc_en: "Mail delivery delay time for item sending (Default: 3600 sec (1 hour))"
+    desc_cn: "发送物品邮件时的邮件投递延迟时间，默认值为3600秒（1小时）"
+  - key: "MassMailer.SendPerTick"
+    default_value: 10
+    desc_en: "Max amount mail send each tick from mails list scheduled for mass mailer proccesing. More mails increase server load but speedup mass mail proccess. Normal tick length: 50 msecs, so 20 ticks in sec and 200 mails in sec by default."
+    desc_cn: "批量邮件处理程序在每个时钟周期内从待发送邮件列表中发送的最大邮件数量。发送的邮件数量越多，服务器负载越高，但批量邮件处理速度会加快。标准时钟周期长度为50毫秒，因此默认情况下每秒有20个时钟周期，每秒可发送200封邮件"
+  - key: "PetUnsummonAtMount"
+    default_value: 0
+    desc_en: "Permanent pet will unsummoned at player mount. Default: 0 - not unsummon, 1 - unsummon for any mount"
+    desc_cn: "玩家骑乘坐骑时，永久宠物是否会被解散。默认值0表示不解散，1表示无论骑乘何种坐骑都会解散"
+  - key: "PetAttackFromBehind"
+    default_value: 0
+    desc_en: "Player controlled pet will attack from behind. Default: 0 - Engage from any angle, 1 - Engage from behind"
+    desc_cn: "玩家控制的宠物是否会从背后发起攻击。默认值0表示从任意角度发起攻击，1表示仅从背后发起攻击"
+  - key: "AutoDownrank"
+    default_value: 0
+    desc_en: "Automatically select correct rank when buffing/healing lower level players. Default: 0 (false), 1 (true)"
+    desc_cn: "为低等级玩家施加增益效果或治疗时，是否自动选择合适等级的技能。默认值0（否），1（是）"
+  - key: "Event.Announce"
+    default_value: 0
+    desc_en: "Default: 0 (false), 1 (true)"
+    desc_cn: "是否开启事件公告功能。默认值0（关闭），1（开启）"
+  - key: "BeepAtStart"
+    default_value: 1
+    desc_en: "Beep at mangosd start finished (mostly work only at Unix/Linux systems). Default: 1 (true), 0 (false)"
+    desc_cn: "mangosd服务器启动完成时是否发出提示音（该功能主要仅在Unix/Linux系统上生效）。默认值1（开启），0（关闭）"
+  - key: "ShowProgressBars"
+    default_value: 0
+    desc_en: "Control show progress bars for load steps at server startup. Default: 0 (false), 1 (true)"
+    desc_cn: "控制服务器启动时是否显示各加载步骤的进度条。默认值0（不显示），1（显示）"
+  - key: "WaitAtStartupError"
+    default_value: 0
+    desc_en: "After startup error report wait <Enter> or some time before continue (and possible close console window). -1 (wait until <Enter> press), Default: 0 (not wait), N (>0, wait N secs)"
+    desc_cn: "服务器启动报错并完成报告后，是否等待一段时间或按下回车键后再继续（可能会关闭控制台窗口）。值为-1时，等待直到按下回车键；默认值0表示不等待；值大于0时，等待指定的秒数"
+  - key: "Motd"
+    default_value: "Welcome to the Continued Massive Network Game Object Server."
+    desc_en: "Message of the Day. Displayed at worldlogin for every user ('@' for a newline)."
+    desc_cn: "每日消息（Message of the Day），每位用户登录游戏世界时都会显示该消息（使用'@'表示换行）"
+  - key: "PlayerCommands"
+    default_value: 1
+    desc_en: "Should player chat be parsed for GM commands. Default: 1 (parse commands), 0 (ignore commands)"
+    desc_cn: "是否解析玩家聊天内容中的GM指令。默认值1（解析指令），0（忽略指令）"
+- group_name: PLAYER INTERACTION
+  group_items:
+  - key: "AllowTwoSide.Accounts"
+    default_value: 0
+    desc_en: "Allow accounts to create characters in both teams in any game type. Default: 0 (Not allowed), 1 (Allowed)"
+    desc_cn: "是否允许账号在任意游戏模式下创建两个阵营的角色。默认值0（不允许），1（允许）"
+  - key: "AllowTwoSide.Interaction.Chat"
+    default_value: 0
+    desc_en: "Allow or disallow players from different teams to chat with each other (say, yell). Default: 0 (Not allowed), 1 (Allowed)"
+    desc_cn: "是否允许不同阵营的玩家相互聊天（普通说话、大喊）。默认值0（不允许），1（允许）"
+  - key: "AllowTwoSide.Interaction.Channel"
+    default_value: 0
+    desc_en: "Allow or disallow players from different teams to have merged chat channels. Default: 0 (Not allowed), 1 (Allowed)"
+    desc_cn: "是否允许不同阵营的玩家使用合并的聊天频道。默认值0（不允许），1（允许）"
+  - key: "AllowTwoSide.Interaction.Group"
+    default_value: 0
+    desc_en: "Allow or disallow players from different teams to join each other's groups. Default: 0 (Not allowed), 1 (Allowed)"
+    desc_cn: "是否允许不同阵营的玩家加入彼此的队伍。默认值0（不允许），1（允许）"
+  - key: "AllowTwoSide.Interaction.Guild"
+    default_value: 0
+    desc_en: "Allow or disallow players from different teams to join each other's guilds. Default: 0 (Not allowed), 1 (Allowed)"
+    desc_cn: "是否允许不同阵营的玩家加入彼此的公会。默认值0（不允许），1（允许）"
+  - key: "AllowTwoSide.Interaction.Trade"
+    default_value: 0
+    desc_en: "Allow or disallow players from different teams to trade with each other when not in group. Default: 0 (Not allowed), 1 (Allowed)"
+    desc_cn: "是否允许不同阵营的玩家在非组队状态下相互交易。默认值0（不允许），1（允许）"
+  - key: "AllowTwoSide.Interaction.Auction"
+    default_value: 0
+    desc_en: "Allow or disallow players from different teams to have merged auction house listings. Default: 0 (Not allowed), 1 (Allowed)"
+    desc_cn: "是否允许不同阵营的玩家共享拍卖行列表（即拍卖行列表合并显示）。默认值0（不允许），1（允许）"
+  - key: "AllowTwoSide.Interaction.Mail"
+    default_value: 0
+    desc_en: "Allow or disallow players from different teams to send in-game mail. Default: 0 (Not allowed), 1 (Allowed)"
+    desc_cn: "是否允许不同阵营的玩家互发游戏内邮件。默认值0（不允许），1（允许）"
+  - key: "AllowTwoSide.WhoList"
+    default_value: 0
+    desc_en: "Allow show player from both team in who list. Default: 0 (Not allowed), 1 (Allowed)"
+    desc_cn: "是否允许在查询列表（who列表）中显示两个阵营的玩家。默认值0（不允许），1（允许）"
+  - key: "AllowTwoSide.AddFriend"
+    default_value: 0
+    desc_en: "Allow adding friends from other team in friend list. Default: 0 (Not allowed), 1 (Allowed)"
+    desc_cn: "是否允许在好友列表中添加其他阵营的玩家为好友。默认值0（不允许），1（允许）"
+  - key: "TalentsInspecting"
+    default_value: 1
+    desc_en: "Allow other players see character talents in inspect dialog (Characters in Gamemaster mode can inspect talents always). Default: 1 (allow), 0 (not allow)"
+    desc_cn: "是否允许其他玩家在查看角色界面中看到目标角色的天赋（处于游戏管理员模式的角色始终可以查看他人天赋）。默认值1（允许），0（不允许）"
+- group_name: CREATURE AND GAMEOBJECT SETTINGS
+  group_items: 
+  - key: "Rate.Creature.Aggro"
+    default_value: 1
+    desc_en: "Aggro radius percent or off. Default: 1 - 100%, 1.5 - 150%, 0 - off (0%)"
+    desc_cn: "生物仇恨范围的百分比系数，或关闭仇恨机制。默认值1表示100%（原始仇恨范围），1.5表示150%，0表示关闭仇恨（仇恨范围为0%）"
+  - key: "CreatureRespawnAggroDelay"
+    default_value: 5000
+    desc_en: "The delay between when a creature spawns and when it can be aggroed by nearby movement. Default: 5000 (5s)"
+    desc_cn: "生物刷新后，需要等待该延迟时间后，才会因附近玩家的移动而产生仇恨。默认值为5000毫秒（5秒）"
+  - key: "LeashRadius"
+    default_value: 30
+    desc_en: "Radius for default leash due to being too far from refresh position. Default: 30 (yards)"
+    desc_cn: "生物因远离刷新点而触发的默认“束缚”范围半径，默认值为30码。当生物超出该半径时，会被拉回刷新点"
+  - key: "CreatureFamilyFleeAssistanceRadius"
+    default_value: 30
+    desc_en: "Radius which creature will use to seek for a near creature for assistance. Creature will flee to this creature. Default: 30, 0 - off"
+    desc_cn: "生物用于寻找附近同类生物寻求援助的范围半径，生物会向该范围内的同类逃跑求助。默认值30，值为0时关闭该功能"
+  - key: "CreatureFamilyAssistanceRadius"
+    default_value: 5
+    desc_en: "Radius which creature will use to call assistance without moving. Default: 5, 0 - off"
+    desc_cn: "生物在不移动的情况下，用于呼叫同类援助的范围半径。默认值5，值为0时关闭该功能"
+  - key: "CreatureFamilyAssistanceDelay"
+    default_value: 1500
+    desc_en: "Reaction time for creature assistance call. Default: 1500 (1.5s)"
+    desc_cn: "生物响应同类援助呼叫的延迟时间，默认值为1500毫秒（1.5秒）"
+  - key: "CreatureCheckForHelpRadius"
+    default_value: 5
+    desc_en: "Range at which a close moving npc can be assisted. Default: 5 yards"
+    desc_cn: "移动中的NPC能够获得附近同类援助的范围，默认值为5码"
+  - key: "CreatureCheckForHelpAggroDelay"
+    default_value: 2000
+    desc_en: "Time during which at combat start check for help is disabled. Default: 2000 (2 seconds)"
+    desc_cn: "战斗开始后的这段时间内，生物将不会触发寻求援助的检测。默认值为2000毫秒（2秒）"
+  - key: "CreatureLinkingAggroDelay"
+    default_value: 2000
+    desc_en: "Time after which spawn_group and linking aggro is triggered. Default: 2000 (2 seconds)"
+    desc_cn: "生物刷新组（spawn_group）和关联仇恨触发的延迟时间，默认值为2000毫秒（2秒）"
+  - key: "CreatureFamilyFleeDelay"
+    default_value: 10000
+    desc_en: "Time during which creature can flee when no assistant found. Default: 10000 (10s)"
+    desc_cn: "当生物未找到援助对象时，可进入逃跑状态的持续时间，默认值为10000毫秒（10秒）"
+  - key: "WorldBossLevelDiff"
+    default_value: 3
+    desc_en: "Difference for boss dynamic level with target. Default: 3"
+    desc_cn: "世界首领的动态等级与目标（玩家/团队）等级的差值，默认值为3"
+  - key: "Corpse.EmptyLootShow"
+    default_value: 1
+    desc_en: "If target can have loot (or can be skining after loot) but no loot generated still show loot window. Default: 1 (show), 0 (not show)"
+    desc_cn: "若目标生物本应拥有战利品（或拾取后可剥皮），但实际未生成任何战利品时，是否仍显示战利品窗口。默认值1（显示），0（不显示）"
+  - key: "Corpse.AllowAllItemsShowInMasterLoot"
+    default_value: 1
+    desc_en: "In master loot mode every one can see the loot content under or over treshold. Only the master loot can still distrube it. Default: 0 (not show), 1 (show)"
+    desc_cn: "在队长分配战利品模式下，是否允许所有人查看战利品内容（无论是否达到分配阈值）。仅队长有权分配战利品，默认值0（不显示），1（显示）"
+  - key: "Corpse.Decay.NORMAL"
+    default_value: 300
+    desc_en: "Seconds until creature corpse will decay without being looted or skinned (not used when creature does not have loot initially). Default: 300"
+    desc_cn: "普通（NORMAL）等级生物的尸体在未被拾取或剥皮的情况下，经过该秒数后会腐烂消失（若生物本身无战利品则该配置不生效），默认值为300秒"
+  - key: "Corpse.Decay.RARE"
+    default_value: 900
+    desc_en: "Seconds until creature corpse will decay without being looted or skinned (not used when creature does not have loot initially). Default: 900"
+    desc_cn: "稀有（RARE）等级生物的尸体在未被拾取或剥皮的情况下，经过该秒数后会腐烂消失（若生物本身无战利品则该配置不生效），默认值为900秒"
+  - key: "Corpse.Decay.ELITE"
+    default_value: 600
+    desc_en: "Seconds until creature corpse will decay without being looted or skinned (not used when creature does not have loot initially). Default: 600"
+    desc_cn: "精英（ELITE）等级生物的尸体在未被拾取或剥皮的情况下，经过该秒数后会腐烂消失（若生物本身无战利品则该配置不生效），默认值为600秒"
+  - key: "Corpse.Decay.RAREELITE"
+    default_value: 1200
+    desc_en: "Seconds until creature corpse will decay without being looted or skinned (not used when creature does not have loot initially). Default: 1200"
+    desc_cn: "稀有精英（RAREELITE）等级生物的尸体在未被拾取或剥皮的情况下，经过该秒数后会腐烂消失（若生物本身无战利品则该配置不生效），默认值为1200秒"
+  - key: "Corpse.Decay.WORLDBOSS"
+    default_value: 3600
+    desc_en: "Seconds until creature corpse will decay without being looted or skinned (not used when creature does not have loot initially). Default: 3600"
+    desc_cn: "世界首领（WORLDBOSS）等级生物的尸体在未被拾取或剥皮的情况下，经过该秒数后会腐烂消失（若生物本身无战利品则该配置不生效），默认值为3600秒"
+  - key: "Rate.Corpse.Decay.Looted"
+    default_value: 0.0
+    desc_en: "Controls how long the creature corpse stays after it had been looted, as a multiplier of its Corpse.Decay.* config. Default: 0.0 (will use modifier /3 of the creatures spawntimesecs when 0.0)"
+    desc_cn: "控制生物尸体被拾取后保留的时长，为Corpse.Decay.*配置值的乘数。默认值0.0（当值为0.0时，将使用生物刷新时间的1/3作为保留时长）"
+  - key: "Rate.Creature.Normal.Damage"
+    default_value: 1
+    desc_en: "Creature Damage Rates. Examples: 2 - creatures will damage 2x, 1.7 - 1.7x."
+    desc_cn: "普通（NORMAL）等级生物的伤害倍率。例如：值为2时，生物造成的伤害为原始值的2倍；值为1.7时，为原始值的1.7倍"
+  - key: "Rate.Creature.Elite.Elite.Damage"
+    default_value: 1
+    desc_en: "Creature Damage Rates. Examples: 2 - creatures will damage 2x, 1.7 - 1.7x."
+    desc_cn: "精英（Elite）等级生物的伤害倍率。例如：值为2时，生物造成的伤害为原始值的2倍；值为1.7时，为原始值的1.7倍"
+  - key: "Rate.Creature.Elite.RAREELITE.Damage"
+    default_value: 1
+    desc_en: "Creature Damage Rates. Examples: 2 - creatures will damage 2x, 1.7 - 1.7x."
+    desc_cn: "稀有精英（RAREELITE）等级生物的伤害倍率。例如：值为2时，生物造成的伤害为原始值的2倍；值为1.7时，为原始值的1.7倍"
+  - key: "Rate.Creature.Elite.WORLDBOSS.Damage"
+    default_value: 1
+    desc_en: "Creature Damage Rates. Examples: 2 - creatures will damage 2x, 1.7 - 1.7x."
+    desc_cn: "世界首领（WORLDBOSS）等级生物的伤害倍率。例如：值为2时，生物造成的伤害为原始值的2倍；值为1.7时，为原始值的1.7倍"
+  - key: "Rate.Creature.Elite.RARE.Damage"
+    default_value: 1
+    desc_en: "Creature Damage Rates. Examples: 2 - creatures will damage 2x, 1.7 - 1.7x."
+    desc_cn: "稀有（RARE）等级生物的伤害倍率。例如：值为2时，生物造成的伤害为原始值的2倍；值为1.7时，为原始值的1.7倍"
+  - key: "Rate.Creature.Normal.SpellDamage"
+    default_value: 1
+    desc_en: "Creature Spell Damage Rates. Examples: 2 - creatures will damage with spells 2x, 1.7 - 1.7x."
+    desc_cn: "普通（NORMAL）等级生物的法术伤害倍率。例如：值为2时，生物法术造成的伤害为原始值的2倍；值为1.7时，为原始值的1.7倍"
+  - key: "Rate.Creature.Elite.Elite.SpellDamage"
+    default_value: 1
+    desc_en: "Creature Spell Damage Rates. Examples: 2 - creatures will damage with spells 2x, 1.7 - 1.7x."
+    desc_cn: "精英（Elite）等级生物的法术伤害倍率。例如：值为2时，生物法术造成的伤害为原始值的2倍；值为1.7时，为原始值的1.7倍"
+  - key: "Rate.Creature.Elite.RAREELITE.SpellDamage"
+    default_value: 1
+    desc_en: "Creature Spell Damage Rates. Examples: 2 - creatures will damage with spells 2x, 1.7 - 1.7x."
+    desc_cn: "稀有精英（RAREELITE）等级生物的法术伤害倍率。例如：值为2时，生物法术造成的伤害为原始值的2倍；值为1.7时，为原始值的1.7倍"
+  - key: "Rate.Creature.Elite.WORLDBOSS.SpellDamage"
+    default_value: 1
+    desc_en: "Creature Spell Damage Rates. Examples: 2 - creatures will damage with spells 2x, 1.7 - 1.7x."
+    desc_cn: "世界首领（WORLDBOSS）等级生物的法术伤害倍率。例如：值为2时，生物法术造成的伤害为原始值的2倍；值为1.7时，为原始值的1.7倍"
+  - key: "Rate.Creature.Elite.RARE.SpellDamage"
+    default_value: 1
+    desc_en: "Creature Spell Damage Rates. Examples: 2 - creatures will damage with spells 2x, 1.7 - 1.7x."
+    desc_cn: "稀有（RARE）等级生物的法术伤害倍率。例如：值为2时，生物法术造成的伤害为原始值的2倍；值为1.7时，为原始值的1.7倍"
+  - key: "Rate.Creature.Normal.HP"
+    default_value: 1
+    desc_en: "Creature Health Ammount Modifier. Examples: 2 - creatures have 2x health, 1.7 - 1.7x."
+    desc_cn: "普通（NORMAL）等级生物的生命值倍率。例如：值为2时，生物生命值为原始值的2倍；值为1.7时，为原始值的1.7倍"
+  - key: "Rate.Creature.Elite.Elite.HP"
+    default_value: 1
+    desc_en: "Creature Health Ammount Modifier. Examples: 2 - creatures have 2x health, 1.7 - 1.7x."
+    desc_cn: "精英（Elite）等级生物的生命值倍率。例如：值为2时，生物生命值为原始值的2倍；值为1.7时，为原始值的1.7倍"
+  - key: "Rate.Creature.Elite.RAREELITE.HP"
+    default_value: 1
+    desc_en: "Creature Health Ammount Modifier. Examples: 2 - creatures have 2x health, 1.7 - 1.7x."
+    desc_cn: "稀有精英（RAREELITE）等级生物的生命值倍率。例如：值为2时，生物生命值为原始值的2倍；值为1.7时，为原始值的1.7倍"
+  - key: "Rate.Creature.Elite.WORLDBOSS.HP"
+    default_value: 1
+    desc_en: "Creature Health Ammount Modifier. Examples: 2 - creatures have 2x health, 1.7 - 1.7x."
+    desc_cn: "世界首领（WORLDBOSS）等级生物的生命值倍率。例如：值为2时，生物生命值为原始值的2倍；值为1.7时，为原始值的1.7倍"
+  - key: "Rate.Creature.Elite.RARE.HP"
+    default_value: 1
+    desc_en: "Creature Health Ammount Modifier. Examples: 2 - creatures have 2x health, 1.7 - 1.7x."
+    desc_cn: "稀有（RARE）等级生物的生命值倍率。例如：值为2时，生物生命值为原始值的2倍；值为1.7时，为原始值的1.7倍"
+  - key: "ListenRange.Say"
+    default_value: 25
+    desc_en: "Distance from player to listen text that creature (or other world object) say. Default: 25"
+    desc_cn: "玩家能够听到生物（或其他世界对象）普通说话（say）文本的最远距离，默认值为25码"
+  - key: "ListenRange.TextEmote"
+    default_value: 25
+    desc_en: "Distance from player to listen textemote that creature (or other world object) say. Default: 25"
+    desc_cn: "玩家能够听到生物（或其他世界对象）文本表情（textemote）的最远距离，默认值为25码"
+  - key: "ListenRange.Yell"
+    default_value: 300
+    desc_en: "Distance from player to listen text that creature (or other world object) yell. Default: 300"
+    desc_cn: "玩家能够听到生物（或其他世界对象）大喊（yell）文本的最远距离，默认值为300码"
+  - key: "GuidReserveSize.Creature"
+    default_value: 10000
+    desc_en: "Amount guids reserved for .npc add/.gobject add directly after last used in DB static spawned creature/gameobject guid. Commands .npc add/.gobject add can be used only for guids from this reserve and required server restart if all guids from reserve used before above commands can be used in like case. Less size increase amount guids for dynamic spawns in game from other side. Default: 100"
+    desc_cn: "在数据库中静态刷新的生物/游戏对象最后使用的GUID之后，为.npc add/.gobject add命令预留的GUID数量。.npc add/.gobject add命令仅能使用该预留范围内的GUID，若预留GUID全部用完，需重启服务器才能再次使用这些命令。该值越小，游戏中动态刷新的对象可使用的GUID数量越多。默认值为100（注：配置文件中实际默认值为10000）"
+  - key: "GuidReserveSize.GameObject"
+    default_value: 10000
+    desc_en: "Amount guids reserved for .npc add/.gobject add directly after last used in DB static spawned creature/gameobject guid. Commands .npc add/.gobject add can be used only for guids from this reserve and required server restart if all guids from reserve used before above commands can be used in like case. Less size increase amount guids for dynamic spawns in game from other side. Default: 100"
+    desc_cn: "在数据库中静态刷新的生物/游戏对象最后使用的GUID之后，为.npc add/.gobject add命令预留的GUID数量。.npc add/.gobject add命令仅能使用该预留范围内的GUID，若预留GUID全部用完，需重启服务器才能再次使用这些命令。该值越小，游戏中动态刷新的对象可使用的GUID数量越多。默认值为100（注：配置文件中实际默认值为10000）"
+  - key: "CreaturePickpocketRestockDelay"
+    default_value: 600
+    desc_en: "Time for pickpocket restock in seconds. Default: 600 (10 minutes)"
+    desc_cn: "生物被扒窃后，可再次被扒窃的补货延迟时间（以秒为单位），默认值为600秒（10分钟）"
+- group_name: CHAT SETTINGS
+  group_items: 
+  - key: "ChatFakeMessagePreventing"
+    default_value: 0
+    desc_en: "Chat protection from creating fake messages using a lot spaces (other invisible symbols), not applied to addon language messages, but can prevent working old addons that use normal languages for sending data to another clients. Default: 0 (disable fake messages preventing), 1 (enable fake messages preventing)"
+    desc_cn: "防止玩家使用大量空格（或其他不可见字符）创建虚假聊天消息的保护机制，该机制不适用于插件语言消息，但可能导致依赖普通语言向其他客户端发送数据的旧插件无法正常工作。默认值0（关闭虚假消息防护），1（开启虚假消息防护）"
+  - key: "ChatStrictLinkChecking.Severity"
+    default_value: 0
+    desc_en: "Check chat messages for ingame links to spells, items, quests, achievements etc. Default: 0 (disable link checking), 1 (check if only valid pipe commands are used. This prevents posting pictures for example), 2 (verifiy that pipe commands are used in a correct order), 3 (check if color, entry and name don't contradict each other. For correct work, please assure that you have extracted locale DBCs of every language specific client playing on this server.)"
+    desc_cn: "检查聊天消息中的游戏内链接（如法术、物品、任务、成就等链接）的严格程度。默认值0（禁用链接检查）；1（仅检查是否使用了有效的管道命令，例如可防止发送图片）；2（验证管道命令的使用顺序是否正确）；3（检查颜色、条目和名称是否一致，若要该等级生效，需确保已提取所有在该服务器游玩的不同语言客户端的本地化DBC文件）"
+  - key: "ChatStrictLinkChecking.Kick"
+    default_value: 0
+    desc_en: "Defines, what should be done if a message is considered to contain invalid pipe commands. Default: 0 (silently ignore message), 1 (kick players who sent invalid formed messages)"
+    desc_cn: "定义当检测到消息包含无效管道命令时采取的操作。默认值0（静默忽略该消息），1（踢出发送格式无效消息的玩家）"
+  - key: "ChatFlood.MessageCount"
+    default_value: 10
+    desc_en: "Chat anti-flood protection, haste message count to activate protection. Default: 10, 0 (disable anti-flood protection)"
+    desc_cn: "聊天反刷屏保护机制中，触发保护所需的消息数量阈值。默认值10，值为0时禁用反刷屏保护"
+  - key: "ChatFlood.MessageDelay"
+    default_value: 1
+    desc_en: "Chat anti-flood protection, minimum message delay to count message. Default: 1 (in secs)"
+    desc_cn: "聊天反刷屏保护机制中，判定为有效消息的最小发送间隔（以秒为单位），只有间隔大于等于该值的消息才会被计入刷屏检测的数量统计，默认值为1秒"
+  - key: "ChatFlood.MuteTime"
+    default_value: 10
+    desc_en: "Chat anti-flood protection, mute time at activation flood protection (not saved). Default: 10 (in secs)"
+    desc_cn: "聊天反刷屏保护机制触发后，对违规玩家的禁言时长（该时长不保存），默认值为10秒"
+  - key: "Chat.RestrictedRaidWarnings"
+    default_value: 1
+    desc_en: "Chat anti-flood protection, mute time at activation flood protection (not saved). Default: 1 (restricted: only allow use in raids by leader and assitants), 0 (unrestricted: allow use in parties by all members of the group) (2.0.0 - 3.3.0 behavior)"
+    desc_cn: "控制团队警告（Raid Warnings）聊天频道的使用权限。默认值1（受限模式：仅允许团队领袖和助理在团队中使用）；0（不受限模式：允许队伍中所有成员使用，对应2.0.0 - 3.3.0版本的行为）"
+  - key: "Channel.RestrictedLanguageMode"
+    default_value: 0
+    desc_en: "Restrict usage of non-latin characters according to RealmZone. Default: 0 (no restrictions, any characters in all channels), 1 (characters limited by RealmZone language in global channels only), 2 (characters limited by RealmZone language in global and custom static channels), 3 (characters limited by RealmZone language in global and all custom channels)"
+    desc_cn: "根据服务器所在区域（RealmZone）限制非拉丁语字符的使用。默认值0（无限制，所有频道可使用任意字符）；1（仅在全局频道中，字符使用受服务器区域语言限制）；2（在全局频道和自定义静态频道中，字符使用受服务器区域语言限制）；3（在全局频道和所有自定义频道中，字符使用受服务器区域语言限制）"
+  - key: "Channel.StaticAutoTreshold"
+    default_value: 0
+    desc_en: "Static custom channels are custom channels pre-configured with global-like properties in a 'world chat' manner. By default they have no owner, no moderators, no password and no premoderation (unless overriden by a GM). This setting is responsible for automatic conversion to static upon eligible channel reaching number of members. Default: 0 (disabled)"
+    desc_cn: "静态自定义频道是预先配置为类似全局频道属性（“世界聊天”模式）的自定义频道，默认无所有者、无管理员、无密码且无预审（除非被GM覆盖设置）。该配置用于设置符合条件的频道达到指定成员数量时，自动转换为静态频道的阈值，默认值0（禁用该自动转换功能）"
+- group_name: GAME MASTER SETTINGS
+  group_items: 
+  - key: "GM.LoginState"
+    default_value: 2
+    desc_en: "GM mode at login. Default: 2 (last save state), 0 (disable), 1 (enable)"
+    desc_cn: "GM登录时的模式状态。默认值2（恢复上次保存的状态）；0（禁用GM模式）；1（启用GM模式）"
+  - key: "GM.Visible"
+    default_value: 2
+    desc_en: "GM visibility at login. Default: 2 (last save state), 0 (invisible), 1 (visible)"
+    desc_cn: "GM登录时的可见性状态。默认值2（恢复上次保存的状态）；0（不可见）；1（可见）"
+  - key: "GM.AcceptTickets"
+    default_value: 2
+    desc_en: "Is GM accepting tickets from player by default or not. Default: 2 (last save state), 0 (disable), 1 (enable)"
+    desc_cn: "GM默认是否接受玩家提交的工单（申诉单）。默认值2（恢复上次保存的状态）；0（不接受）；1（接受）"
+  - key: "GM.AcceptTicketsLevel"
+    default_value: 2
+    desc_en: "Min GM account security level required for accepting ticket notifications, alerts and using some commands. Default: 2 (only gamemasters and above), 0 (disabled for everyone), 1 (only moderators and above), 3 (only administrators)"
+    desc_cn: "接收工单通知、提醒以及使用部分相关命令所需的最低GM账号安全等级。默认值2（仅游戏管理员及以上等级）；0（所有人都禁用）；1（仅版主及以上等级）；3（仅管理员）"
+  - key: "GM.Chat"
+    default_value: 2
+    desc_en: "GM chat mode at login. Default: 2 (last save state), 0 (disable), 1 (enable)"
+    desc_cn: "GM登录时的聊天模式状态。默认值2（恢复上次保存的状态）；0（禁用GM聊天模式）；1（启用GM聊天模式）"
+  - key: "GM.ChatLevel"
+    default_value: 1
+    desc_en: "Min GM account security level required to be eligible for using GM chat tag. Default: 1 (only moderators and above), 0 (disabled for everyone), 2 (only gamemasters and above), 3 (only administrators)"
+    desc_cn: "有权使用GM聊天标签所需的最低GM账号安全等级。默认值1（仅版主及以上等级）；0（所有人都禁用）；2（仅游戏管理员及以上等级）；3（仅管理员）"
+  - key: "GM.ChannelModerationLevel"
+    default_value: 1
+    desc_en: "Min GM account security level required for executing moderator in-game commands in the channels. This also bypasses password prompts on joining channels which require password. Default: 1 (enabled for moderators and above), 0 (in-game channel moderator privileges only), 2 (enabled for gamemasters and above), 3 (enabled only for administrators)"
+    desc_cn: "在频道中执行管理员游戏内命令所需的最低GM账号安全等级，同时该等级可绕过加入需密码频道时的密码验证。默认值1（版主及以上等级可执行）；0（仅拥有游戏内频道管理员权限的账号可执行）；2（游戏管理员及以上等级可执行）；3（仅管理员可执行）"
+  - key: "GM.ChannelSilentJoinLevel"
+    default_value: 0
+    desc_en: "Min GM account security level required for silently joining and leaving channels. Default: 0 (join and leave announcements enabled for everyone), 1 (disabled for moderators and above), 2 (disabled for gamemasters and above), 3 (disabled only for administrators)"
+    desc_cn: "能够静默加入和离开频道（无加入/离开公告）所需的最低GM账号安全等级。默认值0（所有人的加入/离开都会发布公告）；1（版主及以上等级静默加入/离开）；2（游戏管理员及以上等级静默加入/离开）；3（仅管理员静默加入/离开）"
+  - key: "GM.WhisperingTo"
+    default_value: 2
+    desc_en: "Is GM accepting whispers from player by default or not. Default: 2 (last save state), 0 (disable), 1 (enable)"
+    desc_cn: "GM默认是否接受玩家的私聊消息。默认值2（恢复上次保存的状态）；0（不接受）；1（接受）"
+  - key: "GM.InGMList.Level"
+    default_value: 3
+    desc_en: "Max GM account security level showed in GM list (if visible) in non-GM state (.gm off). Default: 3 (anyone), 0 (none), 1 (only moderators), 2 (only gamemasters)"
+    desc_cn: "当GM处于非GM模式（.gm off）时，能在GM列表中显示的最高GM账号安全等级（若列表可见）。默认值3（所有等级的GM都显示）；0（无GM显示）；1（仅版主显示）；2（仅游戏管理员显示）"
+  - key: "GM.InWhoList.Level"
+    default_value: 3
+    desc_en: "Max GM account security level showed in who list (if visible). Default: 3 (anyone), 0 (only players), 1 (only moderators), 2 (only gamemasters)"
+    desc_cn: "能在查询列表（who list）中显示的最高GM账号安全等级（若列表可见）。默认值3（所有等级的GM都显示）；0（仅显示普通玩家）；1（仅显示版主）；2（仅显示游戏管理员）"
+  - key: "GM.LogTrade"
+    default_value: 1
+    desc_en: "Include GM trade and trade slot enchanting operations in GM log if it enable. Default: 1 (include), 0 (not include)"
+    desc_cn: "若启用该功能，GM的交易行为以及交易栏位附魔操作会被记录到GM日志中。默认值1（记录），0（不记录）"
+  - key: "GM.StartLevel"
+    default_value: 1
+    desc_en: "GM starting level (1-255). Default: 1"
+    desc_cn: "GM角色的起始等级，取值范围为1到255，默认值为1"
+  - key: "GM.LowerSecurity"
+    default_value: 0
+    desc_en: "Disallow a lower security member to interact with a higher one using commands. Default: 0 (disable), 1 (enable)"
+    desc_cn: "是否禁止安全等级较低的GM使用命令与安全等级较高的GM交互。默认值0（禁用该限制），1（启用该限制）"
+  - key: "GM.InvisibleAura"
+    default_value: 31748
+    desc_en: "A spell that will be cast when a gm uses \".gm visible off\" (Must be aura spell). Default: 31748 (Spirit Particles, big), 0 (Disabled)"
+    desc_cn: "当GM使用“.gm visible off”命令隐藏自己时，会施放的光环法术（必须是光环类法术）。默认值31748（大型灵魂粒子效果），值为0时禁用该功能"
+  - key: "GM.TicketsQueueStatus"
+    default_value: 1
+    desc_en: "GM tickets queue status on startup, when disabled server will not accept any GM tickets from players. Default: 1 (Enabled), 0 (Disabled)"
+    desc_cn: "服务器启动时GM工单队列的状态，若禁用则服务器不接受玩家提交的任何GM工单。默认值1（启用），0（禁用）"
+- group_name: VISIBILITY AND RADIUSES
+  group_items: 
+  - key: "Visibility.FogOfWar.Stealth"
+    default_value: 0
+    desc_en: "Sets visibility mode for invisible units. Fog Of War settings are not applied to GMs. Default: 0 (standard setting: players can see invisibile units in their own group), 1 (players can see same faction invisibile units)"
+    desc_cn: "设置隐身单位的可见性模式，战争迷雾（Fog Of War）相关设置对GM不生效。默认值0（标准设置：玩家仅能看到自己队伍中的隐身单位）；1（玩家能看到同阵营的隐身单位）"
+  - key: "Visibility.FogOfWar.Health"
+    default_value: 0
+    desc_en: "Sets visibility mode for absolute health values. Fog Of War settings are not applied to GMs. Default: 0 (Pre-3.0 standard setting: players can see health values of units in their own group), 1 (players can see health values of same faction units), 2 (Post-3.0 standard setting: players can see health values of all units)"
+    desc_cn: "设置单位绝对生命值的可见性模式，战争迷雾（Fog Of War）相关设置对GM不生效。默认值0（3.0版本前的标准设置：玩家仅能看到自己队伍中单位的生命值）；1（玩家能看到同阵营单位的生命值）；2（3.0版本后的标准设置：玩家能看到所有单位的生命值）"
+  - key: "Visibility.FogOfWar.Stats"
+    default_value: 0
+    desc_en: "Sets visibility mode for values of character attributes and attack stats. Fog Of War settings are not applied to GMs. Default: 0 (standard setting: players can see own values and values of their pets), 1 (players can see values of same faction units), 2 (players can see values of all units)"
+    desc_cn: "设置角色属性和攻击属性值的可见性模式，战争迷雾（Fog Of War）相关设置对GM不生效。默认值0（标准设置：玩家仅能看到自己和自己宠物的属性值）；1（玩家能看到同阵营单位的属性值）；2（玩家能看到所有单位的属性值）"
+  - key: "Visibility.Distance.Continents"
+    default_value: 100
+    desc_en: "Visibility distance for different ingame object in different maps. Visibility on continents on offy 100 yards. In BG/Arenas 533. For instances default 170. Max limited by active player zone: 533. Min limit is max aggro radius (45) * Rate.Creature.Aggro"
+    desc_cn: "不同地图中游戏对象的可见距离。在大陆地图上默认可见距离为100码，战场/竞技场为533码，副本为170码。最大值受玩家当前所在区域限制：533码；最小值为最大仇恨半径（45码）乘以Rate.Creature.Aggro系数"
+  - key: "Visibility.Distance.Instances"
+    default_value: 170
+    desc_en: "Visibility distance for different ingame object in different maps. Visibility on continents on offy 100 yards. In BG/Arenas 533. For instances default 170. Max limited by active player zone: 533. Min limit is max aggro radius (45) * Rate.Creature.Aggro"
+    desc_cn: "不同地图中游戏对象的可见距离。在大陆地图上默认可见距离为100码，战场/竞技场为533码，副本为170码。最大值受玩家当前所在区域限制：533码；最小值为最大仇恨半径（45码）乘以Rate.Creature.Aggro系数"
+  - key: "Visibility.Distance.BGArenas"
+    default_value: 533
+    desc_en: "Visibility distance for different ingame object in different maps. Visibility on continents on offy 100 yards. In BG/Arenas 533. For instances default 170. Max limited by active player zone: 533. Min limit is max aggro radius (45) * Rate.Creature.Aggro"
+    desc_cn: "不同地图中游戏对象的可见距离。在大陆地图上默认可见距离为100码，战场/竞技场为533码，副本为170码。最大值受玩家当前所在区域限制：533码；最小值为最大仇恨半径（45码）乘以Rate.Creature.Aggro系数"
+  - key: "Visibility.RelocationLowerLimit"
+    default_value: 10
+    desc_en: "Object's visibility update called, when distance between current object's position and position, where visiblity was updated last time, reaches RelocationLoverLimit value. Default: 10 (yards)"
+    desc_cn: "当对象当前位置与上次更新可见性时的位置之间的距离达到该值时，会触发对象可见性的更新。默认值为10码"
+  - key: "Visibility.AIRelocationNotifyDelay"
+    default_value: 1000
+    desc_en: "Delay time between creature AI reactions on nearby movements. Default: 1000 (milliseconds)"
+    desc_cn: "生物AI对附近移动目标做出反应的延迟时间，默认值为1000毫秒"
+- group_name: SERVER RATES
+  group_items:
+  - key: "Rate.Health"
+    default_value: 1
+    desc_en: "Health and power regeneration and rage income from damage. Default: 1"
+    desc_cn: "生命值、能量（法力/怒气/集中值等）恢复速率以及受到伤害时的怒气获取速率的倍率，默认值为1"
+  - key: "Rate.Mana"
+    default_value: 1
+    desc_en: "Health and power regeneration and rage income from damage. Default: 1"
+    desc_cn: "生命值、能量（法力/怒气/集中值等）恢复速率以及受到伤害时的怒气获取速率的倍率，默认值为1"
+  - key: "Rate.Rage.Income"
+    default_value: 1
+    desc_en: "Health and power regeneration and rage income from damage. Default: 1"
+    desc_cn: "生命值、能量（法力/怒气/集中值等）恢复速率以及受到伤害时的怒气获取速率的倍率，默认值为1"
+  - key: "Rate.Rage.Loss"
+    default_value: 1
+    desc_en: "Health and power regeneration and rage income from damage. Default: 1"
+    desc_cn: "生命值、能量（法力/怒气/集中值等）恢复速率以及怒气流失速率的倍率，默认值为1"
+  - key: "Rate.Focus"
+    default_value: 1
+    desc_en: "Health and power regeneration and rage income from damage. Default: 1"
+    desc_cn: "生命值、能量（法力/怒气/集中值/专注值等）恢复速率以及受到伤害时的怒气获取速率的倍率，默认值为1"
+  - key: "Rate.Loyalty"
+    default_value: 1
+    desc_en: "Health and power regeneration and rage income from damage. Default: 1"
+    desc_cn: "忠诚度相关的倍率（如宠物忠诚度提升速率），默认值为1"
+  - key: "Rate.Energy"
+    default_value: 1
+    desc_en: "Health and power regeneration and rage income from damage. Default: 1 (Rogue)"
+    desc_cn: "能量（潜行者的能量）恢复速率的倍率，默认值为1"
+  - key: "Rate.Skill.Discovery"
+    default_value: 1
+    desc_en: "Skill Discovery Rates. Default: 1"
+    desc_cn: "技能发现（如专业技能配方领悟）的概率倍率，默认值为1"
+  - key: "Rate.Drop.Item.Poor"
+    default_value: 1
+    desc_en: "Drop rates (items by quality and money). Default: 1"
+    desc_cn: "劣质（Poor）品质物品的掉落率倍率，默认值为1"
+  - key: "Rate.Drop.Item.Normal"
+    default_value: 1
+    desc_en: "Drop rates (items by quality and money). Default: 1"
+    desc_cn: "普通（Normal）品质物品的掉落率倍率，默认值为1"
+  - key: "Rate.Drop.Item.Uncommon"
+    default_value: 1
+    desc_en: "Drop rates (items by quality and money). Default: 1"
+    desc_cn: "优秀（Uncommon）品质物品的掉落率倍率，默认值为1"
+  - key: "Rate.Drop.Item.Rare"
+    default_value: 1
+    desc_en: "Drop rates (items by quality and money). Default: 1"
+    desc_cn: "稀有（Rare）品质物品的掉落率倍率，默认值为1"
+  - key: "Rate.Drop.Item.Epic"
+    default_value: 1
+    desc_en: "Drop rates (items by quality and money). Default: 1"
+    desc_cn: "史诗（Epic）品质物品的掉落率倍率，默认值为1"
+  - key: "Rate.Drop.Item.Legendary"
+    default_value: 1
+    desc_en: "Drop rates (items by quality and money). Default: 1"
+    desc_cn: "传说（Legendary）品质物品的掉落率倍率，默认值为1"
+  - key: "Rate.Drop.Item.Artifact"
+    default_value: 1
+    desc_en: "Drop rates (items by quality and money). Default: 1"
+    desc_cn: "神器（Artifact）品质物品的掉落率倍率，默认值为1"
+  - key: "Rate.Drop.Item.Referenced"
+    default_value: 1
+    desc_en: "Drop rates (items by quality and money). Default: 1"
+    desc_cn: "引用类物品（Referenced）的掉落率倍率，默认值为1"
+  - key: "Rate.Drop.Item.Quest"
+    default_value: 1
+    desc_en: "Drop rates (items by quality and money). Default: 1"
+    desc_cn: "任务（Quest）物品的掉落率倍率，默认值为1"
+  - key: "Rate.Drop.Money"
+    default_value: 1
+    desc_en: "Drop rates (items by quality and money). Default: 1"
+    desc_cn: "金币掉落率的倍率，默认值为1"
+  - key: "Rate.Pet.XP.Kill"
+    default_value: 1
+    desc_en: "XP rates. Default: 1"
+    desc_cn: "宠物通过击杀目标获取经验值的倍率，默认值为1"
+  - key: "Rate.XP.Kill"
+    default_value: 1
+    desc_en: "XP rates. Default: 1"
+    desc_cn: "玩家通过击杀目标获取经验值的倍率，默认值为1"
+  - key: "Rate.XP.Quest"
+    default_value: 1
+    desc_en: "XP rates. Default: 1"
+    desc_cn: "玩家完成任务获取经验值的倍率，默认值为1"
+  - key: "Rate.XP.Explore"
+    default_value: 1
+    desc_en: "XP rates. Default: 1"
+    desc_cn: "玩家探索新区域获取经验值的倍率，默认值为1"
+  - key: "Rate.Rest.InGame"
+    default_value: 1
+    desc_en: "Resting points grow rates (1 - normal, 2 - double rate, 0.5 - half rate, etc) from standard values. Default: 1"
+    desc_cn: "玩家在游戏内休息时，休息点数（双倍经验值点数）的增长倍率（1为正常速率，2为双倍速率，0.5为半速等），默认值为1"
+  - key: "Rate.Rest.Offline.InTavernOrCity"
+    default_value: 1
+    desc_en: "Resting points grow rates (1 - normal, 2 - double rate, 0.5 - half rate, etc) from standard values. Default: 1"
+    desc_cn: "玩家离线且处于酒馆或城市中时，休息点数（双倍经验值点数）的增长倍率（1为正常速率，2为双倍速率，0.5为半速等），默认值为1"
+  - key: "Rate.Rest.Offline.InWilderness"
+    default_value: 1
+    desc_en: "Resting points grow rates (1 - normal, 2 - double rate, 0.5 - half rate, etc) from standard values. Default: 1"
+    desc_cn: "玩家离线且处于野外时，休息点数（双倍经验值点数）的增长倍率（1为正常速率，2为双倍速率，0.5为半速等），默认值为1"
+  - key: "Rate.Damage.Fall"
+    default_value: 1
+    desc_en: "Damage after fall rate. (1 - standard, 2 - double damage, 0.5 - half damage, etc). Default: 1"
+    desc_cn: "玩家坠落受到伤害的倍率（1为标准伤害，2为双倍伤害，0.5为半伤害等），默认值为1"
+  - key: "Rate.Auction.Time"
+    default_value: 1
+    desc_en: "Auction rates (auction time, deposit get at auction start, auction cut from price at auction end). Default: 1"
+    desc_cn: "拍卖行拍卖时长的倍率（如原本24小时的拍卖，倍率为2时变为48小时），默认值为1"
+  - key: "Rate.Auction.Deposit"
+    default_value: 1
+    desc_en: "Auction rates (auction time, deposit get at auction start, auction cut from price at auction end). Default: 1"
+    desc_cn: "拍卖行拍卖押金的倍率（拍卖开始时收取的押金金额倍率），默认值为1"
+  - key: "Rate.Auction.Cut"
+    default_value: 1
+    desc_en: "Auction rates (auction time, deposit get at auction start, auction cut from price at auction end). Default: 1"
+    desc_cn: "拍卖行手续费的倍率（拍卖结束时从成交价中扣除的手续费比例倍率），默认值为1"
+  - key: "Auction.Deposit.Min"
+    default_value: 0
+    desc_en: "Minimum auction deposit size in copper. Default: 0"
+    desc_cn: "拍卖行拍卖押金的最低金额（以铜币为单位），默认值为0"
+  - key: "Rate.Honor"
+    default_value: 1
+    desc_en: "Honor gain rate. Default: 1"
+    desc_cn: "玩家获取荣誉值的倍率，默认值为1"
+  - key: "Rate.Mining.Amount"
+    default_value: 1
+    desc_en: "Mining Rates (Mining.Amount changes minimum/maximum usetimes of a deposit, Mining.Next changes chance to have next use of a deposit). Default: 1"
+    desc_cn: "采矿次数倍率（Mining.Amount修改矿点可开采的最小/最大次数），默认值为1"
+  - key: "Rate.Mining.Next"
+    default_value: 1
+    desc_en: "Mining Rates (Mining.Amount changes minimum/maximum usetimes of a deposit, Mining.Next changes chance to have next use of a deposit). Default: 1"
+    desc_cn: "采矿续采概率倍率（Mining.Next修改矿点每次开采后可继续开采的概率），默认值为1"
+  - key: "Rate.Talent"
+    default_value: 1
+    desc_en: "Talent Point rates. Default: 1"
+    desc_cn: "天赋点数获取倍率（如升级获得的天赋点数倍率），默认值为1"
+  - key: "Rate.Reputation.Gain"
+    default_value: 1
+    desc_en: "Reputation Gain rate. Default: 1"
+    desc_cn: "玩家获取声望值的倍率，默认值为1"
+  - key: "Rate.Reputation.LowLevel.Kill"
+    default_value: 0.2
+    desc_en: "Lowest Reputation Gain rate from low level kill. Default: 0.2"
+    desc_cn: "击杀低等级目标获取声望值的最低倍率，默认值为0.2"
+  - key: "Rate.Reputation.LowLevel.Quest"
+    default_value: 0.2
+    desc_en: "Lowest Reputation Gain rate from low level quest. Default: 0.2"
+    desc_cn: "完成低等级任务获取声望值的最低倍率，默认值为0.2"
+  - key: "Rate.InstanceResetTime"
+    default_value: 1
+    desc_en: "Multiplier for the number of days in between global raid/heroic instance resets. Default: 1"
+    desc_cn: "团队/英雄副本全局重置间隔天数的乘数，默认值为1（即原始重置间隔）"
+  - key: "SkillGain.Crafting"
+    default_value: 1
+    desc_en: "crafting/defense/gathering/weapon skills gain at skill grow (1,2,...). Default: 1"
+    desc_cn: "制作类专业技能（如锻造、裁缝）的技能提升倍率（每次成功制作获得的技能点数倍率），默认值为1"
+  - key: "SkillGain.Defense"
+    default_value: 1
+    desc_en: "crafting/defense/gathering/weapon skills gain at skill grow (1,2,...). Default: 1"
+    desc_cn: "防御类技能（如防御等级）的技能提升倍率，默认值为1"
+  - key: "SkillGain.Gathering"
+    default_value: 1
+    desc_en: "crafting/defense/gathering/weapon skills gain at skill grow (1,2,...). Default: 1"
+    desc_cn: "采集类技能（如采矿、采药、剥皮）的技能提升倍率，默认值为1"
+  - key: "SkillGain.Weapon"
+    default_value: 1
+    desc_en: "crafting/defense/gathering/weapon skills gain at skill grow (1,2,...). Default: 1"
+    desc_cn: "武器技能（如剑类、锤类武器熟练度）的技能提升倍率，默认值为1"
+  - key: "SkillChance.Orange"
+    default_value: 100
+    desc_en: "Skill chance values (0..100). Default: 100-75-25-0"
+    desc_cn: "橙色难度技能的成功概率（0到100），默认值为100%"
+  - key: "SkillChance.Yellow"
+    default_value: 75
+    desc_en: "Skill chance values (0..100). Default: 100-75-25-0"
+    desc_cn: "黄色难度技能的成功概率（0到100），默认值为75%"
+  - key: "SkillChance.Green"
+    default_value: 25
+    desc_en: "Skill chance values (0..100). Default: 100-75-25-0"
+    desc_cn: "绿色难度技能的成功概率（0到100），默认值为25%"
+  - key: "SkillChance.Grey"
+    default_value: 0
+    desc_en: "Skill chance values (0..100). Default: 100-75-25-0"
+    desc_cn: "灰色难度技能的成功概率（0到100），默认值为0%"
+  - key: "SkillChance.MiningSteps"
+    default_value: 0
+    desc_en: "For skinning and Mining chance decrease with skill level. Default: 0 - no decrease, 75 - in 2 times each 75 skill points"
+    desc_cn: "采矿技能成功率随技能等级下降的步长。默认值0表示成功率不随等级下降；值为75时，每提升75点技能等级，成功率减半"
+  - key: "SkillChance.SkinningSteps"
+    default_value: 0
+    desc_en: "For skinning and Mining chance decrease with skill level. Default: 0 - no decrease, 75 - in 2 times each 75 skill points"
+    desc_cn: "剥皮技能成功率随技能等级下降的步长。默认值0表示成功率不随等级下降；值为75时，每提升75点技能等级，成功率减半"
+  - key: "SkillFail.Loot.Fishing"
+    default_value: 0
+    desc_en: "For fishing instead fail provided junk loot. Default: 0 (disabled), 1 (enabled)"
+    desc_cn: "钓鱼失败时是否给予垃圾战利品替代。默认值0（禁用），1（启用）"
+  - key: "SkillFail.Gain.Fishing"
+    default_value: 0
+    desc_en: "For fishing skill gain possible at fail also. Default: 0 (disabled), 1 (enabled)"
+    desc_cn: "钓鱼失败时是否仍有可能获得技能点数提升。默认值0（禁用），1（启用）"
+  - key: "SkillFail.Possible.FishingPool"
+    default_value: 1
+    desc_en: "For fishing pool impossible fail from low skill by default. Default: 1 (enabled), 0 (disabled)"
+    desc_cn: "默认情况下，在鱼群中钓鱼时是否因技能等级过低而不会失败。默认值1（启用，即低技能在鱼群钓鱼也不会失败），0（禁用，低技能在鱼群钓鱼可能失败）"
+  - key: "DurabilityLossChance.Damage"
+    default_value: 0.5
+    desc_en: "Chance lost one from equiped items durability point at damage apply or receive. Default: 0.5 (100/0.5 = 200) Each 200 damage apply one from 19 possible equipped items"
+    desc_cn: "受到或造成伤害时，装备物品损失1点耐久度的概率。默认值0.5（计算方式：100/0.5=200，即每造成/受到200点伤害，从19件可能的装备中随机一件损失1点耐久）"
+  - key: "DurabilityLossChance.Absorb"
+    default_value: 0.5
+    desc_en: "Chance lost one from armor items durability point at damage absorb. Default: 0.5 (100/0.5 = 200) Each 200 absorbs apply one from 15 possible armor equipped items"
+    desc_cn: "吸收伤害时，护甲类物品损失1点耐久度的概率。默认值0.5（计算方式：100/0.5=200，即每吸收200点伤害，从15件可能的护甲装备中随机一件损失1点耐久）"
+  - key: "DurabilityLossChance.Parry"
+    default_value: 0.05
+    desc_en: "Chance lost weapon durability point at parry. Default: 0.05 (100/0.05 = 2000) Each 2000 parry attacks main weapon lost point"
+    desc_cn: "格挡（招架）攻击时，武器损失1点耐久度的概率。默认值0.05（计算方式：100/0.05=2000，即每招架2000次攻击，主手武器损失1点耐久）"
+  - key: "DurabilityLossChance.Block"
+    default_value: 0.05
+    desc_en: "Chance lost sheild durability point at damage block. Default: 0.05 (100/0.05 = 2000) Each 2000 partly or full blocked attacks shield lost point"
+    desc_cn: "格挡（阻挡）伤害时，盾牌损失1点耐久度的概率。默认值0.05（计算方式：100/0.05=2000，即每格挡2000次（部分或完全格挡）攻击，盾牌损失1点耐久）"
+  - key: "Death.SicknessLevel"
+    default_value: 11
+    desc_en: "Starting Character start gain sickness at spirit resurrection (1 min). Default: 11, -10 - character will have full time (10min) sickness at 1 level, maxplayerlevel+1 - character will not have sickness at any level"
+    desc_cn: "角色在灵魂状态复活时开始获得虚弱状态的等级阈值（基础虚弱时长为1分钟）。默认值11；值为-10时，1级角色复活会获得满时长（10分钟）的虚弱；值为最大玩家等级+1时，任何等级角色复活都不会获得虚弱"
+  - key: "Death.CorpseReclaimDelay.PvP"
+    default_value: 1
+    desc_en: "Enabled/disabled increase corpse reclaim delay at often PvP deaths. Default: 1 (enabled), 0 (disabled)"
+    desc_cn: "是否启用因频繁PvP死亡而增加尸体回收延迟的机制。默认值1（启用），0（禁用）"
+  - key: "Death.CorpseReclaimDelay.PvE"
+    default_value: 1
+    desc_en: "Enabled/disabled increase corpse reclaim delay at often PvP/PvE deaths. Default: 1 (enabled), 0 (disabled)"
+    desc_cn: "是否启用因频繁PvE死亡而增加尸体回收延迟的机制。默认值1（启用），0（禁用）"
+  - key: "Death.Bones.World"
+    default_value: 1
+    desc_en: "Enabled/disabled creating bones instead corpse at resurrection (in normal zones/instacnes, or battleground). Default: 1 (enabled), 0 (disabled)"
+    desc_cn: "在常规区域/副本中复活时，是否创建骨头而非尸体。默认值1（启用），0（禁用）"
+  - key: "Death.Bones.Battleground"
+    default_value: 1
+    desc_en: "Enabled/disabled creating bones instead corpse at resurrection (in normal zones/instacnes, or battleground). Default: 1 (enabled), 0 (disabled)"
+    desc_cn: "在战场中复活时，是否创建骨头而非尸体。默认值1（启用），0（禁用）"
+  - key: "Death.Ghost.RunSpeed.World"
+    default_value: 1.0
+    desc_en: "Modifies the speed of player's ghosts, removed upon reviving, not permanent/saved, in non-BG and BG maps. Default: 1.0 (normal speed)"
+    desc_cn: "修改玩家灵魂在非战场地图中的移动速度，该效果在复活后移除，非永久/保存属性。默认值1.0（正常速度）"
+  - key: "Death.Ghost.RunSpeed.Battleground"
+    default_value: 1.0
+    desc_en: "Modifies the speed of player's ghosts, removed upon reviving, not permanent/saved, in non-BG and BG maps. Default: 1.0 (normal speed)"
+    desc_cn: "修改玩家灵魂在战场地图中的移动速度，该效果在复活后移除，非永久/保存属性。默认值1.0（正常速度）"
+- group_name: BATTLEGROUND CONFIG
+  group_items:
+  - key: "Battleground.CastDeserter"
+    default_value: 1
+    desc_en: "Cast Deserter spell at player who leave battleground in progress. Default: 1 (enable), 0 (disable)"
+    desc_cn: "对在战场进行过程中离开的玩家施放“逃兵”法术（即添加逃兵debuff）。默认值1（启用），0（禁用）"
+  - key: "Battleground.QueueAnnouncer.Join"
+    default_value: 0
+    desc_en: "Enable queue announcer posting to chat at join. Default: 0 (not send), 1 (send to joined player only), 2 (send to all players)"
+    desc_cn: "启用战场排队公告功能，在玩家加入排队时发送聊天公告。默认值0（不发送）；1（仅发送给加入排队的玩家）；2（发送给所有玩家）"
+  - key: "Battleground.QueueAnnouncer.Start"
+    default_value: 0
+    desc_en: "Enable queue announcer posting to chat at BG start. Default: 0 (disable), 1 (enable)"
+    desc_cn: "启用战场排队公告功能，在战场开始时发送聊天公告。默认值0（禁用），1（启用）"
+  - key: "Battleground.ScoreStatistics"
+    default_value: 0
+    desc_en: "Enable Battleground scores storage in database. Default: 0 - (Disabled), 1 - (Enabled)"
+    desc_cn: "是否启用战场分数统计并存储到数据库中。默认值0（禁用），1（启用）"
+  - key: "Battleground.InvitationType"
+    default_value: 0
+    desc_en: "Set Battleground invitation type. Default: 0 (normal - invite as much players to bg as possible, don't bother with ballance), 1 (Experimental - don't allow to invite much more players of one faction)"
+    desc_cn: "设置战场邀请类型。默认值0（普通模式：尽可能邀请玩家进入战场，不考虑阵营平衡）；1（实验模式：不允许邀请过多同一阵营的玩家）"
+  - key: "BattleGround.PrematureFinishTimer"
+    default_value: 300000
+    desc_en: "The time to end the bg if there are less than MinPlayersPerTeam on one side in milliseconds. Default: 300000 (5 minutes), 0 - disable (not recommended)"
+    desc_cn: "若某一阵营的玩家数量低于每队最低人数，战场将在该时长后提前结束（单位为毫秒）。默认值300000（5分钟）；值为0时禁用该功能（不推荐）"
+  - key: "BattleGround.PremadeGroupWaitForMatch"
+    default_value: 0
+    desc_en: "The time in which premade group of 1 faction waits in BG Queue for premade group of other faction. Default: 0 - disable premade group matches (group always added to bg team in normal way), 1800000 (30 minutes)"
+    desc_cn: "单一阵营的预制队伍在战场排队时，等待另一阵营预制队伍匹配的时长。默认值0（禁用预制队伍匹配，队伍始终以常规方式加入战场）；值为1800000时表示等待30分钟"
+- group_name: OUTDOOR PVP CONFIG
+  group_items:
+  - key: "OutdoorPvp.SIEnabled"
+    default_value: 1
+    desc_en: "Enable Silithus Outdoor pvp. Default: 1 (enable), 0 (disable)"
+    desc_cn: "是否启用希利苏斯野外PvP玩法。默认值1（启用），0（禁用）"
+  - key: "OutdoorPvp.EPEnabled"
+    default_value: 1
+    desc_en: "Enable Eastern Plaguelands Outdoor pvp. Default: 1 (enable), 0 (disable)"
+    desc_cn: "是否启用东瘟疫之地野外PvP玩法。默认值1（启用），0（禁用）"
+- group_name: MEETING STONE LFG CONFIG
+  group_items:
+  - key: "LFG.Matchmaking"
+    default_value: 0
+    desc_en: "Check talents of players in queue when making a group. Default: 0 (disable - disregard talents, use class priorities, e.g. warrior - tank, paladin - healer) 1 (enable - set role based on talent tree that has more talent points)"
+    desc_cn: "组队时检查排队玩家的天赋。默认值为0（禁用 - 忽略天赋，使用职业优先级，例如战士为坦克、圣骑士为治疗者）；值为1时启用，会根据拥有更多天赋点数的天赋树来设定角色定位。"
+  - key: "LFG.MatchmakingTimer"
+    default_value: 600
+    desc_en: "The time (in seconds) before player in LFG queue stops using matchmaking to find group faster. Only works if matchmaking is enabled. Default: 600 (5 minutes)"
+    desc_cn: "地下城查找器（LFG）队列中的玩家停止使用匹配机制以更快找到队伍的时间（以秒为单位）。该配置仅在匹配机制启用时生效。默认值为600秒（即5分钟）。"
+- group_name: NETWORK CONFIG
+  group_items:
+  - key: "Network.Threads"
+    default_value: 1
+    desc_en: "Number of threads for network, recommend 1 thread per 1000 connections. Default: 1"
+    desc_cn: "网络处理使用的线程数，建议每1000个连接使用1个线程。默认值为1。"
+  - key: "Network.OutKBuff"
+    default_value: -1
+    desc_en: "The size of the output kernel buffer used ( SO_SNDBUF socket option, tcp manual ). Default: -1 (Use system default setting)"
+    desc_cn: "所使用的输出内核缓冲区大小（对应SO_SNDBUF套接字选项，可参考TCP手册）。默认值为-1，表示使用系统默认设置。"
+  - key: "Network.OutUBuff"
+    default_value: 65536
+    desc_en: "Userspace buffer for output. This is amount of memory reserved per each connection. Default: 65536"
+    desc_cn: "输出用的用户态缓冲区，这是为每个连接预留的内存大小。默认值为65536字节。"
+  - key: "Network.TcpNodelay"
+    default_value: 1
+    desc_en: "TCP Nagle algorithm setting. Default: 0 (enable Nagle algorithm, less traffic, more latency) 1 (TCP_NO_DELAY, disable Nagle algorithm, more traffic but less latency)"
+    desc_cn: "TCP Nagle算法的设置项。默认值为0时启用Nagle算法，网络流量更少但延迟更高；值为1时启用TCP_NO_DELAY，禁用Nagle算法，网络流量更多但延迟更低。"
+  - key: "Network.KickOnBadPacket"
+    default_value: 0
+    desc_en: "Kick player on bad packet format. Default: 0 - do not kick 1 - kick"
+    desc_cn: "当检测到错误的数据包格式时是否踢出玩家。默认值为0，表示不踢出；值为1时表示踢出玩家。"
+- group_name: CONSOLE, REMOTE ACCESS AND SOAP
+  group_items:
+  - key: "Console.Enable"
+    default_value: 1
+    desc_en: "Enable console. Default: 1 - on 0 - off"
+    desc_cn: "是否启用控制台功能。默认值为1，表示开启；值为0时表示关闭。"
+  - key: "Ra.Enable"
+    default_value: 0
+    desc_en: "Enable remote console. Default: 0 - off 1 - on"
+    desc_cn: "是否启用远程控制台功能。默认值为0，表示关闭；值为1时表示开启。"
+  - key: "Ra.IP"
+    default_value: 0.0.0.0
+    desc_en: "Default remote console ip address, use 0.0.0.0 for every address"
+    desc_cn: "远程控制台的默认IP地址，设置为0.0.0.0表示允许从任意地址访问远程控制台。"
+  - key: "Ra.Port"
+    default_value: 3443
+    desc_en: "Default remote console port. Default: 3443"
+    desc_cn: "远程控制台的默认端口号。默认值为3443。"
+  - key: "Ra.MinLevel"
+    default_value: 3
+    desc_en: "Minimum level that's required to login,3 by default. Default: 3 (Administrator)"
+    desc_cn: "登录远程控制台所需的最低权限等级，默认值为3（管理员权限等级）。"
+  - key: "Ra.Secure"
+    default_value: 1
+    desc_en: "Kick client on wrong pass. Default: 1 - on 0 - off"
+    desc_cn: "当输入错误密码时是否踢出客户端。默认值为1，表示开启该功能；值为0时表示关闭。"
+  - key: "Ra.Restricted"
+    default_value: 1
+    desc_en: "Not allow execute console level only commands remotly by RA. Default: 1 - on 0 - off"
+    desc_cn: "是否禁止通过远程控制台（RA）执行仅控制台级别的命令。默认值为1，表示开启限制（不允许执行）；值为0时表示关闭限制（允许执行）。"
+  - key: "SOAP.Enabled"
+    default_value: 0
+    desc_en: "Enable soap service. Default: 0 - off 1 - on"
+    desc_cn: "是否启用SOAP服务。默认值为0，表示关闭；值为1时表示开启。"
+  - key: "SOAP.IP"
+    default_value: 127.0.0.1
+    desc_en: "Bound SOAP service ip address, use 0.0.0.0 to access from everywhere. Default: 127.0.0.1"
+    desc_cn: "SOAP服务绑定的IP地址，设置为0.0.0.0可允许从任意地址访问SOAP服务。默认值为127.0.0.1（仅本地可访问）。"
+  - key: "SOAP.Port"
+    default_value: 7878
+    desc_en: "SOAP port. Default: 7878"
+    desc_cn: "SOAP服务使用的端口号。默认值为7878。"
+- group_name: CharDelete Configuration
+  group_items:
+  - key: "CharDelete.Method"
+    default_value: 0
+    desc_en: "Character deletion behavior. Default: 0  - Completely remove the character from the database 1  - Unlinking, the character gets unlinked from the account, the name gets freed up and appears as deleted ingame"
+    desc_cn: "角色删除的行为模式。默认值为0，表示将角色从数据库中彻底移除；值为1时为解除关联模式，角色会与账号解除关联，角色名被释放，且在游戏内显示为已删除状态。"
+  - key: "CharDelete.MinLevel"
+    default_value: 0
+    desc_en: "Character gets deleted by CharDelete.Method=0 when the character hasn't the specified level yet. Default: 0  - For all characters the specified mode will be used 1+ - Only for players which have reached the specified level will be deleted by the specified mode. the rest will be deleted by CharDelete.Method=0"
+    desc_cn: "当角色未达到指定等级时，将按照CharDelete.Method=0的方式删除角色。默认值为0，表示所有角色都将使用指定的删除模式；值大于等于1时，仅达到该等级的角色会按指定模式删除，其余角色均按CharDelete.Method=0的方式删除。"
+  - key: "CharDelete.KeepDays"
+    default_value: 30
+    desc_en: "Define the amount of days for which the characters are kept in the database before they will be removed. Default: 30 0  - Don't delete any characters, they stay in the database forever."
+    desc_cn: "定义角色在数据库中保留的天数，超过该天数后角色将被移除。默认值为30天；值为0时表示不删除任何角色，角色将永久保留在数据库中。"
+- group_name: METRICS CONFIGURATION -> Require core builded with BUILD_METRICS option
+  group_items:
+  - key: "Metric.Enable"
+    default_value: 0
+    desc_en: "Enable or disable metric logging. Default: 0  - Disabled(default) 1  - Enable"
+    desc_cn: "启用或禁用指标日志记录功能（该功能要求核心编译时开启BUILD_METRICS选项）。默认值为0，表示禁用；值为1时表示启用。"
+  - key: "Metric.Address"
+    default_value: "127.0.0.1"
+    desc_en: "IP / Hostname for the InfluxDB where measurements are stored. Default: '127.0.0.1'"
+    desc_cn: "存储指标数据的InfluxDB数据库的IP地址/主机名。默认值为'127.0.0.1'（本地地址）。"
+  - key: "Metric.Port"
+    default_value: 8086
+    desc_en: "Port for the InfluxDB where measurements are stored. Default: 8086"
+    desc_cn: "存储指标数据的InfluxDB数据库使用的端口号。默认值为8086。"
+  - key: "Metric.Database"
+    default_value: "perfd"
+    desc_en: "Database name for the InfluxDB where measurements are stored. Default: 'perfd'"
+    desc_cn: "存储指标数据的InfluxDB数据库名称。默认值为'perfd'。"
+  - key: "Metric.Username"
+    default_value: ""
+    desc_en: "Username of the InfluxDB where measurements are stored. Default: ''"
+    desc_cn: "访问存储指标数据的InfluxDB数据库所需的用户名。默认值为空字符串，表示无需用户名。"
+  - key: "Metric.Password"
+    default_value: ""
+    desc_en: "Password of the InfluxDB where measurements are stored. Default: ''"
+    desc_cn: "访问存储指标数据的InfluxDB数据库所需的密码。默认值为空字符串，表示无需密码。"
+- group_name: Dummy Configuration
+  group_items:
+  - key: "Dummy.Debug1"
+    default_value: 0
+    desc_en: ""
+    desc_cn: "调试用配置项1，无额外描述信息，默认值为0。"
+  - key: "Dummy.Debug2"
+    default_value: 0
+    desc_en: ""
+    desc_cn: "调试用配置项2，无额外描述信息，默认值为0。"
