@@ -16,6 +16,10 @@ import {
 } from './utils/config';
 import { Logger } from './utils/logger';
 import './utils/language';
+import backSvg from './assets/back.svg';
+import importSvg from './assets/import.svg';
+import saveAsSvg from './assets/saveas.svg';
+import logSvg from './assets/log.svg';
 
 export default function App() {
   const { t, i18n } = useTranslation();
@@ -24,49 +28,64 @@ export default function App() {
   const [editItem, setEditItem] = useState(null);
   const [showLog, setShowLog] = useState(false);
   const [searchKey, setSearchKey] = useState('');
+  const [configType, setConfigType] = useState('mangosd');
 
   useEffect(() => {
-    if (!showHome) loadCurrentConfig();
+    if (!showHome) loadCurrentConfig(configType, true);
   }, [i18n.language]);
 
-  const loadCurrentConfig = async () => {
-    let cfg = await loadConfig(i18n.language);
-    if (config && config.length > 0) {
+  const loadCurrentConfig = async (newLoadType, reload = false) => {
+    let cfg = await loadConfig(i18n.language, newLoadType);
+    if (config && config.length > 0 && reload) {
       cfg = transformToGroupObject(cfg, config); // 保留当前修改的值
     }
     setConfig(cfg);
+    return cfg;
   };
 
-  const handleNew = async () => {
-    await loadCurrentConfig();
+  const handleNew = async (conf) => {
+    setConfigType(conf);
+    await loadCurrentConfig(conf);
     setShowHome(false);
-    Logger.info('logDefaultLoaded');
+    Logger.info('logDefaultLoaded', { type: conf });
   };
 
-  const handleImport = async () => {
+  const handleBackHome = () => {
+    setShowHome(true);
+    setConfig([]);
+    setSearchKey('');
+  }
+
+  const handleImport = async (conf) => {
     try {
-      const selected = await open({ filters: [{ name: 'Conf', extensions: ['conf'] }] });
+      console.log(conf);
+
+      setConfigType(conf);
+      let a = ava.text.loa;
+      const selected = await open({ filters: [{ name: conf + '.conf', extensions: ['conf'] }] });
       if (!selected) return;
       const text = await readTextFile(selected);
       const imported = parseImportedConfig(text);
-      const original = await loadConfig(i18n.language);
+      const original = await loadCurrentConfig(conf);
       const merged = mergeImported(original, imported);
       setConfig(merged);
       setShowHome(false);
-      Logger.info('logImported');
+      Logger.info('logImported', { type: conf });
     } catch (e) {
-      Logger.error('logImportFail');
+      console.log("Import failed: ", e);
+      Logger.error('logImportFail', { type: conf }, e);
     }
   };
 
   const handleSave = async () => {
     try {
-      const path = await save({ filters: [{ name: 'Conf', extensions: ['conf'] }] });
+      const path = await save({ filters: [{ name: configType + '.conf', extensions: ['conf'] }] });
       if (!path) return;
+
       await writeTextFile(path, exportConfig(config));
-      Logger.info('logSaved');
+      Logger.info('logSaved', { type: configType });
     } catch (e) {
-      Logger.error('logSaveFail');
+      Logger.error('logSaveFail', { type: configType }, e);
     }
   };
 
@@ -83,13 +102,11 @@ export default function App() {
   const handleOpenModal = (item) => setEditItem({ ...item });
 
   const confirmEdit = (updated) => {
-    console.log(11111);
-
     let copy = JSON.parse(JSON.stringify(config));
     copy.forEach(g => {
       const it = g.items.find(x => x.key === updated.key);
       if (it && it.value !== updated.value) {
-        Logger.info('logModified', { key: updated.key, old: it.value, new: updated.value });
+        Logger.info('logModified', { type: configType, key: updated.key, old: it.value, new: updated.value });
         it.value = updated.value;
       }
     });
@@ -99,11 +116,12 @@ export default function App() {
   };
 
   return (
-    <div className="mac-window">
+    <div className="main-window">
       {!showHome && (
         <div className="menu-bar">
-          <button className="menu-btn" onClick={handleImport}>{t('import')}</button>
-          <button className="menu-btn" onClick={handleSave}>{t('saveAs')}</button>
+          <button className="icon-btn" onClick={handleBackHome}><img src={backSvg} alt="Back" title={t('back')} /></button>
+          <button className="menu-btn" onClick={() => handleImport(configType)}><img src={importSvg} alt="Import" title={t('import')} /></button>
+          <button className="menu-btn" onClick={handleSave}><img src={saveAsSvg} alt={t('saveAs')} title={t('saveAs')} /></button>
 
           <input
             className="search-input"
@@ -112,11 +130,11 @@ export default function App() {
             onChange={e => setSearchKey(e.target.value)}
           />
 
-          <button className={`menu-btn ${showLog ? 'active' : ''}`} onClick={() => setShowLog(!showLog)}>
-            {t('log')}
+          <button className={`menu-btn ${showLog ? 'active' : ''}`} onClick={() => setShowLog(!showLog)} title={t('log')}>
+            <img src={logSvg} alt={t('log')} />
           </button>
 
-          <button className="menu-btn" onClick={() => i18n.changeLanguage(i18n.language === 'zh' ? 'en' : 'zh')}>
+          <button className="menu-btn" onClick={() => i18n.changeLanguage(i18n.language === 'zh' ? 'en' : 'zh')} title={i18n.language === 'zh' ? 'Change to CN' : '切换成英文'}>
             {i18n.language === 'zh' ? 'EN' : '中'}
           </button>
 

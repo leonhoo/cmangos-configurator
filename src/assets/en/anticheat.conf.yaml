@@ -1,0 +1,413 @@
+- items:
+  - desc: "When disabled, incoming world sessions will not have anticheat initialized.  If this is enabled while the server is running, the anticheat will remain disabled for those connected sessions."
+    key: "AnticheatConf.Enable"
+    value: 1
+  - desc: "How many entries should the fingerprint history table store, per fingerprint value.  The oldest values will be pruned."
+    key: "AnticheatConf.FingerprintHistory"
+    value: 30
+  - desc: "Minimum GM account level to allow inclusion of client fingerprinting information in command output"
+    key: "AnticheatConf.FingerprintLevel"
+    value: 6
+  - desc: "Minimum number of seconds to wait before kicking a cheater"
+    key: "AnticheatConf.KickDelay.Min"
+    value: 30
+  - desc: "Maximum number of seconds to wait before kicking a cheater"
+    key: "AnticheatConf.KickDelay.Max"
+    value: 90
+  - desc: "Minimum number of seconds to wait before banning a cheater"
+    key: "AnticheatConf.BanDelay.Min"
+    value: 30
+  - desc: "Maximum number of seconds to wait before banning a cheater"
+    key: "AnticheatConf.BanDelay.Max"
+    value: 90
+  - desc: "Minimum number of seconds to wait before IP banning a cheater"
+    key: "AnticheatConf.IPBanDelay.Min"
+    value: 30
+  - desc: "Maximum number of seconds to wait before IP banning a cheater"
+    key: "AnticheatConf.IPBanDelay.Max"
+    value: 90
+  - desc: "For ban waves, which day of the week should the bans be applied. 0 = Sunday, 1 = Monday, 2 = Tuesday, 3 = Wednesday, 4 = Thursday, 5 = Friday, 6 = Saturday"
+    key: "AnticheatConf.BanWave.Day"
+    value: 1
+  - desc: "For ban waves, which hour of the day should bans be applied.  Accepted values are between 0 and 23."
+    key: "AnticheatConf.BanWave.Hour"
+    value: 10
+  - desc: "For ban waves, which minute of the hour should bans be applied.  Accepted values are between 0 and 59."
+    key: "AnticheatConf.BanWave.Minute"
+    value: 0
+  - desc: "Use extrapolation to predict movement in server-side verification heuristics.  This produces more accurate results but is computationally more intensive."
+    key: "AnticheatConf.Movement.UseExtrapolation"
+    value: 1
+  - desc: "Apply numerous heuristics and sanity checks on player movement to verify their movement speed."
+    key: "AnticheatConf.Movement.SpeedHack.Enable"
+    value: 1
+  - desc: "Check that a player is not traversing terrain which is too step (NOTE: This has not been implemented yet!)"
+    key: "AnticheatConf.Movement.WallClimb.TickCount"
+    value: 0
+  - desc: "Check that a player is not traversing terrain which is too step (NOTE: This has not been implemented yet!)"
+    key: "AnticheatConf.Movement.WallClimb.TickAction"
+    value: 0
+  - desc: "Check that a player is not traversing terrain which is too step (NOTE: This has not been implemented yet!)"
+    key: "AnticheatConf.Movement.WallClimb.TotalCount"
+    value: 0
+  - desc: "Check that a player is not traversing terrain which is too step (NOTE: This has not been implemented yet!)"
+    key: "AnticheatConf.Movement.WallClimb.TotalAction"
+    value: 0
+  - desc: "Check that a player is not walking on water while lacking an aura enabling it"
+    key: "AnticheatConf.Movement.WaterWalk.TickCount"
+    value: 1
+  - desc: "Check that a player is not walking on water while lacking an aura enabling it"
+    key: "AnticheatConf.Movement.WaterWalk.TickAction"
+    value: 1
+  - desc: "Check that a player is not walking on water while lacking an aura enabling it"
+    key: "AnticheatConf.Movement.WaterWalk.TotalCount"
+    value: 0
+  - desc: "Check that a player is not walking on water while lacking an aura enabling it"
+    key: "AnticheatConf.Movement.WaterWalk.TotalAction"
+    value: 0
+  - desc: "Check that a player is not slow-falling while lacking an aura enabling it"
+    key: "AnticheatConf.Movement.SlowFall.TickCount"
+    value: 1
+  - desc: "Check that a player is not slow-falling while lacking an aura enabling it"
+    key: "AnticheatConf.Movement.SlowFall.TickAction"
+    value: 1
+  - desc: "Check that a player is not slow-falling while lacking an aura enabling it"
+    key: "AnticheatConf.Movement.SlowFall.TotalCount"
+    value: 0
+  - desc: "Check that a player is not slow-falling while lacking an aura enabling it"
+    key: "AnticheatConf.Movement.SlowFall.TotalAction"
+    value: 0
+  - desc: "Check that a player is not flying without permission"
+    key: "AnticheatConf.Movement.FlyHack.TickCount"
+    value: 1
+  - desc: "Check that a player is not flying without permission"
+    key: "AnticheatConf.Movement.FlyHack.TickAction"
+    value: 1
+  - desc: "Check that a player is not flying without permission"
+    key: "AnticheatConf.Movement.FlyHack.TotalCount"
+    value: 0
+  - desc: "Check that a player is not flying without permission"
+    key: "AnticheatConf.Movement.FlyHack.TotalAction"
+    value: 0
+  - desc: "Check that a player is not in some forbidden location"
+    key: "AnticheatConf.Movement.Forbidden.TickCount"
+    value: 1
+  - desc: "Check that a player is not in some forbidden location"
+    key: "AnticheatConf.Movement.Forbidden.TickAction"
+    value: 1
+  - desc: "Check that a player is not in some forbidden location"
+    key: "AnticheatConf.Movement.Forbidden.TotalCount"
+    value: 0
+  - desc: "Check that a player is not in some forbidden location"
+    key: "AnticheatConf.Movement.Forbidden.TotalAction"
+    value: 0
+  - desc: "Watches for one jump to begin before the previous one finishes"
+    key: "AnticheatConf.Movement.MultiJump.TickCount"
+    value: 1
+  - desc: "Watches for one jump to begin before the previous one finishes"
+    key: "AnticheatConf.Movement.MultiJump.TickAction"
+    value: 1
+  - desc: "Watches for one jump to begin before the previous one finishes"
+    key: "AnticheatConf.Movement.MultiJump.TotalCount"
+    value: 0
+  - desc: "Watches for one jump to begin before the previous one finishes"
+    key: "AnticheatConf.Movement.MultiJump.TotalAction"
+    value: 0
+  - desc: "Watches for a client clock moving backwards.  This should never happen even when the system clock is changed, as the client uses GetTickCount() and/or QueryPerformanceCounter(), which track the elapsed time since the system began (which never goes backwards!)"
+    key: "AnticheatConf.Movement.TimeBack.TickCount"
+    value: 1
+  - desc: "Watches for a client clock moving backwards.  This should never happen even when the system clock is changed, as the client uses GetTickCount() and/or QueryPerformanceCounter(), which track the elapsed time since the system began (which never goes backwards!)"
+    key: "AnticheatConf.Movement.TimeBack.TickAction"
+    value: 1
+  - desc: "Watches for a client clock moving backwards.  This should never happen even when the system clock is changed, as the client uses GetTickCount() and/or QueryPerformanceCounter(), which track the elapsed time since the system began (which never goes backwards!)"
+    key: "AnticheatConf.Movement.TimeBack.TotalCount"
+    value: 0
+  - desc: "Watches for a client clock moving backwards.  This should never happen even when the system clock is changed, as the client uses GetTickCount() and/or QueryPerformanceCounter(), which track the elapsed time since the system began (which never goes backwards!)"
+    key: "AnticheatConf.Movement.TimeBack.TotalAction"
+    value: 0
+  - desc: "Watches for a player jumping with a lateral speed faster than their run speed"
+    key: "AnticheatConf.Movement.FastJump.TickCount"
+    value: 1
+  - desc: "Watches for a player jumping with a lateral speed faster than their run speed"
+    key: "AnticheatConf.Movement.FastJump.TickAction"
+    value: 1
+  - desc: "Watches for a player jumping with a lateral speed faster than their run speed"
+    key: "AnticheatConf.Movement.FastJump.TotalCount"
+    value: 0
+  - desc: "Watches for a player jumping with a lateral speed faster than their run speed"
+    key: "AnticheatConf.Movement.FastJump.TotalAction"
+    value: 0
+  - desc: "Watches for a player with an increasing lateral jump speed"
+    key: "AnticheatConf.Movement.JumpSpeedChange.TickCount"
+    value: 1
+  - desc: "Watches for a player with an increasing lateral jump speed"
+    key: "AnticheatConf.Movement.JumpSpeedChange.TickAction"
+    value: 1
+  - desc: "Watches for a player with an increasing lateral jump speed"
+    key: "AnticheatConf.Movement.JumpSpeedChange.TotalCount"
+    value: 0
+  - desc: "Watches for a player with an increasing lateral jump speed"
+    key: "AnticheatConf.Movement.JumpSpeedChange.TotalAction"
+    value: 0
+  - desc: "Watches for a client reporting a time of zero"
+    key: "AnticheatConf.Movement.NullClientTime.TickCount"
+    value: 1
+  - desc: "Watches for a client reporting a time of zero"
+    key: "AnticheatConf.Movement.NullClientTime.TickAction"
+    value: 1
+  - desc: "Watches for a client reporting a time of zero"
+    key: "AnticheatConf.Movement.NullClientTime.TotalCount"
+    value: 0
+  - desc: "Watches for a client reporting a time of zero"
+    key: "AnticheatConf.Movement.NullClientTime.TotalAction"
+    value: 0
+  - desc: "Watches for a player moving while rooted"
+    key: "AnticheatConf.Movement.RootMove.TickCount"
+    value: 1
+  - desc: "Watches for a player moving while rooted"
+    key: "AnticheatConf.Movement.RootMove.TickAction"
+    value: 1
+  - desc: "Watches for a player moving while rooted"
+    key: "AnticheatConf.Movement.RootMove.TotalCount"
+    value: 0
+  - desc: "Watches for a player moving while rooted"
+    key: "AnticheatConf.Movement.RootMove.TotalAction"
+    value: 0
+  - desc: "Watches for a player rapidly gaining exploration experience"
+    key: "AnticheatConf.Movement.Explore.TickCount"
+    value: 3
+  - desc: "Watches for a player rapidly gaining exploration experience"
+    key: "AnticheatConf.Movement.Explore.TickAction"
+    value: 1
+  - desc: "Watches for a player rapidly gaining exploration experience"
+    key: "AnticheatConf.Movement.Explore.TotalCount"
+    value: 0
+  - desc: "Watches for a player rapidly gaining exploration experience"
+    key: "AnticheatConf.Movement.Explore.TotalAction"
+    value: 0
+  - desc: "Watches for a player rapidly gaining exploration experience in high level areas"
+    key: "AnticheatConf.Movement.ExploreHigh.TickCount"
+    value: 1
+  - desc: "Watches for a player rapidly gaining exploration experience in high level areas"
+    key: "AnticheatConf.Movement.ExploreHigh.TickAction"
+    value: 1
+  - desc: "Watches for a player rapidly gaining exploration experience in high level areas"
+    key: "AnticheatConf.Movement.ExploreHigh.TotalCount"
+    value: 0
+  - desc: "Watches for a player rapidly gaining exploration experience in high level areas"
+    key: "AnticheatConf.Movement.ExploreHigh.TotalAction"
+    value: 0
+  - desc: "Watches for a player with a z value changing too rapidly"
+    key: "AnticheatConf.Movement.OverspeedZ.TickCount"
+    value: 1
+  - desc: "Watches for a player with a z value changing too rapidly"
+    key: "AnticheatConf.Movement.OverspeedZ.TickAction"
+    value: 1
+  - desc: "Watches for a player with a z value changing too rapidly"
+    key: "AnticheatConf.Movement.OverspeedZ.TotalCount"
+    value: 0
+  - desc: "Watches for a player with a z value changing too rapidly"
+    key: "AnticheatConf.Movement.OverspeedZ.TotalAction"
+    value: 0
+  - desc: "Watches for a player with a heartbeat that arrives later than expected"
+    key: "AnticheatConf.Movement.HeartbeatSkip.TickCount"
+    value: 1
+  - desc: "Watches for a player with a heartbeat that arrives later than expected"
+    key: "AnticheatConf.Movement.HeartbeatSkip.TickAction"
+    value: 1
+  - desc: "Watches for a player with a heartbeat that arrives later than expected"
+    key: "AnticheatConf.Movement.HeartbeatSkip.TotalCount"
+    value: 0
+  - desc: "Watches for a player with a heartbeat that arrives later than expected"
+    key: "AnticheatConf.Movement.HeartbeatSkip.TotalAction"
+    value: 0
+  - desc: "Watches for a client whose clock is moving too fast"
+    key: "AnticheatConf.Movement.ClockDesync.TickCount"
+    value: 1
+  - desc: "Watches for a client whose clock is moving too fast"
+    key: "AnticheatConf.Movement.ClockDesync.TickAction"
+    value: 1
+  - desc: "Watches for a client whose clock is moving too fast"
+    key: "AnticheatConf.Movement.ClockDesync.TotalCount"
+    value: 0
+  - desc: "Watches for a client whose clock is moving too fast"
+    key: "AnticheatConf.Movement.ClockDesync.TotalAction"
+    value: 0
+  - desc: "Check for wrong data in fall reset opcode."
+    key: "AnticheatConf.Movement.BadFallReset.Enable"
+    value: 1
+  - desc: "Detections needed to trigger a penalty."
+    key: "AnticheatConf.Movement.BadFallReset.Threshold"
+    value: 1
+  - desc: "Action to take upon failing this check."
+    key: "AnticheatConf.Movement.BadFallReset.Penalty"
+    value: 11
+  - desc: "Watches for a player claiming to be aboard a transport which either doesn't exist, or from which they are too far away"
+    key: "AnticheatConf.Movement.FakeTransport.TickCount"
+    value: 1
+  - desc: "Watches for a player claiming to be aboard a transport which either doesn't exist, or from which they are too far away"
+    key: "AnticheatConf.Movement.FakeTransport.TickAction"
+    value: 1
+  - desc: "Watches for a player claiming to be aboard a transport which either doesn't exist, or from which they are too far away"
+    key: "AnticheatConf.Movement.FakeTransport.TotalCount"
+    value: 0
+  - desc: "Watches for a player claiming to be aboard a transport which either doesn't exist, or from which they are too far away"
+    key: "AnticheatConf.Movement.FakeTransport.TotalAction"
+    value: 0
+  - desc: "Watch for a player claiming to board a transport from which they are too far away"
+    key: "AnticheatConf.Movement.TeleToTransport.TickCount"
+    value: 1
+  - desc: "Watch for a player claiming to board a transport from which they are too far away"
+    key: "AnticheatConf.Movement.TeleToTransport.TickAction"
+    value: 1
+  - desc: "Watch for a player claiming to board a transport from which they are too far away"
+    key: "AnticheatConf.Movement.TeleToTransport.TotalCount"
+    value: 0
+  - desc: "Watch for a player claiming to board a transport from which they are too far away"
+    key: "AnticheatConf.Movement.TeleToTransport.TotalAction"
+    value: 0
+  - desc: "Watch for a player teleporting unexpectedly"
+    key: "AnticheatConf.Movement.Teleport.TickCount"
+    value: 1
+  - desc: "Watch for a player teleporting unexpectedly"
+    key: "AnticheatConf.Movement.Teleport.TickAction"
+    value: 1
+  - desc: "Watch for a player teleporting unexpectedly"
+    key: "AnticheatConf.Movement.Teleport.TotalCount"
+    value: 0
+  - desc: "Watch for a player teleporting unexpectedly"
+    key: "AnticheatConf.Movement.Teleport.TotalAction"
+    value: 0
+  - desc: "Watch for a player teleporting a large distance (> 150 yards) unexpectedly"
+    key: "AnticheatConf.Movement.TeleportFar.TickCount"
+    value: 1
+  - desc: "Watch for a player teleporting a large distance (> 150 yards) unexpectedly"
+    key: "AnticheatConf.Movement.TeleportFar.TickAction"
+    value: 1
+  - desc: "Watch for a player teleporting a large distance (> 150 yards) unexpectedly"
+    key: "AnticheatConf.Movement.TeleportFar.TotalCount"
+    value: 0
+  - desc: "Watch for a player teleporting a large distance (> 150 yards) unexpectedly"
+    key: "AnticheatConf.Movement.TeleportFar.TotalAction"
+    value: 0
+  - desc: "Watch for a client claiming to have the fixed-Z movement flag, which is not possible for players"
+    key: "AnticheatConf.Movement.FixedZ.TickCount"
+    value: 1
+  - desc: "Watch for a client claiming to have the fixed-Z movement flag, which is not possible for players"
+    key: "AnticheatConf.Movement.FixedZ.TickAction"
+    value: 1
+  - desc: "Watch for a client claiming to have the fixed-Z movement flag, which is not possible for players"
+    key: "AnticheatConf.Movement.FixedZ.TotalCount"
+    value: 0
+  - desc: "Watch for a client claiming to have the fixed-Z movement flag, which is not possible for players"
+    key: "AnticheatConf.Movement.FixedZ.TotalAction"
+    value: 0
+  - desc: "Watch for a client acknowledging a movement order in an unexpected way"
+    key: "AnticheatConf.Movement.BadOrderAck.TickCount"
+    value: 1
+  - desc: "Watch for a client acknowledging a movement order in an unexpected way"
+    key: "AnticheatConf.Movement.BadOrderAck.TickAction"
+    value: 1
+  - desc: "Watch for a client acknowledging a movement order in an unexpected way"
+    key: "AnticheatConf.Movement.BadOrderAck.TotalCount"
+    value: 0
+  - desc: "Watch for a client acknowledging a movement order in an unexpected way"
+    key: "AnticheatConf.Movement.BadOrderAck.TotalAction"
+    value: 0
+  - desc: "Enable anti spam system"
+    key: "AnticheatConf.Antispam.Enable"
+    value: 1
+  - desc: "Automatically silence accounts identified as spammers"
+    key: "AnticheatConf.Antispam.Silence"
+    value: 0
+  - desc: "Above this level, the spam filter will not be enforced"
+    key: "AnticheatConf.Antispam.MaxLevel"
+    value: 25
+  - desc: "Mask of normalization flags to use when normalizing messages prior to spam checks"
+    key: "AnticheatConf.Antispam.NormalizeMask"
+    value: 0
+  - desc: "Time, in seconds, between each analysis of recent messages for spam"
+    key: "AnticheatConf.Antispam.AnalysisTimer"
+    value: 30
+  - desc: "Maximum messages per minute to be considered spamming based solely on the outgoing rate.  Zero to disable."
+    key: "AnticheatConf.Antispam.MaxRate"
+    value: 30
+  - desc: "Grace period, in seconds, before messaging rate is checked against maximum allowed value for spam"
+    key: "AnticheatConf.Antispam.RateGracePeriod"
+    value: 45
+  - desc: "Maximum percentage of whisper and mail recipients which can be unique before being considered spam.  Zero to disable."
+    key: "AnticheatConf.Antispam.MaxUniquePercentage"
+    value: 90
+  - desc: "Minimum whispers or mails before unique recipient percentage is considered. WARNING: Zero does NOT disable this!  To disable, set Antispam.MaxUniquePercentage to zero"
+    key: "AnticheatConf.Antispam.MinUniqueMessages"
+    value: 100
+  - desc: "How many occurrences of blacklist entries before a GM notification is sent out.  Zero to disable."
+    key: "AnticheatConf.Antispam.BlacklistNotify"
+    value: 5
+  - desc: "How many minutes must pass before the same session can trigger a second GM notification"
+    key: "AnticheatConf.Antispam.BlacklistNotifyCooldown"
+    value: 10
+  - desc: "How many occurrences of blacklist entries before the account is considered a spammer and silenced (assuming automatic silence is enabled).  Zero to disable."
+    key: "AnticheatConf.Antispam.BlacklistSilence"
+    value: 15
+  - desc: "Minimum GM account level to allow in-game additions to antispam blacklist"
+    key: "AnticheatConf.Antispam.BlacklistLevel"
+    value: 5
+  - desc: "How many seconds must pass before a cache entry can expire"
+    key: "AnticheatConf.Antispam.CacheExpiration"
+    value: 3600
+  - desc: "Minimum distance between two strings before they are considered unique as defined by the Damerau-Levenshtein distance algorithm"
+    key: "AnticheatConf.Antispam.UniquenessThreshold"
+    value: 5
+  - desc: "Minimum number of chat messages which must be sent before message repetition is considered"
+    key: "AnticheatConf.Antispam.MinRepetitionMessages"
+    value: 5
+  - desc: "What percentage of messages must be repetitive before a GM notification is sent out.  Zero to disable."
+    key: "AnticheatConf.Antispam.RepetitionNotify"
+    value: 50
+  - desc: "What percentage of messages must be repetitive before the account is silenced.  Zero to disable."
+    key: "AnticheatConf.Antispam.RepetitionSilence"
+    value: 0
+  - desc: "By what factor should distance traveled (in yards) reduce the weight of message repetition.  0.0 for no adjustment."
+    key: "AnticheatConf.Antispam.RepetitionDistanceScale"
+    value: 1.0
+  - desc: "By what factor should time-connected (in seconds) increase the weight of message repetition.  0.0 for no adjustment."
+    key: "AnticheatConf.Antispam.RepetitionTimeScale"
+    value: 0.0
+  - desc: "How many seconds must pass before total movement distance is ignored.  Zero to disable."
+    key: "AnticheatConf.Antispam.RepetitionMovementTimeout"
+    value: 60
+  - desc: "Similar to the overall anticheat, if Warden is disabled, it will not be initialized when a world session is created. Changing this setting will have no effect on pre-existing world sessions."
+    key: "AnticheatConf.Warden.Enable"
+    value: 1
+  - desc: "Directory where Warden modules can be found"
+    key: "AnticheatConf.Warden.ModuleDir"
+    value: "warden_modules"
+  - desc: "Time, in seconds, to wait for the client to reply to a Warden request"
+    key: "AnticheatConf.Warden.Timeout"
+    value: 30
+  - desc: "Time, in seconds, between each Warden request"
+    key: "AnticheatConf.Warden.ScanFrequency"
+    value: 15
+  - desc: "Maximum amount of scans to send per request (will be fewer if the request would overflow the client buffer)"
+    key: "AnticheatConf.Warden.ScanCount"
+    value: 10
+  - desc: "Minimum level before non-logging actions are enforced"
+    key: "AnticheatConf.Warden.MinimumLevel"
+    value: 25
+  - desc: "Minimum level before scans which are considered advanced are sent to the client.  This is to avoid revealing detection methods to hack authors on low-level, throw-away accounts."
+    key: "AnticheatConf.Warden.MinimumAdvancedLevel"
+    value: 18
+  - desc: "What action to take when a suspicious hook of EndScene is found by Warden"
+    key: "AnticheatConf.Warden.SuspiciousEndSceneHookAction"
+    value: 1
+  - desc: "These values follow the same pattern as the movement heuristics"
+    key: "AnticheatConf.Warden.TickCount"
+    value: 1
+  - desc: "These values follow the same pattern as the movement heuristics"
+    key: "AnticheatConf.Warden.TickAction"
+    value: 1
+  - desc: "These values follow the same pattern as the movement heuristics"
+    key: "AnticheatConf.Warden.TotalCount"
+    value: 0
+  name: "Anticheat Configuration"

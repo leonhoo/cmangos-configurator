@@ -1,0 +1,65 @@
+- "items":
+  - "desc": "Database connection specification in format: hostname;port;username;password;database. Use named pipes (Windows) or Unix sockets (experimental) under Unix/Linux systems."
+    "key": "LoginDatabaseInfo"
+    "value": "127.0.0.1;3306;mangos;mangos;classicrealmd"
+  - "desc": "Logs directory. Directory must exist to enable logging, empty value means current working directory."
+    "key": "LogsDir"
+    "value": ""
+  - "desc": "Max. database ping interval in minutes."
+    "key": "MaxPingTime"
+    "value": 30
+  - "desc": "Server listening port."
+    "key": "RealmServerPort"
+    "value": 3724
+  - "desc": "Bind Realm Server to specific IP. Useful for running multiple instances on different IPs with default port, do not change unless necessary."
+    "key": "BindIP"
+    "value": "0.0.0.0"
+  - "desc": "Number of listener threads used by realmd."
+    "key": "ListenerThreads"
+    "value": 1
+  - "desc": "PID file for realmd daemon, empty to disable creation. Recommended: './realmd.pid'"
+    "key": "PidFile"
+    "value": ""
+  - "desc": "Server console log level: 0=Minimal, 1=Error, 2=Detailed, 3=Full/Debug."
+    "key": "LogLevel"
+    "value": 0
+  - "desc": "Include timestamp [hh:mm:ss] in console output: 0=Disable, 1=Enable."
+    "key": "LogTime"
+    "value": 0
+  - "desc": "Log file name, empty to disable log file."
+    "key": "LogFile"
+    "value": "Realmd.log"
+  - "desc": "Add server startup timestamp to log file name: 0=Disable, 1=Enable (format: Logname_YYYY-MM-DD_HH-MM-SS.Ext)."
+    "key": "LogTimestamp"
+    "value": 0
+  - "desc": "Server file log level: 0=Minimal, 1=Error, 2=Detailed, 3=Full/Debug."
+    "key": "LogFileLevel"
+    "value": 0
+  - "desc": "Log message colors in format: 'normal details debug error'. Use color values, empty for no colors."
+    "key": "LogColors"
+    "value": ""
+  - "desc": "Processor affinity mask for multi-processor systems (Windows only). 0=System default, other values=bitmask of selected CPUs."
+    "key": "UseProcessors"
+    "value": 0
+  - "desc": "Process priority (Windows only): 0=Normal, 1=High."
+    "key": "ProcessPriority"
+    "value": 1
+  - "desc": "Wait time after startup error: -1=Wait for Enter, 0=No wait, N>0=Wait N seconds."
+    "key": "WaitAtStartupError"
+    "value": 0
+  - "desc": "Realm list update delay. Update on realm list request when delay expired, 0=Disable."
+    "key": "RealmsStateUpdateDelay"
+    "value": 20
+  - "desc": "Block modified client connections: 0=Disable, 1=Enable."
+    "key": "StrictVersionCheck"
+    "value": 0
+  - "desc": "Max failed login attempts before ban, 0=No ban."
+    "key": "WrongPass.MaxCount"
+    "value": 0
+  - "desc": "Ban duration in seconds, 0=Permanent ban."
+    "key": "WrongPass.BanTime"
+    "value": 600
+  - "desc": "Ban type: 0=IP ban, 1=Account ban."
+    "key": "WrongPass.BanType"
+    "value": 0
+  "name": "RealmdConf"

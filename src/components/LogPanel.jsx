@@ -31,8 +31,8 @@ export default function LogPanel() {
       {/* 日志列表 */}
       <div className="log-list">
         {logs.map((log, i) => (
-          <div key={i} style={{ color: log.isError ? '#ff453a' : '#fff' }}>
-            [{log.time}] {t(log.msg, log.params)}
+          <div key={i} style={{ color: (log.errorMessage != null) ? '#ff453a' : '#fff' }}>
+            [{log.time}] {t(log.msg, log.params)} {log.errorMessage ? ` - ${log.errorMessage}` : ''}
           </div>
         ))}
       </div>

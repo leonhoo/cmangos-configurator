@@ -1,0 +1,65 @@
+- "items":
+  - "desc": "数据库连接设置，格式为hostname;port;username;password;database，Windows下可使用命名管道，Unix/Linux下可使用Unix套接字（实验性）"
+    "key": "LoginDatabaseInfo"
+    "value": "127.0.0.1;3306;mangos;mangos;classicrealmd"
+  - "desc": "日志目录设置，目录必须存在否则日志禁用，空值表示日志存储在程序运行当前目录"
+    "key": "LogsDir"
+    "value": ""
+  - "desc": "最大数据库ping间隔（分钟）"
+    "key": "MaxPingTime"
+    "value": 30
+  - "desc": "服务器监听端口"
+    "key": "RealmServerPort"
+    "value": 3724
+  - "desc": "绑定Realm Server到指定IP地址，多实例不同IP使用默认端口时有用，非必要不要修改"
+    "key": "BindIP"
+    "value": "0.0.0.0"
+  - "desc": "realmd使用的监听线程数"
+    "key": "ListenerThreads"
+    "value": 1
+  - "desc": "Realmd守护进程PID文件，空值不创建，推荐值为\"./realmd.pid\""
+    "key": "PidFile"
+    "value": ""
+  - "desc": "服务器控制台日志级别，0=最低，1=错误，2=详细，3=完整/调试"
+    "key": "LogLevel"
+    "value": 0
+  - "desc": "控制台输出是否包含时间[hh:mm:ss]，0=不包含，1=包含"
+    "key": "LogTime"
+    "value": 0
+  - "desc": "日志文件名，空值禁用日志文件创建"
+    "key": "LogFile"
+    "value": "Realmd.log"
+  - "desc": "日志文件名是否添加服务器启动时间戳，0=不添加，1=添加（格式为Logname_YYYY-MM-DD_HH-MM-SS.Ext）"
+    "key": "LogTimestamp"
+    "value": 0
+  - "desc": "服务器文件日志级别，0=最低，1=错误，2=详细，3=完整/调试"
+    "key": "LogFileLevel"
+    "value": 0
+  - "desc": "日志消息颜色，格式为\"normal_color details_color debug_color error_color\"，颜色值对应不同颜色，空值无颜色"
+    "key": "LogColors"
+    "value": ""
+  - "desc": "多处理器系统使用的处理器掩码（仅Windows），0=由系统选择，其他值为选中处理器的位掩码"
+    "key": "UseProcessors"
+    "value": 0
+  - "desc": "进程优先级设置（仅Windows），0=普通，1=高"
+    "key": "ProcessPriority"
+    "value": 1
+  - "desc": "启动错误报告后等待时间，-1=等待按Enter，0=不等待，N>0=等待N秒"
+    "key": "WaitAtStartupError"
+    "value": 0
+  - "desc": "Realm列表更新延迟，延迟过期时在Realm列表请求时更新，0=禁用"
+    "key": "RealmsStateUpdateDelay"
+    "value": 20
+  - "desc": "是否阻止修改过的客户端连接，0=禁用，1=启用"
+    "key": "StrictVersionCheck"
+    "value": 0
+  - "desc": "错误密码登录尝试次数上限，达到后封禁账户或IP，0=永不封禁"
+    "key": "WrongPass.MaxCount"
+    "value": 0
+  - "desc": "封禁时长（秒），0表示永久封禁"
+    "key": "WrongPass.BanTime"
+    "value": 600
+  - "desc": "封禁类型，0=封禁IP，1=封禁账户"
+    "key": "WrongPass.BanType"
+    "value": 0
+  "name": "RealmdConf"

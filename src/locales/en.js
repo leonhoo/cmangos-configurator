@@ -1,6 +1,8 @@
 export default {
-  newConfig: "New Config",
-  importConfig: "Import Config",
+  newConfig: "New",
+  importConfig: "Import",
+  pleaseSelect: "Please select",
+  back: "Back",
   import: "Import",
   saveAs: "Save As",
   log: "Logs",
@@ -18,11 +20,11 @@ export default {
   group: "Group",
   description: "Description",
   origion: "Origion",
-  logDefaultLoaded: "Default config loaded",
-  logImported: "Config imported",
-  logSaved: "Config saved",
-  logModified: "Config updated: {{key}}: [{{old}}] → [{{new}}]",
-  logImportFail: "Import failed",
-  logSaveFail: "Save failed",
+  logDefaultLoaded: "Default {{type}} config loaded",
+  logImported: "{{type}} config imported",
+  logSaved: "{{type}} config saved",
+  logModified: "{{type}} config updated: {{key}}: [{{old}}] → [{{new}}]",
+  logImportFail: "{{type}} import failed",
+  logSaveFail: "{{type}} save failed",
   logClear: "Clear logs"
 }

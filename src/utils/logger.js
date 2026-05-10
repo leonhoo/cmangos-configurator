@@ -11,17 +11,16 @@ export class Logger {
   }
 
   static info(message, params = {}) {
-    this.addLog(message, params, false);
+    this.addLog(message, params, null);
   }
 
-  static error(message, params = {}) {
-    console.log("error: " + message);
-    this.addLog(message, params, true);
+  static error(message, params = {}, errorMessage) {
+    this.addLog(message, params, errorMessage);
   }
 
-  static addLog(message, params = {}, isError = false) {
+  static addLog(message, params = {}, errorMessage) {
     const time = new Date().toLocaleTimeString();
-    this.logs = [{ time, msg: message, params: params, isError }, ...this.logs].slice(0, this.maxLogs);
+    this.logs = [{ time, msg: message, params: params, errorMessage }, ...this.logs].slice(0, this.maxLogs);
   }
 
   static all() {

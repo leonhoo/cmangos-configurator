@@ -1,6 +1,8 @@
 export default {
   newConfig: "新建配置",
   importConfig: "导入配置",
+  pleaseSelect: "请选择",
+  back: "返回",
   import: "导入",
   saveAs: "另存为",
   log: "日志",
@@ -18,11 +20,11 @@ export default {
   group: "分组",
   description: "说明",
   origion: "原值",
-  logDefaultLoaded: "已加载默认配置",
-  logImported: "配置导入成功",
-  logSaved: "配置保存成功",
+  logDefaultLoaded: "已加载{{type}}默认配置",
+  logImported: "{{type}}配置导入成功",
+  logSaved: "{{type}}配置保存成功",
   logModified: "已修改配置: {{key}}: [{{old}}] → [{{new}}]",
-  logImportFail: "配置导入失败",
-  logSaveFail: "配置保存失败",
+  logImportFail: "{{type}}配置导入失败",
+  logSaveFail: "{{type}}配置保存失败",
   logClear: "清空日志"
 }
