@@ -1,0 +1,1032 @@
+- "items":
+  - "desc": "RealmID必须与realmd数据库中的服务器列表（realmlist）相匹配，用于标识当前世界服务器对应的服务器编号"
+    "key": "RealmID"
+    "value": 1
+  - "desc": "数据目录设置。重要提示：DataDir需要加引号，因为它是一个可能包含空格字符的字符串。示例：'D:/Temp/cmangos/output/share/mangos'，默认值为当前目录（.）"
+    "key": "DataDir"
+    "value": "."
+  - "desc": "日志目录设置。重要提示：日志目录必须存在，否则需要禁用所有日志功能。默认值为空字符串，表示无日志目录前缀；如果使用的日志名称不是绝对路径，那么日志将存储在运行程序的当前目录中"
+    "key": "LogsDir"
+    "value": ""
+  - "desc": "世界服务器的登录数据库连接设置。默认采用MySQL数据库，格式为“主机名;端口;用户名;密码;数据库名”；Windows系统下可使用命名管道（需在my.ini的[mysqld]段添加'enable-named-pipe'），格式为“.；端口/管道名；用户名；密码；数据库名”；Unix/Linux系统下可使用Unix套接字，格式为“.；套接字路径；用户名；密码；数据库名”。PGSQL数据库也有对应的连接格式，默认值为连接本地3306端口的classicrealmd数据库，用户名和密码均为mangos"
+    "key": "LoginDatabaseInfo"
+    "value": "127.0.0.1;3306;mangos;mangos;classicrealmd"
+  - "desc": "世界服务器的世界数据库连接设置。默认采用MySQL数据库，格式为“主机名;端口;用户名;密码;数据库名”；Windows系统下可使用命名管道（需在my.ini的[mysqld]段添加'enable-named-pipe'），格式为“.；端口/管道名；用户名；密码；数据库名”；Unix/Linux系统下可使用Unix套接字，格式为“.；套接字路径；用户名；密码；数据库名”。PGSQL数据库也有对应的连接格式，默认值为连接本地3306端口的classicmangos数据库，用户名和密码均为mangos"
+    "key": "WorldDatabaseInfo"
+    "value": "127.0.0.1;3306;mangos;mangos;classicmangos"
+  - "desc": "世界服务器的角色数据库连接设置。默认采用MySQL数据库，格式为“主机名;端口;用户名;密码;数据库名”；Windows系统下可使用命名管道（需在my.ini的[mysqld]段添加'enable-named-pipe'），格式为“.；端口/管道名；用户名；密码；数据库名”；Unix/Linux系统下可使用Unix套接字，格式为“.；套接字路径；用户名；密码；数据库名”。PGSQL数据库也有对应的连接格式，默认值为连接本地3306端口的classiccharacters数据库，用户名和密码均为mangos"
+    "key": "CharacterDatabaseInfo"
+    "value": "127.0.0.1;3306;mangos;mangos;classiccharacters"
+  - "desc": "世界服务器的日志数据库连接设置。默认采用MySQL数据库，格式为“主机名;端口;用户名;密码;数据库名”；Windows系统下可使用命名管道（需在my.ini的[mysqld]段添加'enable-named-pipe'），格式为“.；端口/管道名；用户名；密码；数据库名”；Unix/Linux系统下可使用Unix套接字，格式为“.；套接字路径；用户名；密码；数据库名”。PGSQL数据库也有对应的连接格式，默认值为连接本地3306端口的classiclogs数据库，用户名和密码均为mangos"
+    "key": "LogsDatabaseInfo"
+    "value": "127.0.0.1;3306;mangos;mangos;classiclogs"
+  - "desc": "用于SELECT查询的登录数据库连接数量。每个数据库最多支持16个连接。请注意，为保证数据一致性，每个数据库仅使用一个连接来处理事务和异步SELECT查询。因此实际建立的连接数计算公式为：X = 设置的连接数 + 1。默认值为1，表示仅使用1个连接处理SELECT语句"
+    "key": "LoginDatabaseConnections"
+    "value": 1
+  - "desc": "用于SELECT查询的世界数据库连接数量。每个数据库最多支持16个连接。请注意，为保证数据一致性，每个数据库仅使用一个连接来处理事务和异步SELECT查询。因此实际建立的连接数计算公式为：X = 设置的连接数 + 1。默认值为1，表示仅使用1个连接处理SELECT语句"
+    "key": "WorldDatabaseConnections"
+    "value": 1
+  - "desc": "用于SELECT查询的角色数据库连接数量。每个数据库最多支持16个连接。请注意，为保证数据一致性，每个数据库仅使用一个连接来处理事务和异步SELECT查询。因此实际建立的连接数计算公式为：X = 设置的连接数 + 1。默认值为1，表示仅使用1个连接处理SELECT语句"
+    "key": "CharacterDatabaseConnections"
+    "value": 1
+  - "desc": "用于SELECT查询的日志数据库连接数量。每个数据库最多支持16个连接。请注意，为保证数据一致性，每个数据库仅使用一个连接来处理事务和异步SELECT查询。因此实际建立的连接数计算公式为：X = 设置的连接数 + 1。默认值为1，表示仅使用1个连接处理SELECT语句"
+    "key": "LogsDatabaseConnections"
+    "value": 1
+  - "desc": "数据库最大心跳检测间隔设置，单位为分钟，默认值30表示每30分钟对数据库进行一次心跳检测，确保数据库连接正常"
+    "key": "MaxPingTime"
+    "value": 30
+  - "desc": "世界服务器监听的端口号，默认值为8085，客户端将通过该端口连接到世界服务器"
+    "key": "WorldServerPort"
+    "value": 8085
+  - "desc": "将世界服务器绑定到指定的IP地址。该选项适用于在不同IP地址上使用默认端口运行多个worldd/realmd实例的场景。除非确实清楚操作的后果，否则不要修改该配置，默认值0.0.0.0表示绑定到所有可用的网络接口"
+    "key": "BindIP"
+    "value": "0.0.0.0"
+  - "desc": "用于记录SD2相关错误的日志文件名称，默认值为SD2Errors.log，SD2相关的错误信息会写入该文件中"
+    "key": "SD2ErrorLogFile"
+    "value": "SD2Errors.log"
+  - "desc": "用于重新生成creature_zone和gameobject_zone数据表的开关，默认值0表示关闭该功能，1表示开启，开启后会重新生成这两个与生物和游戏对象区域关联的表"
+    "key": "Spawns.ZoneArea"
+    "value": 0
+  "name": "CONNECTIONS AND DIRECTORIES"
+- "items":
+  - "desc": "多处理器系统下的处理器掩码设置（仅在Windows系统生效）。默认值0表示由操作系统选择使用的处理器；若设置为具体数字，则为所选处理器的位掩码值，用于指定服务器进程使用哪些CPU核心"
+    "key": "UseProcessors"
+    "value": 0
+  - "desc": "进程优先级设置（仅在Windows系统生效）。默认值1表示高优先级，0表示普通优先级，设置该值可以调整服务器进程在系统中的资源调度优先级"
+    "key": "ProcessPriority"
+    "value": 1
+  - "desc": "发送给客户端的更新数据包的压缩级别，取值范围1-9。默认值1表示优先考虑压缩速度，9表示优先考虑压缩效果（压缩率最高），该设置影响服务器向客户端传输数据的带宽占用和处理耗时"
+    "key": "Compression"
+    "value": 1
+  - "desc": "世界服务器中允许的最大普通玩家数量（不包括模组管理员、游戏管理员和系统管理员）。默认值100表示最多允许100名普通玩家；0表示无玩家数量限制；-1表示仅允许模组管理员、游戏管理员和系统管理员进入；-2表示仅允许游戏管理员和系统管理员进入；-3表示仅允许系统管理员进入"
+    "key": "PlayerLimit"
+    "value": 100
+  - "desc": "控制生物死亡时、游戏对象被使用/打开时是否立即保存其重生时间。默认值1表示立即保存，无需等待网格卸载；0表示仅在网格卸载时才保存生物/游戏对象的重生时间"
+    "key": "SaveRespawnTimeImmediately"
+    "value": 1
+  - "desc": "玩家因超速检测被踢出服务器前允许的最大超速心跳次数（最小值为2，0表示禁用该检测）。默认值2表示当玩家检测到2次超速心跳后，将被踢出服务器，用于防止玩家使用加速类作弊手段"
+    "key": "MaxOverspeedPings"
+    "value": 2
+  - "desc": "控制是否卸载游戏网格（如果服务器内存充足，禁用该功能可以加快玩家第二次移动到新网格的速度）。默认值1表示启用网格卸载；0表示禁用网格卸载，网格会一直驻留在内存中"
+    "key": "GridUnload"
+    "value": 1
+  - "desc": "控制服务器启动时是否加载指定地图的所有网格（如果服务器内存充足，启用该功能可以让游戏世界始终处于加载状态，更“鲜活”）。该设置还允许指定地图上的所有生物在无玩家在场时也更新其所在网格。默认值为空字符串，表示启动时不加载所有网格；若设置为“mapId1[,mapId2[..]]”格式（如“1,2,3”），则会加载指定地图ID的所有网格（该功能为实验性，且非常消耗资源）"
+    "key": "LoadAllGridsOnMaps"
+    "value": ""
+  - "desc": "控制是否加载带有ExtraFlags为CREATURE_EXTRA_FLAG_ACTIVE或移动类型为WAYPOINT_MOTION_TYPE的活跃生物。启用该设置后，满足这些条件的生物即使在无玩家在场时也能更新其所在网格，在调试模式下运行时非常有用。默认值1（True）表示启用该功能"
+    "key": "Autoload.Active"
+    "value": 1
+  - "desc": "网格清理延迟时间，单位为毫秒。默认值300000表示5分钟，即网格在满足卸载条件后，会延迟5分钟再进行清理卸载操作"
+    "key": "GridCleanUpDelay"
+    "value": 300000
+  - "desc": "地图更新间隔时间，单位为毫秒。默认值100表示每100毫秒更新一次地图相关数据，包括生物移动、游戏对象状态等"
+    "key": "MapUpdateInterval"
+    "value": 100
+  - "desc": "天气更新间隔时间，单位为毫秒。默认值600000表示10分钟，即服务器每10分钟更新一次游戏内的天气状态"
+    "key": "ChangeWeatherInterval"
+    "value": 600000
+  - "desc": "玩家数据保存间隔时间，单位为毫秒。默认值900000表示15分钟，即服务器每15分钟自动保存一次玩家的角色数据（如等级、装备、金币等）"
+    "key": "PlayerSave.Interval"
+    "value": 900000
+  - "desc": "用于控制将角色属性保存到数据库供外部使用的最低角色等级。默认值0表示不保存任何角色的属性；若设置为1及以上，则仅保存等级达到该值及以上的角色属性"
+    "key": "PlayerSave.Stats.MinLevel"
+    "value": 0
+  - "desc": "控制是否仅在玩家登出时保存角色属性。默认值1表示仅在玩家登出时保存；0表示在每次玩家数据保存（按PlayerSave.Interval设置的间隔）时都保存角色属性"
+    "key": "PlayerSave.Stats.SaveOnlyOnLogout"
+    "value": 1
+  - "desc": "控制是否启用VMaps（虚拟地图）支持视线（LOS）和高度计算功能。要启用该选项，需要先提取VMaps数据。默认值1表示启用；0表示禁用"
+    "key": "vmap.enableLOS"
+    "value": 1
+  - "desc": "控制是否启用VMaps（虚拟地图）支持高度计算功能。要启用该选项，需要先提取VMaps数据。默认值1表示启用；0表示禁用"
+    "key": "vmap.enableHeight"
+    "value": 1
+  - "desc": "控制是否启用基于VMap的室内检测功能，用于移除仅在户外生效的光环（如坐骑等）。该功能需要先启用VMaps才能生效。默认值1表示启用；0表示禁用"
+    "key": "vmap.enableIndoorCheck"
+    "value": 1
+  - "desc": "控制是否检查玩家最终移动位置、召唤位置等是否与其他对象或墙体（仅在启用vmaps时检查墙体）发生可见碰撞。默认值1表示启用该检测（会消耗更多CPU资源）；0表示禁用（位置选择的效果可能变差，但会减少CPU资源消耗）"
+    "key": "DetectPosCollision"
+    "value": 1
+  - "desc": "控制是否启用基于mmaps（移动地图）的寻路功能。默认值1表示启用；0表示禁用"
+    "key": "mmap.enabled"
+    "value": 1
+  - "desc": "指定禁用mmaps寻路功能的地图ID列表，多个地图ID之间用逗号分隔。默认值为空字符串，表示所有地图都启用mmaps寻路"
+    "key": "mmap.ignoreMapIds"
+    "value": ""
+  - "desc": "控制在首次加载地图ID时是否启用预加载功能（该操作消耗资源大，但线程安全，仅适用于大型服务器）。默认值0表示禁用；1表示启用"
+    "key": "mmap.preload"
+    "value": 0
+  - "desc": "控制是否启用寻路器的路径优化功能（裁剪计算出的路径点）。默认值1表示启用；0表示禁用"
+    "key": "PathFinder.OptimizePath"
+    "value": 1
+  - "desc": "控制是否修正寻路计算出的路径点的Z轴（高度）值。启用该功能会增加CPU占用，但能提高Z轴精度。默认值0表示禁用；1表示启用"
+    "key": "PathFinder.NormalizeZ"
+    "value": 0
+  - "desc": "更新服务器在线时长的周期，单位为分钟（用于将数据保存到'uptime'表中）。该值必须大于0，默认值10表示每10分钟更新一次服务器在线时长数据"
+    "key": "UpdateUptimeInterval"
+    "value": 10
+  - "desc": "用于地图更新的线程数量。默认值为3，为保证稳定运行，设置的线程数不应超过CPU线程数减1"
+    "key": "MapUpdate.Threads"
+    "value": 3
+  - "desc": "定期检查进程是否冻结，若冻结则在指定秒数后强制崩溃。该值必须大于0，若启用建议设置大于10秒。默认值0表示禁用该检测功能"
+    "key": "MaxCoreStuckTime"
+    "value": 0
+  - "desc": "控制是否允许通过服务器使用插件频道（禁用插件频道后，部分客户端插件可能无法正常工作）。默认值1表示允许；0表示禁止"
+    "key": "AddonChannel"
+    "value": 1
+  - "desc": "控制服务器启动时是否执行角色数据库清理操作。默认值1表示启用；0表示禁用"
+    "key": "CleanCharacterDB"
+    "value": 1
+  - "desc": "设置/who命令和游戏界面中返回的最大玩家数量（0表示无限制）。默认值49是经过验证的稳定值"
+    "key": "MaxWhoListReturns"
+    "value": 49
+  "name": "PERFORMANCE SETTINGS"
+- "items":
+  - "desc": "控制是否启用游戏管理员（GM）命令的SQL日志记录功能，所有执行的SQL代码都会写入日志文件。日志文件命名格式为YYYY-MM-DD_logSQL.sql，每天0点会创建新文件，旧文件不会被删除。默认值1表示启用日志记录；0表示禁用"
+    "key": "LogSQL"
+    "value": 1
+  - "desc": "世界服务器守护进程的PID文件设置。默认值为空字符串，表示不创建PID文件；若设置为'./worldd.pid'则会创建该PID文件（推荐名称），PID文件用于存储进程ID"
+    "key": "PidFile"
+    "value": ""
+  - "desc": "服务器控制台日志级别设置。0表示最低级别（仅记录关键信息）；1表示基础和错误信息；2表示详细信息；3表示完整/调试信息。默认值实际配置为1（文件中默认注释为3，但实际赋值为1）"
+    "key": "LogLevel"
+    "value": 1
+  - "desc": "控制服务器控制台输出是否包含时间戳[时:分:秒]。默认值0表示不包含；1表示包含"
+    "key": "LogTime"
+    "value": 0
+  - "desc": "日志文件名称设置。默认值为'Server.log'，若设置为空字符串则禁用日志文件创建"
+    "key": "LogFile"
+    "value": "Server.log"
+  - "desc": "世界服务器的二进制数据包日志文件设置。文件名扩展名必须为.pkt才能被WPP工具解析。示例值'World.pkt'表示启用该日志；默认值为空字符串表示禁用"
+    "key": "PacketLogFile"
+    "value": ""
+  - "desc": "控制日志文件名是否包含服务器启动的时间戳。默认值0表示不包含；1表示在日志文件名中添加时间戳，格式为Logname_YYYY-MM-DD_HH-MM-SS.Ext（基于原日志名Logname.Ext）"
+    "key": "LogTimestamp"
+    "value": 0
+  - "desc": "服务器日志文件的日志级别设置。0表示最低级别（仅记录关键信息）；1表示仅记录错误信息；2表示详细信息；3表示完整/调试信息。默认值为0"
+    "key": "LogFileLevel"
+    "value": 0
+  - "desc": "日志过滤器（默认激活，即过滤器生效，对应的日志不会显示）。默认值1表示在任何日志级别下都不记录运输工具移动相关日志；0表示若日志级别允许则记录"
+    "key": "LogFilter_TransportMoves"
+    "value": 1
+  - "desc": "日志过滤器（默认激活，即过滤器生效，对应的日志不会显示）。默认值1表示在任何日志级别下都不记录生物移动相关日志；0表示若日志级别允许则记录"
+    "key": "LogFilter_CreatureMoves"
+    "value": 1
+  - "desc": "日志过滤器（默认激活，即过滤器生效，对应的日志不会显示）。默认值1表示在任何日志级别下都不记录可见性变化相关日志；0表示若日志级别允许则记录"
+    "key": "LogFilter_VisibilityChanges"
+    "value": 1
+  - "desc": "日志过滤器（默认激活，即过滤器生效，对应的日志不会显示）。默认值1表示在任何日志级别下都不记录天气相关日志；0表示若日志级别允许则记录"
+    "key": "LogFilter_Weather"
+    "value": 1
+  - "desc": "日志过滤器（默认激活，即过滤器生效，对应的日志不会显示）。默认值1表示在任何日志级别下都不记录数据库严格检查相关日志；0表示若日志级别允许则记录"
+    "key": "LogFilter_DbStrictedCheck"
+    "value": 1
+  - "desc": "日志过滤器（默认激活，即过滤器生效，对应的日志不会显示）。默认值1表示在任何日志级别下都不记录寻路相关日志；0表示若日志级别允许则记录"
+    "key": "LogFilter_Pathfinding"
+    "value": 1
+  - "desc": "日志过滤器（默认激活，即过滤器生效，对应的日志不会显示）。默认值1表示在任何日志级别下都不记录地图加载相关日志；0表示若日志级别允许则记录"
+    "key": "LogFilter_MapsLoading"
+    "value": 1
+  - "desc": "日志过滤器（默认激活，即过滤器生效，对应的日志不会显示）。默认值1表示在任何日志级别下都不记录EventAI开发相关日志；0表示若日志级别允许则记录"
+    "key": "LogFilter_EventAiDev"
+    "value": 1
+  - "desc": "日志过滤器（默认激活，即过滤器生效，对应的日志不会显示）。默认值1表示在任何日志级别下都不记录数据库脚本开发相关日志；0表示若日志级别允许则记录"
+    "key": "LogFilter_DbScriptDev"
+    "value": 1
+  - "desc": "日志过滤器（默认禁用，主要影响仅调试相关的输出）。默认值0表示若日志级别允许则记录周期性效果相关日志；1表示在任何日志级别下都不记录"
+    "key": "LogFilter_PeriodicAffects"
+    "value": 0
+  - "desc": "日志过滤器（默认激活，即过滤器生效，对应的日志不会显示）。默认值1表示在任何日志级别下都不记录玩家移动相关日志；0表示若日志级别允许则记录"
+    "key": "LogFilter_PlayerMoves"
+    "value": 1
+  - "desc": "日志过滤器（默认激活，即过滤器生效，对应的日志不会显示）。默认值1表示在任何日志级别下都不记录SQL文本相关日志；0表示若日志级别允许则记录"
+    "key": "LogFilter_SQLText"
+    "value": 1
+  - "desc": "日志过滤器（默认禁用，主要影响仅调试相关的输出）。默认值0表示若日志级别允许则记录AI和移动生成器相关日志；1表示在任何日志级别下都不记录"
+    "key": "LogFilter_AIAndMovegens"
+    "value": 0
+  - "desc": "日志过滤器（默认禁用，主要影响仅调试相关的输出）。默认值0表示若日志级别允许则记录玩家属性相关日志；1表示在任何日志级别下都不记录"
+    "key": "LogFilter_PlayerStats"
+    "value": 0
+  - "desc": "日志过滤器（默认禁用，主要影响仅调试相关的输出）。默认值0表示若日志级别允许则记录伤害相关日志；1表示在任何日志级别下都不记录"
+    "key": "LogFilter_Damage"
+    "value": 0
+  - "desc": "日志过滤器（默认禁用，主要影响仅调试相关的输出）。默认值0表示若日志级别允许则记录战斗相关日志；1表示在任何日志级别下都不记录"
+    "key": "LogFilter_Combat"
+    "value": 0
+  - "desc": "日志过滤器（默认禁用，主要影响仅调试相关的输出）。默认值0表示若日志级别允许则记录法术施放相关日志；1表示在任何日志级别下都不记录"
+    "key": "LogFilter_SpellCast"
+    "value": 0
+  - "desc": "世界服务器的数据包日志文件设置。默认值为空字符串，表示不创建该日志文件；若设置为'world.log'则创建该日志文件（推荐名称）"
+    "key": "WorldLogFile"
+    "value": ""
+  - "desc": "控制WorldLogFile日志文件名是否包含服务器启动的时间戳。默认值0表示不包含；1表示在日志文件名中添加时间戳，格式为Logname_YYYY-MM-DD_HH-MM-SS.Ext（基于原日志名Logname.Ext）"
+    "key": "WorldLogTimestamp"
+    "value": 0
+  - "desc": "服务器运行时检测到的数据库错误的日志文件名称，默认值为'DBErrors.log'，数据库错误信息会写入该文件"
+    "key": "DBErrorLogFile"
+    "value": "DBErrors.log"
+  - "desc": "服务器运行时检测到的EventAI错误的日志文件名称，默认值为'EventAIErrors.log'，EventAI相关错误信息会写入该文件"
+    "key": "EventAIErrorLogFile"
+    "value": "EventAIErrors.log"
+  - "desc": "角色操作日志文件名称设置。默认值为'Char.log'，若设置为空字符串则禁用该日志文件创建"
+    "key": "CharLogFile"
+    "value": "Char.log"
+  - "desc": "控制CharLogFile日志文件名是否包含服务器启动的时间戳。默认值0表示不包含；1表示在日志文件名中添加时间戳，格式为Logname_YYYY-MM-DD_HH-MM-SS.Ext（基于原日志名Logname.Ext）"
+    "key": "CharLogTimestamp"
+    "value": 0
+  - "desc": "控制在删除角色前是否将角色数据转储写入Char.log日志文件。要恢复角色数据，可从日志中截取从== START DUMP ==行到== END DUMP ==行（不包含这两行）的角色数据，然后使用loadpdump命令加载。默认值0表示不将角色转储写入日志；1表示写入"
+    "key": "CharLogDump"
+    "value": 0
+  - "desc": "游戏管理员（GM）命令的日志文件设置，默认值为空字符串，表示禁用该日志功能"
+    "key": "GmLogFile"
+    "value": ""
+  - "desc": "控制GmLogFile日志文件名是否包含服务器启动的时间戳。默认值0表示不包含；1表示在日志文件名中添加时间戳，格式为Logname_YYYY-MM-DD_HH-MM-SS.Ext（基于原日志名Logname.Ext）"
+    "key": "GmLogTimestamp"
+    "value": 0
+  - "desc": "控制是否按GM账号ID拆分GM日志文件（注意：若未设置GmLogFile则不会创建日志）。默认值0表示将所有GM日志数据写入单个日志文件；1表示按账号拆分，日志文件名格式为Logname_#ID_YYYY-MM-DD_HH-MM-SS.Ext或Logname_#ID.Ext"
+    "key": "GmLogPerAccount"
+    "value": 0
+  - "desc": "RA命令的日志文件设置。默认值为空字符串表示禁用该日志；若设置为'Ra.log'则启用并将日志写入该文件"
+    "key": "RaLogFile"
+    "value": ""
+  - "desc": "设置日志消息的颜色，格式为“normal_color details_color debug_color error_color”（普通信息颜色 详细信息颜色 调试信息颜色 错误信息颜色）。颜色值对应：0-黑色、1-红色、2-绿色、3-棕色、4-蓝色、5-品红、6-青色、7-灰色、8-黄色、9-亮红、10-亮绿、11-亮蓝、12-亮品红、13-亮青、14-白色。默认值为空字符串，表示不使用颜色；示例值'13 7 11 9'表示普通信息为亮青、详细信息为灰色、调试信息为亮蓝、错误信息为亮红"
+    "key": "LogColors"
+    "value": ""
+  "name": "SERVER LOGGING"
+- "items":
+  - "desc": "服务器领域类型设置。0表示普通（NORMAL）；1表示玩家对战玩家（PVP）；4表示普通（NORMAL）；6表示角色扮演（RP）；8表示角色扮演玩家对战玩家（RPPVP）；还有自定义类型16（FFA_PVP，自由对战模式，除休息区和保护区外所有区域都像竞技场一样允许PVP）。默认值为1（PVP）"
+    "key": "GameType"
+    "value": 1
+  - "desc": "服务器区域设置（用于设定角色名称等允许使用的字符集），需配合Strict*Names相关选项使用。1表示开发环境（允许任何语言，默认值）；2表示美国（扩展拉丁字符）；3表示大洋洲（扩展拉丁字符）；4表示拉丁美洲（扩展拉丁字符）；5表示锦标赛（创建时仅允许基础拉丁字符，登录时允许任何字符）；6表示韩国（东亚字符）；7表示锦标赛（创建时仅允许基础拉丁字符，登录时允许任何字符）；8表示英国（扩展拉丁字符）；9表示德国（扩展拉丁字符）；10表示法国（扩展拉丁字符）；11表示西班牙（扩展拉丁字符）；12表示俄罗斯（西里尔字符）；13表示锦标赛（创建时仅允许基础拉丁字符，登录时允许任何字符）；14表示中国台湾（东亚字符）；15表示锦标赛（创建时仅允许基础拉丁字符，登录时允许任何字符）；16表示中国（东亚字符）；17表示CN1（创建时仅允许基础拉丁字符，登录时允许任何字符）；18表示CN2（创建时仅允许基础拉丁字符，登录时允许任何字符）；19表示CN3（创建时仅允许基础拉丁字符，登录时允许任何字符）；20表示CN4（创建时仅允许基础拉丁字符，登录时允许任何字符）；21表示CN5（创建时仅允许基础拉丁字符，登录时允许任何字符）；22表示CN6（创建时仅允许基础拉丁字符，登录时允许任何字符）；23表示CN7（创建时仅允许基础拉丁字符，登录时允许任何字符）；24表示CN8（创建时仅允许基础拉丁字符，登录时允许任何字符）；25表示锦标赛（创建时仅允许基础拉丁字符，登录时允许任何字符）；26表示测试服务器（允许任何语言）；27表示锦标赛（创建时仅允许基础拉丁字符，登录时允许任何字符）；28表示QA服务器（允许任何语言）；29表示CN9（创建时仅允许基础拉丁字符，登录时允许任何字符）。默认值为1"
+    "key": "RealmZone"
+    "value": 1
+  - "desc": "DBC（数据库缓存文件）语言设置。0表示英语；1表示韩语；2表示法语；3表示德语；4表示中文；5表示繁体中文（台湾）；6表示西班牙语；255表示自动检测（默认值）"
+    "key": "DBC.Locale"
+    "value": 255
+  - "desc": "拒绝名称相关设置，文件中未标注具体说明，默认值为0"
+    "key": "DeclinedNames"
+    "value": 0
+  - "desc": "限制玩家名称为特定语言的字符集，若使用不允许的字符则不允许创建角色，并会触发改名请求且断开连接。默认值0表示禁用该限制（但仍有基于服务器时区的客户端有限检查）；1表示严格限制为基础拉丁字符；2表示严格限制为RealmZone设置对应的服务器区域特定字符集（注意：无论哪种情况，若要在客户端正确显示角色名称，客户端必须有相应字体，默认包含在客户端中，或在clientdir/Fonts目录下有官方/自定义本地化字体）；3表示基础拉丁字符 + 服务器时区特定字符。默认值为0"
+    "key": "StrictPlayerNames"
+    "value": 0
+  - "desc": "限制公会团队宪章名称为特定语言的字符集，不允许创建包含不允许字符的宪章。默认值0表示禁用该限制；1表示严格限制为基础拉丁字符；2表示严格限制为RealmZone设置对应的服务器区域特定字符集（注意：无论哪种情况，若要在客户端正确显示角色名称，客户端必须有相应字体，默认包含在客户端中，或在clientdir/Fonts目录下有官方/自定义本地化字体）；3表示基础拉丁字符 + 服务器时区特定字符。默认值为0"
+    "key": "StrictCharterNames"
+    "value": 0
+  - "desc": "限制宠物名称为特定语言的字符集。默认值0表示禁用该限制；1表示严格限制为基础拉丁字符；2表示严格限制为RealmZone设置对应的服务器区域特定字符集（注意：无论哪种情况，若要在客户端正确显示角色名称，客户端必须有相应字体，默认包含在客户端中，或在clientdir/Fonts目录下有官方/自定义本地化字体）；3表示基础拉丁字符 + 服务器时区特定字符。默认值为0"
+    "key": "StrictPetNames"
+    "value": 0
+  - "desc": "玩家名称的最小长度限制，取值范围1-12，默认值为2"
+    "key": "MinPlayerName"
+    "value": 2
+  - "desc": "公会宪章名称的最小长度限制，取值范围1-24，默认值为2"
+    "key": "MinCharterName"
+    "value": 2
+  - "desc": "宠物名称的最小长度限制，取值范围1-12，默认值为2"
+    "key": "MinPetName"
+    "value": 2
+  - "desc": "禁用特定阵营或所有阵营的角色创建功能（非玩家账号不受影响）。默认值0表示启用角色创建（所有阵营都可创建）；1表示仅禁用联盟阵营角色创建；2表示仅禁用部落阵营角色创建；3表示禁用联盟和部落两个阵营的角色创建。默认值为0"
+    "key": "CharactersCreatingDisabled"
+    "value": 0
+  - "desc": "限制每个账号可创建的角色总数（所有服务器）。注意：该设置基于所有服务器的角色数量，限制当前服务器的角色创建。默认值为50，且该数值必须大于等于CharactersPerRealm的设置值"
+    "key": "CharactersPerAccount"
+    "value": 50
+  - "desc": "限制每个账号在单个服务器上可创建的角色数量。默认值为10（客户端限制），该数值必须在1到10之间"
+    "key": "CharactersPerRealm"
+    "value": 10
+  - "desc": "控制是否禁用首次登录角色时的游戏脚本动画（在自定义起始位置坐标的情况下，可防止有问题的开场动画）。默认值0表示为每个新角色显示开场动画；1表示仅为所选种族的第一个角色显示开场动画；2表示在所有情况下都禁用开场动画。默认值为0"
+    "key": "SkipCinematics"
+    "value": 0
+  - "desc": "玩家可通过获取经验达到的最高等级，取值范围1-100，不建议修改该值，默认值为60"
+    "key": "MaxPlayerLevel"
+    "value": 60
+  - "desc": "创建角色时的起始等级，取值范围1到MaxPlayerLevel（最高玩家等级），默认值为1"
+    "key": "StartPlayerLevel"
+    "value": 1
+  - "desc": "新玩家创建角色时初始拥有的货币数量。例如，若想初始拥有1银币，需设置为100（100铜币=1银币），默认值为0（无初始货币）"
+    "key": "StartPlayerMoney"
+    "value": 0
+  - "desc": "玩家可拥有的最高荣誉点数，默认值为75000"
+    "key": "MaxHonorPoints"
+    "value": 75000
+  - "desc": "新玩家创建角色时初始拥有的荣誉点数，默认值为0"
+    "key": "StartHonorPoints"
+    "value": 0
+  - "desc": "玩家要参与每周荣誉计算必须获得的最少击杀数，默认值为15"
+    "key": "MinHonorKills"
+    "value": 15
+  - "desc": "执行服务器维护的星期几（目前用于荣誉分配），取值范围0-6：0表示一周的第一天（通常是周日），6表示最后一天。默认值3表示周三（欧洲服务器默认）"
+    "key": "MaintenanceDay"
+    "value": 3
+  - "desc": "控制是否允许特定安全等级（0-4）或高权限用户（非战斗中/非决斗中/非坠落中）立即登出。默认值1表示允许模组管理员、游戏管理员和系统管理员立即登出"
+    "key": "InstantLogout"
+    "value": 1
+  - "desc": "控制是否禁用水下呼吸功能，默认值4表示控制台用户不受限制（无具体说明，推测为按权限控制，4为最高权限等级）"
+    "key": "DisableWaterBreath"
+    "value": 4
+  - "desc": "控制任务问候语（当NPC是任务给予者但没有UNIT_NPC_FLAG_GOSSIP标志时使用）是否始终显示，还是仅当玩家有多个菜单选项时显示。默认值0表示禁用（原始行为，仅多选项时显示）；1表示启用（始终显示）"
+    "key": "AlwaysShowQuestGreeting"
+    "value": 0
+  - "desc": "用于解决客户端bug的临时方案：登录时恢复飞行坐骑行程会导致聊天频道丢失，直到飞行结束。启用该设置后，客户端登录时会加入飞越区域的本地频道和所有自定义频道。默认值0表示禁用（原始客户端行为）；1表示启用"
+    "key": "TaxiFlightChatFix"
+    "value": 0
+  - "desc": "控制在多目的地飞行坐骑行程中登出后，重新登录是恢复整个行程还是仅恢复到最近的目的地。默认值0表示仅恢复到最近目的地（false）；1表示恢复整个行程（true）"
+    "key": "LongFlightPathsPersistence"
+    "value": 0
+  - "desc": "控制玩家创建后是否初始拥有所有飞行路线（注意：是所有飞行路线，不仅限于玩家所属阵营）。默认值0表示拥有所有飞行路线（true）；1表示不拥有（false）"
+    "key": "AllFlightPaths"
+    "value": 0
+  - "desc": "控制玩家登录、升级等时是否自动获得对应等级的最高（武器/防御）技能。默认值0表示禁用（false）；1表示启用（true）"
+    "key": "AlwaysMaxSkillForLevel"
+    "value": 0
+  - "desc": "控制是否启用天气系统，默认值1表示启用（true）；0表示禁用（false）"
+    "key": "ActivateWeather"
+    "value": 1
+  - "desc": "控制是否允许通过.start命令或客户端帮助选项施放“解除卡死”法术。默认值1表示允许（true）；0表示禁止（false）"
+    "key": "CastUnstuck"
+    "value": 1
+  - "desc": "单个施法者可触发的链式法术施放的最大次数，用于防止栈溢出崩溃。值过低会导致部分正常的触发施法失败，0表示无限制，默认值为20"
+    "key": "MaxSpellCastsInChain"
+    "value": 20
+  - "desc": "设置“兔子节”（Rabbit Day）的日期（Unix时间戳），仅考虑月和日，年份不重要。默认值0表示关闭该功能；推荐值954547200对应2000年4月1日（愚人节）"
+    "key": "RabbitDay"
+    "value": 0
+  - "desc": "控制是否忽略进入副本的等级要求，默认值0表示不忽略（false）；1表示忽略（true）"
+    "key": "Instance.IgnoreLevel"
+    "value": 0
+  - "desc": "控制是否忽略进入副本的团队要求，默认值0表示不忽略（false）；1表示忽略（true）"
+    "key": "Instance.IgnoreRaid"
+    "value": 0
+  - "desc": "该设置决定当区域处于战斗状态时，是否可以通过额外方式（如假死）离开战斗模式。默认值0表示可以脱离战斗（false，2.3.0版本前的默认行为）；1表示战斗状态持续（true，2.3.0版本后的默认行为）"
+    "key": "Instance.StrictCombatLockdown"
+    "value": 0
+  - "desc": "全局副本重置发生的当天小时数（0-23），默认值为4（凌晨4点）"
+    "key": "Instance.ResetTimeHour"
+    "value": 4
+  - "desc": "若副本内无玩家，延迟指定时间后将副本地图从内存中卸载。默认值1800000毫秒（即30分钟）；0表示副本地图一直驻留在内存中，直到副本重置"
+    "key": "Instance.UnloadDelay"
+    "value": 1800000
+  - "desc": "控制是否禁用玩家在15分钟后进入副本或副本重置时的重新定位。默认值0表示启用重新定位（false），即玩家在副本内登出超过15分钟或副本重置后，再次进入会被重新定位；1表示禁用重新定位（true），即保留玩家位置"
+    "key": "Instance.DisableRelocate"
+    "value": 0
+  - "desc": "用于隐藏玩家低等级任务的等级差值：若玩家等级 > 任务等级 + 该值，则任务给予者不会显示任务“！”标记。默认值为5；-1表示显示所有可用任务的标记"
+    "key": "Quests.LowLevelHideDiff"
+    "value": 5
+  - "desc": "用于隐藏玩家高等级任务的等级差值：若玩家等级 < 任务最低等级 - 该值，则任务给予者不会显示任务“！”标记。默认值为7；-1表示显示所有可用任务的标记"
+    "key": "Quests.HighLevelHideDiff"
+    "value": 7
+  - "desc": "控制团队中是否允许进行非团队任务，默认值0表示不允许（not allowed）；1表示允许（allowed）"
+    "key": "Quests.IgnoreRaid"
+    "value": 0
+  - "desc": "团队队长离线后，在将队长权限转移给下一个合适的团队成员之前的宽限期（秒）。默认值300（5分钟）；0表示不转移团队队长权限"
+    "key": "Group.OfflineLeaderDelay"
+    "value": 300
+  - "desc": "存储在guild_eventlog表中的公会事件日志记录数量。增加该值可存储更多公会事件，最小值为100。可将其设置为很高的值以防止最新的公会事件覆盖最旧的事件，但这会降低性能。默认值为100"
+    "key": "Guild.EventLogRecordsCount"
+    "value": 100
+  - "desc": "疲劳值镜像计时器的最大值（秒）。默认值60（1分钟）；0表示立即开始因疲劳导致的伤害"
+    "key": "MirrorTimer.Fatigue.Max"
+    "value": 60
+  - "desc": "水下呼吸镜像计时器的最大值（秒）。默认值60；0表示立即开始因水下呼吸耗尽导致的伤害"
+    "key": "MirrorTimer.Breath.Max"
+    "value": 60
+  - "desc": "通用环境（熔岩/淤泥等）伤害延迟的镜像计时器最大值（秒）。默认值1；0表示立即开始受到液体环境伤害"
+    "key": "MirrorTimer.Environmental.Max"
+    "value": 1
+  - "desc": "通用环境（熔岩、淤泥等）伤害的数值范围，配置每段伤害时间的最小和最大伤害值，默认区间为605到610"
+    "key": "EnvironmentalDamage.Min"
+    "value": 605
+  - "desc": "通用环境（熔岩、淤泥等）伤害的数值范围，配置每段伤害时间的最小和最大伤害值，默认区间为605到610"
+    "key": "EnvironmentalDamage.Max"
+    "value": 610
+  - "desc": "当玩家与生物交互时，生物将暂停路径点移动，暂停时长为此处指定的时间（以毫秒为单位）"
+    "key": "InteractionPauseTimer"
+    "value": 180000
+  - "desc": "玩家可学习的主要专业技能的最大数量，最大值为10"
+    "key": "MaxPrimaryTradeSkill"
+    "value": 2
+  - "desc": "从该GM等级开始，忽略对主要专业技能最大数量的要求（控制台无此限制）"
+    "key": "TradeSkill.GMIgnore.MaxPrimarySkillsCount"
+    "value": 4
+  - "desc": "从该GM等级开始，忽略对专业技能等级的要求（控制台无此限制）"
+    "key": "TradeSkill.GMIgnore.Level"
+    "value": 4
+  - "desc": "从该GM等级开始，忽略对专业技能熟练度的要求（控制台无此限制）"
+    "key": "TradeSkill.GMIgnore.Skill"
+    "value": 4
+  - "desc": "创建公会所需的最小签名数量，取值范围为0到9"
+    "key": "MinPetitionSigns"
+    "value": 9
+  - "desc": "生物死亡时，团队成员要获得经验值所需与该生物保持的最大距离"
+    "key": "MaxGroupXPDistance"
+    "value": 74
+  - "desc": "发送物品邮件时的邮件投递延迟时间，默认值为3600秒（1小时）"
+    "key": "MailDeliveryDelay"
+    "value": 3600
+  - "desc": "批量邮件处理程序在每个时钟周期内从待发送邮件列表中发送的最大邮件数量。发送的邮件数量越多，服务器负载越高，但批量邮件处理速度会加快。标准时钟周期长度为50毫秒，因此默认情况下每秒有20个时钟周期，每秒可发送200封邮件"
+    "key": "MassMailer.SendPerTick"
+    "value": 10
+  - "desc": "玩家骑乘坐骑时，永久宠物是否会被解散。默认值0表示不解散，1表示无论骑乘何种坐骑都会解散"
+    "key": "PetUnsummonAtMount"
+    "value": 0
+  - "desc": "玩家控制的宠物是否会从背后发起攻击。默认值0表示从任意角度发起攻击，1表示仅从背后发起攻击"
+    "key": "PetAttackFromBehind"
+    "value": 0
+  - "desc": "为低等级玩家施加增益效果或治疗时，是否自动选择合适等级的技能。默认值0（否），1（是）"
+    "key": "AutoDownrank"
+    "value": 0
+  - "desc": "是否开启事件公告功能。默认值0（关闭），1（开启）"
+    "key": "Event.Announce"
+    "value": 0
+  - "desc": "mangosd服务器启动完成时是否发出提示音（该功能主要仅在Unix/Linux系统上生效）。默认值1（开启），0（关闭）"
+    "key": "BeepAtStart"
+    "value": 1
+  - "desc": "控制服务器启动时是否显示各加载步骤的进度条。默认值0（不显示），1（显示）"
+    "key": "ShowProgressBars"
+    "value": 0
+  - "desc": "服务器启动报错并完成报告后，是否等待一段时间或按下回车键后再继续（可能会关闭控制台窗口）。值为-1时，等待直到按下回车键；默认值0表示不等待；值大于0时，等待指定的秒数"
+    "key": "WaitAtStartupError"
+    "value": 0
+  - "desc": "每日消息（Message of the Day），每位用户登录游戏世界时都会显示该消息（使用'@'表示换行）"
+    "key": "Motd"
+    "value": "Welcome to the Continued Massive Network Game Object Server."
+  - "desc": "是否解析玩家聊天内容中的GM指令。默认值1（解析指令），0（忽略指令）"
+    "key": "PlayerCommands"
+    "value": 1
+  "name": "SERVER SETTINGS"
+- "items":
+  - "desc": "是否允许账号在任意游戏模式下创建两个阵营的角色。默认值0（不允许），1（允许）"
+    "key": "AllowTwoSide.Accounts"
+    "value": 0
+  - "desc": "是否允许不同阵营的玩家相互聊天（普通说话、大喊）。默认值0（不允许），1（允许）"
+    "key": "AllowTwoSide.Interaction.Chat"
+    "value": 0
+  - "desc": "是否允许不同阵营的玩家使用合并的聊天频道。默认值0（不允许），1（允许）"
+    "key": "AllowTwoSide.Interaction.Channel"
+    "value": 0
+  - "desc": "是否允许不同阵营的玩家加入彼此的队伍。默认值0（不允许），1（允许）"
+    "key": "AllowTwoSide.Interaction.Group"
+    "value": 0
+  - "desc": "是否允许不同阵营的玩家加入彼此的公会。默认值0（不允许），1（允许）"
+    "key": "AllowTwoSide.Interaction.Guild"
+    "value": 0
+  - "desc": "是否允许不同阵营的玩家在非组队状态下相互交易。默认值0（不允许），1（允许）"
+    "key": "AllowTwoSide.Interaction.Trade"
+    "value": 0
+  - "desc": "是否允许不同阵营的玩家共享拍卖行列表（即拍卖行列表合并显示）。默认值0（不允许），1（允许）"
+    "key": "AllowTwoSide.Interaction.Auction"
+    "value": 0
+  - "desc": "是否允许不同阵营的玩家互发游戏内邮件。默认值0（不允许），1（允许）"
+    "key": "AllowTwoSide.Interaction.Mail"
+    "value": 0
+  - "desc": "是否允许在查询列表（who列表）中显示两个阵营的玩家。默认值0（不允许），1（允许）"
+    "key": "AllowTwoSide.WhoList"
+    "value": 0
+  - "desc": "是否允许在好友列表中添加其他阵营的玩家为好友。默认值0（不允许），1（允许）"
+    "key": "AllowTwoSide.AddFriend"
+    "value": 0
+  - "desc": "是否允许其他玩家在查看角色界面中看到目标角色的天赋（处于游戏管理员模式的角色始终可以查看他人天赋）。默认值1（允许），0（不允许）"
+    "key": "TalentsInspecting"
+    "value": 1
+  "name": "PLAYER INTERACTION"
+- "items":
+  - "desc": "生物仇恨范围的百分比系数，或关闭仇恨机制。默认值1表示100%（原始仇恨范围），1.5表示150%，0表示关闭仇恨（仇恨范围为0%）"
+    "key": "Rate.Creature.Aggro"
+    "value": 1
+  - "desc": "生物刷新后，需要等待该延迟时间后，才会因附近玩家的移动而产生仇恨。默认值为5000毫秒（5秒）"
+    "key": "CreatureRespawnAggroDelay"
+    "value": 5000
+  - "desc": "生物因远离刷新点而触发的默认“束缚”范围半径，默认值为30码。当生物超出该半径时，会被拉回刷新点"
+    "key": "LeashRadius"
+    "value": 30
+  - "desc": "生物用于寻找附近同类生物寻求援助的范围半径，生物会向该范围内的同类逃跑求助。默认值30，值为0时关闭该功能"
+    "key": "CreatureFamilyFleeAssistanceRadius"
+    "value": 30
+  - "desc": "生物在不移动的情况下，用于呼叫同类援助的范围半径。默认值5，值为0时关闭该功能"
+    "key": "CreatureFamilyAssistanceRadius"
+    "value": 5
+  - "desc": "生物响应同类援助呼叫的延迟时间，默认值为1500毫秒（1.5秒）"
+    "key": "CreatureFamilyAssistanceDelay"
+    "value": 1500
+  - "desc": "移动中的NPC能够获得附近同类援助的范围，默认值为5码"
+    "key": "CreatureCheckForHelpRadius"
+    "value": 5
+  - "desc": "战斗开始后的这段时间内，生物将不会触发寻求援助的检测。默认值为2000毫秒（2秒）"
+    "key": "CreatureCheckForHelpAggroDelay"
+    "value": 2000
+  - "desc": "生物刷新组（spawn_group）和关联仇恨触发的延迟时间，默认值为2000毫秒（2秒）"
+    "key": "CreatureLinkingAggroDelay"
+    "value": 2000
+  - "desc": "当生物未找到援助对象时，可进入逃跑状态的持续时间，默认值为10000毫秒（10秒）"
+    "key": "CreatureFamilyFleeDelay"
+    "value": 10000
+  - "desc": "世界首领的动态等级与目标（玩家/团队）等级的差值，默认值为3"
+    "key": "WorldBossLevelDiff"
+    "value": 3
+  - "desc": "若目标生物本应拥有战利品（或拾取后可剥皮），但实际未生成任何战利品时，是否仍显示战利品窗口。默认值1（显示），0（不显示）"
+    "key": "Corpse.EmptyLootShow"
+    "value": 1
+  - "desc": "在队长分配战利品模式下，是否允许所有人查看战利品内容（无论是否达到分配阈值）。仅队长有权分配战利品，默认值0（不显示），1（显示）"
+    "key": "Corpse.AllowAllItemsShowInMasterLoot"
+    "value": 1
+  - "desc": "普通（NORMAL）等级生物的尸体在未被拾取或剥皮的情况下，经过该秒数后会腐烂消失（若生物本身无战利品则该配置不生效），默认值为300秒"
+    "key": "Corpse.Decay.NORMAL"
+    "value": 300
+  - "desc": "稀有（RARE）等级生物的尸体在未被拾取或剥皮的情况下，经过该秒数后会腐烂消失（若生物本身无战利品则该配置不生效），默认值为900秒"
+    "key": "Corpse.Decay.RARE"
+    "value": 900
+  - "desc": "精英（ELITE）等级生物的尸体在未被拾取或剥皮的情况下，经过该秒数后会腐烂消失（若生物本身无战利品则该配置不生效），默认值为600秒"
+    "key": "Corpse.Decay.ELITE"
+    "value": 600
+  - "desc": "稀有精英（RAREELITE）等级生物的尸体在未被拾取或剥皮的情况下，经过该秒数后会腐烂消失（若生物本身无战利品则该配置不生效），默认值为1200秒"
+    "key": "Corpse.Decay.RAREELITE"
+    "value": 1200
+  - "desc": "世界首领（WORLDBOSS）等级生物的尸体在未被拾取或剥皮的情况下，经过该秒数后会腐烂消失（若生物本身无战利品则该配置不生效），默认值为3600秒"
+    "key": "Corpse.Decay.WORLDBOSS"
+    "value": 3600
+  - "desc": "控制生物尸体被拾取后保留的时长，为Corpse.Decay.*配置值的乘数。默认值0.0（当值为0.0时，将使用生物刷新时间的1/3作为保留时长）"
+    "key": "Rate.Corpse.Decay.Looted"
+    "value": 0.0
+  - "desc": "普通（NORMAL）等级生物的伤害倍率。例如：值为2时，生物造成的伤害为原始值的2倍；值为1.7时，为原始值的1.7倍"
+    "key": "Rate.Creature.Normal.Damage"
+    "value": 1
+  - "desc": "精英（Elite）等级生物的伤害倍率。例如：值为2时，生物造成的伤害为原始值的2倍；值为1.7时，为原始值的1.7倍"
+    "key": "Rate.Creature.Elite.Elite.Damage"
+    "value": 1
+  - "desc": "稀有精英（RAREELITE）等级生物的伤害倍率。例如：值为2时，生物造成的伤害为原始值的2倍；值为1.7时，为原始值的1.7倍"
+    "key": "Rate.Creature.Elite.RAREELITE.Damage"
+    "value": 1
+  - "desc": "世界首领（WORLDBOSS）等级生物的伤害倍率。例如：值为2时，生物造成的伤害为原始值的2倍；值为1.7时，为原始值的1.7倍"
+    "key": "Rate.Creature.Elite.WORLDBOSS.Damage"
+    "value": 1
+  - "desc": "稀有（RARE）等级生物的伤害倍率。例如：值为2时，生物造成的伤害为原始值的2倍；值为1.7时，为原始值的1.7倍"
+    "key": "Rate.Creature.Elite.RARE.Damage"
+    "value": 1
+  - "desc": "普通（NORMAL）等级生物的法术伤害倍率。例如：值为2时，生物法术造成的伤害为原始值的2倍；值为1.7时，为原始值的1.7倍"
+    "key": "Rate.Creature.Normal.SpellDamage"
+    "value": 1
+  - "desc": "精英（Elite）等级生物的法术伤害倍率。例如：值为2时，生物法术造成的伤害为原始值的2倍；值为1.7时，为原始值的1.7倍"
+    "key": "Rate.Creature.Elite.Elite.SpellDamage"
+    "value": 1
+  - "desc": "稀有精英（RAREELITE）等级生物的法术伤害倍率。例如：值为2时，生物法术造成的伤害为原始值的2倍；值为1.7时，为原始值的1.7倍"
+    "key": "Rate.Creature.Elite.RAREELITE.SpellDamage"
+    "value": 1
+  - "desc": "世界首领（WORLDBOSS）等级生物的法术伤害倍率。例如：值为2时，生物法术造成的伤害为原始值的2倍；值为1.7时，为原始值的1.7倍"
+    "key": "Rate.Creature.Elite.WORLDBOSS.SpellDamage"
+    "value": 1
+  - "desc": "稀有（RARE）等级生物的法术伤害倍率。例如：值为2时，生物法术造成的伤害为原始值的2倍；值为1.7时，为原始值的1.7倍"
+    "key": "Rate.Creature.Elite.RARE.SpellDamage"
+    "value": 1
+  - "desc": "普通（NORMAL）等级生物的生命值倍率。例如：值为2时，生物生命值为原始值的2倍；值为1.7时，为原始值的1.7倍"
+    "key": "Rate.Creature.Normal.HP"
+    "value": 1
+  - "desc": "精英（Elite）等级生物的生命值倍率。例如：值为2时，生物生命值为原始值的2倍；值为1.7时，为原始值的1.7倍"
+    "key": "Rate.Creature.Elite.Elite.HP"
+    "value": 1
+  - "desc": "稀有精英（RAREELITE）等级生物的生命值倍率。例如：值为2时，生物生命值为原始值的2倍；值为1.7时，为原始值的1.7倍"
+    "key": "Rate.Creature.Elite.RAREELITE.HP"
+    "value": 1
+  - "desc": "世界首领（WORLDBOSS）等级生物的生命值倍率。例如：值为2时，生物生命值为原始值的2倍；值为1.7时，为原始值的1.7倍"
+    "key": "Rate.Creature.Elite.WORLDBOSS.HP"
+    "value": 1
+  - "desc": "稀有（RARE）等级生物的生命值倍率。例如：值为2时，生物生命值为原始值的2倍；值为1.7时，为原始值的1.7倍"
+    "key": "Rate.Creature.Elite.RARE.HP"
+    "value": 1
+  - "desc": "玩家能够听到生物（或其他世界对象）普通说话（say）文本的最远距离，默认值为25码"
+    "key": "ListenRange.Say"
+    "value": 25
+  - "desc": "玩家能够听到生物（或其他世界对象）文本表情（textemote）的最远距离，默认值为25码"
+    "key": "ListenRange.TextEmote"
+    "value": 25
+  - "desc": "玩家能够听到生物（或其他世界对象）大喊（yell）文本的最远距离，默认值为300码"
+    "key": "ListenRange.Yell"
+    "value": 300
+  - "desc": "在数据库中静态刷新的生物/游戏对象最后使用的GUID之后，为.npc add/.gobject add命令预留的GUID数量。.npc add/.gobject add命令仅能使用该预留范围内的GUID，若预留GUID全部用完，需重启服务器才能再次使用这些命令。该值越小，游戏中动态刷新的对象可使用的GUID数量越多。默认值为100（注：配置文件中实际默认值为10000）"
+    "key": "GuidReserveSize.Creature"
+    "value": 10000
+  - "desc": "在数据库中静态刷新的生物/游戏对象最后使用的GUID之后，为.npc add/.gobject add命令预留的GUID数量。.npc add/.gobject add命令仅能使用该预留范围内的GUID，若预留GUID全部用完，需重启服务器才能再次使用这些命令。该值越小，游戏中动态刷新的对象可使用的GUID数量越多。默认值为100（注：配置文件中实际默认值为10000）"
+    "key": "GuidReserveSize.GameObject"
+    "value": 10000
+  - "desc": "生物被扒窃后，可再次被扒窃的补货延迟时间（以秒为单位），默认值为600秒（10分钟）"
+    "key": "CreaturePickpocketRestockDelay"
+    "value": 600
+  "name": "CREATURE AND GAMEOBJECT SETTINGS"
+- "items":
+  - "desc": "防止玩家使用大量空格（或其他不可见字符）创建虚假聊天消息的保护机制，该机制不适用于插件语言消息，但可能导致依赖普通语言向其他客户端发送数据的旧插件无法正常工作。默认值0（关闭虚假消息防护），1（开启虚假消息防护）"
+    "key": "ChatFakeMessagePreventing"
+    "value": 0
+  - "desc": "检查聊天消息中的游戏内链接（如法术、物品、任务、成就等链接）的严格程度。默认值0（禁用链接检查）；1（仅检查是否使用了有效的管道命令，例如可防止发送图片）；2（验证管道命令的使用顺序是否正确）；3（检查颜色、条目和名称是否一致，若要该等级生效，需确保已提取所有在该服务器游玩的不同语言客户端的本地化DBC文件）"
+    "key": "ChatStrictLinkChecking.Severity"
+    "value": 0
+  - "desc": "定义当检测到消息包含无效管道命令时采取的操作。默认值0（静默忽略该消息），1（踢出发送格式无效消息的玩家）"
+    "key": "ChatStrictLinkChecking.Kick"
+    "value": 0
+  - "desc": "聊天反刷屏保护机制中，触发保护所需的消息数量阈值。默认值10，值为0时禁用反刷屏保护"
+    "key": "ChatFlood.MessageCount"
+    "value": 10
+  - "desc": "聊天反刷屏保护机制中，判定为有效消息的最小发送间隔（以秒为单位），只有间隔大于等于该值的消息才会被计入刷屏检测的数量统计，默认值为1秒"
+    "key": "ChatFlood.MessageDelay"
+    "value": 1
+  - "desc": "聊天反刷屏保护机制触发后，对违规玩家的禁言时长（该时长不保存），默认值为10秒"
+    "key": "ChatFlood.MuteTime"
+    "value": 10
+  - "desc": "控制团队警告（Raid Warnings）聊天频道的使用权限。默认值1（受限模式：仅允许团队领袖和助理在团队中使用）；0（不受限模式：允许队伍中所有成员使用，对应2.0.0 - 3.3.0版本的行为）"
+    "key": "Chat.RestrictedRaidWarnings"
+    "value": 1
+  - "desc": "根据服务器所在区域（RealmZone）限制非拉丁语字符的使用。默认值0（无限制，所有频道可使用任意字符）；1（仅在全局频道中，字符使用受服务器区域语言限制）；2（在全局频道和自定义静态频道中，字符使用受服务器区域语言限制）；3（在全局频道和所有自定义频道中，字符使用受服务器区域语言限制）"
+    "key": "Channel.RestrictedLanguageMode"
+    "value": 0
+  - "desc": "静态自定义频道是预先配置为类似全局频道属性（“世界聊天”模式）的自定义频道，默认无所有者、无管理员、无密码且无预审（除非被GM覆盖设置）。该配置用于设置符合条件的频道达到指定成员数量时，自动转换为静态频道的阈值，默认值0（禁用该自动转换功能）"
+    "key": "Channel.StaticAutoTreshold"
+    "value": 0
+  "name": "CHAT SETTINGS"
+- "items":
+  - "desc": "GM登录时的模式状态。默认值2（恢复上次保存的状态）；0（禁用GM模式）；1（启用GM模式）"
+    "key": "GM.LoginState"
+    "value": 2
+  - "desc": "GM登录时的可见性状态。默认值2（恢复上次保存的状态）；0（不可见）；1（可见）"
+    "key": "GM.Visible"
+    "value": 2
+  - "desc": "GM默认是否接受玩家提交的工单（申诉单）。默认值2（恢复上次保存的状态）；0（不接受）；1（接受）"
+    "key": "GM.AcceptTickets"
+    "value": 2
+  - "desc": "接收工单通知、提醒以及使用部分相关命令所需的最低GM账号安全等级。默认值2（仅游戏管理员及以上等级）；0（所有人都禁用）；1（仅版主及以上等级）；3（仅管理员）"
+    "key": "GM.AcceptTicketsLevel"
+    "value": 2
+  - "desc": "GM登录时的聊天模式状态。默认值2（恢复上次保存的状态）；0（禁用GM聊天模式）；1（启用GM聊天模式）"
+    "key": "GM.Chat"
+    "value": 2
+  - "desc": "有权使用GM聊天标签所需的最低GM账号安全等级。默认值1（仅版主及以上等级）；0（所有人都禁用）；2（仅游戏管理员及以上等级）；3（仅管理员）"
+    "key": "GM.ChatLevel"
+    "value": 1
+  - "desc": "在频道中执行管理员游戏内命令所需的最低GM账号安全等级，同时该等级可绕过加入需密码频道时的密码验证。默认值1（版主及以上等级可执行）；0（仅拥有游戏内频道管理员权限的账号可执行）；2（游戏管理员及以上等级可执行）；3（仅管理员可执行）"
+    "key": "GM.ChannelModerationLevel"
+    "value": 1
+  - "desc": "能够静默加入和离开频道（无加入/离开公告）所需的最低GM账号安全等级。默认值0（所有人的加入/离开都会发布公告）；1（版主及以上等级静默加入/离开）；2（游戏管理员及以上等级静默加入/离开）；3（仅管理员静默加入/离开）"
+    "key": "GM.ChannelSilentJoinLevel"
+    "value": 0
+  - "desc": "GM默认是否接受玩家的私聊消息。默认值2（恢复上次保存的状态）；0（不接受）；1（接受）"
+    "key": "GM.WhisperingTo"
+    "value": 2
+  - "desc": "当GM处于非GM模式（.gm off）时，能在GM列表中显示的最高GM账号安全等级（若列表可见）。默认值3（所有等级的GM都显示）；0（无GM显示）；1（仅版主显示）；2（仅游戏管理员显示）"
+    "key": "GM.InGMList.Level"
+    "value": 3
+  - "desc": "能在查询列表（who list）中显示的最高GM账号安全等级（若列表可见）。默认值3（所有等级的GM都显示）；0（仅显示普通玩家）；1（仅显示版主）；2（仅显示游戏管理员）"
+    "key": "GM.InWhoList.Level"
+    "value": 3
+  - "desc": "若启用该功能，GM的交易行为以及交易栏位附魔操作会被记录到GM日志中。默认值1（记录），0（不记录）"
+    "key": "GM.LogTrade"
+    "value": 1
+  - "desc": "GM角色的起始等级，取值范围为1到255，默认值为1"
+    "key": "GM.StartLevel"
+    "value": 1
+  - "desc": "是否禁止安全等级较低的GM使用命令与安全等级较高的GM交互。默认值0（禁用该限制），1（启用该限制）"
+    "key": "GM.LowerSecurity"
+    "value": 0
+  - "desc": "当GM使用“.gm visible off”命令隐藏自己时，会施放的光环法术（必须是光环类法术）。默认值31748（大型灵魂粒子效果），值为0时禁用该功能"
+    "key": "GM.InvisibleAura"
+    "value": 31748
+  - "desc": "服务器启动时GM工单队列的状态，若禁用则服务器不接受玩家提交的任何GM工单。默认值1（启用），0（禁用）"
+    "key": "GM.TicketsQueueStatus"
+    "value": 1
+  "name": "GAME MASTER SETTINGS"
+- "items":
+  - "desc": "设置隐身单位的可见性模式，战争迷雾（Fog Of War）相关设置对GM不生效。默认值0（标准设置：玩家仅能看到自己队伍中的隐身单位）；1（玩家能看到同阵营的隐身单位）"
+    "key": "Visibility.FogOfWar.Stealth"
+    "value": 0
+  - "desc": "设置单位绝对生命值的可见性模式，战争迷雾（Fog Of War）相关设置对GM不生效。默认值0（3.0版本前的标准设置：玩家仅能看到自己队伍中单位的生命值）；1（玩家能看到同阵营单位的生命值）；2（3.0版本后的标准设置：玩家能看到所有单位的生命值）"
+    "key": "Visibility.FogOfWar.Health"
+    "value": 0
+  - "desc": "设置角色属性和攻击属性值的可见性模式，战争迷雾（Fog Of War）相关设置对GM不生效。默认值0（标准设置：玩家仅能看到自己和自己宠物的属性值）；1（玩家能看到同阵营单位的属性值）；2（玩家能看到所有单位的属性值）"
+    "key": "Visibility.FogOfWar.Stats"
+    "value": 0
+  - "desc": "不同地图中游戏对象的可见距离。在大陆地图上默认可见距离为100码，战场/竞技场为533码，副本为170码。最大值受玩家当前所在区域限制：533码；最小值为最大仇恨半径（45码）乘以Rate.Creature.Aggro系数"
+    "key": "Visibility.Distance.Continents"
+    "value": 100
+  - "desc": "不同地图中游戏对象的可见距离。在大陆地图上默认可见距离为100码，战场/竞技场为533码，副本为170码。最大值受玩家当前所在区域限制：533码；最小值为最大仇恨半径（45码）乘以Rate.Creature.Aggro系数"
+    "key": "Visibility.Distance.Instances"
+    "value": 170
+  - "desc": "不同地图中游戏对象的可见距离。在大陆地图上默认可见距离为100码，战场/竞技场为533码，副本为170码。最大值受玩家当前所在区域限制：533码；最小值为最大仇恨半径（45码）乘以Rate.Creature.Aggro系数"
+    "key": "Visibility.Distance.BGArenas"
+    "value": 533
+  - "desc": "当对象当前位置与上次更新可见性时的位置之间的距离达到该值时，会触发对象可见性的更新。默认值为10码"
+    "key": "Visibility.RelocationLowerLimit"
+    "value": 10
+  - "desc": "生物AI对附近移动目标做出反应的延迟时间，默认值为1000毫秒"
+    "key": "Visibility.AIRelocationNotifyDelay"
+    "value": 1000
+  "name": "VISIBILITY AND RADIUSES"
+- "items":
+  - "desc": "生命值、能量（法力/怒气/集中值等）恢复速率以及受到伤害时的怒气获取速率的倍率，默认值为1"
+    "key": "Rate.Health"
+    "value": 1
+  - "desc": "生命值、能量（法力/怒气/集中值等）恢复速率以及受到伤害时的怒气获取速率的倍率，默认值为1"
+    "key": "Rate.Mana"
+    "value": 1
+  - "desc": "生命值、能量（法力/怒气/集中值等）恢复速率以及受到伤害时的怒气获取速率的倍率，默认值为1"
+    "key": "Rate.Rage.Income"
+    "value": 1
+  - "desc": "生命值、能量（法力/怒气/集中值等）恢复速率以及怒气流失速率的倍率，默认值为1"
+    "key": "Rate.Rage.Loss"
+    "value": 1
+  - "desc": "生命值、能量（法力/怒气/集中值/专注值等）恢复速率以及受到伤害时的怒气获取速率的倍率，默认值为1"
+    "key": "Rate.Focus"
+    "value": 1
+  - "desc": "忠诚度相关的倍率（如宠物忠诚度提升速率），默认值为1"
+    "key": "Rate.Loyalty"
+    "value": 1
+  - "desc": "能量（潜行者的能量）恢复速率的倍率，默认值为1"
+    "key": "Rate.Energy"
+    "value": 1
+  - "desc": "技能发现（如专业技能配方领悟）的概率倍率，默认值为1"
+    "key": "Rate.Skill.Discovery"
+    "value": 1
+  - "desc": "劣质（Poor）品质物品的掉落率倍率，默认值为1"
+    "key": "Rate.Drop.Item.Poor"
+    "value": 1
+  - "desc": "普通（Normal）品质物品的掉落率倍率，默认值为1"
+    "key": "Rate.Drop.Item.Normal"
+    "value": 1
+  - "desc": "优秀（Uncommon）品质物品的掉落率倍率，默认值为1"
+    "key": "Rate.Drop.Item.Uncommon"
+    "value": 1
+  - "desc": "稀有（Rare）品质物品的掉落率倍率，默认值为1"
+    "key": "Rate.Drop.Item.Rare"
+    "value": 1
+  - "desc": "史诗（Epic）品质物品的掉落率倍率，默认值为1"
+    "key": "Rate.Drop.Item.Epic"
+    "value": 1
+  - "desc": "传说（Legendary）品质物品的掉落率倍率，默认值为1"
+    "key": "Rate.Drop.Item.Legendary"
+    "value": 1
+  - "desc": "神器（Artifact）品质物品的掉落率倍率，默认值为1"
+    "key": "Rate.Drop.Item.Artifact"
+    "value": 1
+  - "desc": "引用类物品（Referenced）的掉落率倍率，默认值为1"
+    "key": "Rate.Drop.Item.Referenced"
+    "value": 1
+  - "desc": "任务（Quest）物品的掉落率倍率，默认值为1"
+    "key": "Rate.Drop.Item.Quest"
+    "value": 1
+  - "desc": "金币掉落率的倍率，默认值为1"
+    "key": "Rate.Drop.Money"
+    "value": 1
+  - "desc": "宠物通过击杀目标获取经验值的倍率，默认值为1"
+    "key": "Rate.Pet.XP.Kill"
+    "value": 1
+  - "desc": "玩家通过击杀目标获取经验值的倍率，默认值为1"
+    "key": "Rate.XP.Kill"
+    "value": 1
+  - "desc": "玩家完成任务获取经验值的倍率，默认值为1"
+    "key": "Rate.XP.Quest"
+    "value": 1
+  - "desc": "玩家探索新区域获取经验值的倍率，默认值为1"
+    "key": "Rate.XP.Explore"
+    "value": 1
+  - "desc": "玩家在游戏内休息时，休息点数（双倍经验值点数）的增长倍率（1为正常速率，2为双倍速率，0.5为半速等），默认值为1"
+    "key": "Rate.Rest.InGame"
+    "value": 1
+  - "desc": "玩家离线且处于酒馆或城市中时，休息点数（双倍经验值点数）的增长倍率（1为正常速率，2为双倍速率，0.5为半速等），默认值为1"
+    "key": "Rate.Rest.Offline.InTavernOrCity"
+    "value": 1
+  - "desc": "玩家离线且处于野外时，休息点数（双倍经验值点数）的增长倍率（1为正常速率，2为双倍速率，0.5为半速等），默认值为1"
+    "key": "Rate.Rest.Offline.InWilderness"
+    "value": 1
+  - "desc": "玩家坠落受到伤害的倍率（1为标准伤害，2为双倍伤害，0.5为半伤害等），默认值为1"
+    "key": "Rate.Damage.Fall"
+    "value": 1
+  - "desc": "拍卖行拍卖时长的倍率（如原本24小时的拍卖，倍率为2时变为48小时），默认值为1"
+    "key": "Rate.Auction.Time"
+    "value": 1
+  - "desc": "拍卖行拍卖押金的倍率（拍卖开始时收取的押金金额倍率），默认值为1"
+    "key": "Rate.Auction.Deposit"
+    "value": 1
+  - "desc": "拍卖行手续费的倍率（拍卖结束时从成交价中扣除的手续费比例倍率），默认值为1"
+    "key": "Rate.Auction.Cut"
+    "value": 1
+  - "desc": "拍卖行拍卖押金的最低金额（以铜币为单位），默认值为0"
+    "key": "Auction.Deposit.Min"
+    "value": 0
+  - "desc": "玩家获取荣誉值的倍率，默认值为1"
+    "key": "Rate.Honor"
+    "value": 1
+  - "desc": "采矿次数倍率（Mining.Amount修改矿点可开采的最小/最大次数），默认值为1"
+    "key": "Rate.Mining.Amount"
+    "value": 1
+  - "desc": "采矿续采概率倍率（Mining.Next修改矿点每次开采后可继续开采的概率），默认值为1"
+    "key": "Rate.Mining.Next"
+    "value": 1
+  - "desc": "天赋点数获取倍率（如升级获得的天赋点数倍率），默认值为1"
+    "key": "Rate.Talent"
+    "value": 1
+  - "desc": "玩家获取声望值的倍率，默认值为1"
+    "key": "Rate.Reputation.Gain"
+    "value": 1
+  - "desc": "击杀低等级目标获取声望值的最低倍率，默认值为0.2"
+    "key": "Rate.Reputation.LowLevel.Kill"
+    "value": 0.2
+  - "desc": "完成低等级任务获取声望值的最低倍率，默认值为0.2"
+    "key": "Rate.Reputation.LowLevel.Quest"
+    "value": 0.2
+  - "desc": "团队/英雄副本全局重置间隔天数的乘数，默认值为1（即原始重置间隔）"
+    "key": "Rate.InstanceResetTime"
+    "value": 1
+  - "desc": "制作类专业技能（如锻造、裁缝）的技能提升倍率（每次成功制作获得的技能点数倍率），默认值为1"
+    "key": "SkillGain.Crafting"
+    "value": 1
+  - "desc": "防御类技能（如防御等级）的技能提升倍率，默认值为1"
+    "key": "SkillGain.Defense"
+    "value": 1
+  - "desc": "采集类技能（如采矿、采药、剥皮）的技能提升倍率，默认值为1"
+    "key": "SkillGain.Gathering"
+    "value": 1
+  - "desc": "武器技能（如剑类、锤类武器熟练度）的技能提升倍率，默认值为1"
+    "key": "SkillGain.Weapon"
+    "value": 1
+  - "desc": "橙色难度技能的成功概率（0到100），默认值为100%"
+    "key": "SkillChance.Orange"
+    "value": 100
+  - "desc": "黄色难度技能的成功概率（0到100），默认值为75%"
+    "key": "SkillChance.Yellow"
+    "value": 75
+  - "desc": "绿色难度技能的成功概率（0到100），默认值为25%"
+    "key": "SkillChance.Green"
+    "value": 25
+  - "desc": "灰色难度技能的成功概率（0到100），默认值为0%"
+    "key": "SkillChance.Grey"
+    "value": 0
+  - "desc": "采矿技能成功率随技能等级下降的步长。默认值0表示成功率不随等级下降；值为75时，每提升75点技能等级，成功率减半"
+    "key": "SkillChance.MiningSteps"
+    "value": 0
+  - "desc": "剥皮技能成功率随技能等级下降的步长。默认值0表示成功率不随等级下降；值为75时，每提升75点技能等级，成功率减半"
+    "key": "SkillChance.SkinningSteps"
+    "value": 0
+  - "desc": "钓鱼失败时是否给予垃圾战利品替代。默认值0（禁用），1（启用）"
+    "key": "SkillFail.Loot.Fishing"
+    "value": 0
+  - "desc": "钓鱼失败时是否仍有可能获得技能点数提升。默认值0（禁用），1（启用）"
+    "key": "SkillFail.Gain.Fishing"
+    "value": 0
+  - "desc": "默认情况下，在鱼群中钓鱼时是否因技能等级过低而不会失败。默认值1（启用，即低技能在鱼群钓鱼也不会失败），0（禁用，低技能在鱼群钓鱼可能失败）"
+    "key": "SkillFail.Possible.FishingPool"
+    "value": 1
+  - "desc": "受到或造成伤害时，装备物品损失1点耐久度的概率。默认值0.5（计算方式：100/0.5=200，即每造成/受到200点伤害，从19件可能的装备中随机一件损失1点耐久）"
+    "key": "DurabilityLossChance.Damage"
+    "value": 0.5
+  - "desc": "吸收伤害时，护甲类物品损失1点耐久度的概率。默认值0.5（计算方式：100/0.5=200，即每吸收200点伤害，从15件可能的护甲装备中随机一件损失1点耐久）"
+    "key": "DurabilityLossChance.Absorb"
+    "value": 0.5
+  - "desc": "格挡（招架）攻击时，武器损失1点耐久度的概率。默认值0.05（计算方式：100/0.05=2000，即每招架2000次攻击，主手武器损失1点耐久）"
+    "key": "DurabilityLossChance.Parry"
+    "value": 0.05
+  - "desc": "格挡（阻挡）伤害时，盾牌损失1点耐久度的概率。默认值0.05（计算方式：100/0.05=2000，即每格挡2000次（部分或完全格挡）攻击，盾牌损失1点耐久）"
+    "key": "DurabilityLossChance.Block"
+    "value": 0.05
+  - "desc": "角色在灵魂状态复活时开始获得虚弱状态的等级阈值（基础虚弱时长为1分钟）。默认值11；值为-10时，1级角色复活会获得满时长（10分钟）的虚弱；值为最大玩家等级+1时，任何等级角色复活都不会获得虚弱"
+    "key": "Death.SicknessLevel"
+    "value": 11
+  - "desc": "是否启用因频繁PvP死亡而增加尸体回收延迟的机制。默认值1（启用），0（禁用）"
+    "key": "Death.CorpseReclaimDelay.PvP"
+    "value": 1
+  - "desc": "是否启用因频繁PvE死亡而增加尸体回收延迟的机制。默认值1（启用），0（禁用）"
+    "key": "Death.CorpseReclaimDelay.PvE"
+    "value": 1
+  - "desc": "在常规区域/副本中复活时，是否创建骨头而非尸体。默认值1（启用），0（禁用）"
+    "key": "Death.Bones.World"
+    "value": 1
+  - "desc": "在战场中复活时，是否创建骨头而非尸体。默认值1（启用），0（禁用）"
+    "key": "Death.Bones.Battleground"
+    "value": 1
+  - "desc": "修改玩家灵魂在非战场地图中的移动速度，该效果在复活后移除，非永久/保存属性。默认值1.0（正常速度）"
+    "key": "Death.Ghost.RunSpeed.World"
+    "value": 1.0
+  - "desc": "修改玩家灵魂在战场地图中的移动速度，该效果在复活后移除，非永久/保存属性。默认值1.0（正常速度）"
+    "key": "Death.Ghost.RunSpeed.Battleground"
+    "value": 1.0
+  "name": "SERVER RATES"
+- "items":
+  - "desc": "对在战场进行过程中离开的玩家施放“逃兵”法术（即添加逃兵debuff）。默认值1（启用），0（禁用）"
+    "key": "Battleground.CastDeserter"
+    "value": 1
+  - "desc": "启用战场排队公告功能，在玩家加入排队时发送聊天公告。默认值0（不发送）；1（仅发送给加入排队的玩家）；2（发送给所有玩家）"
+    "key": "Battleground.QueueAnnouncer.Join"
+    "value": 0
+  - "desc": "启用战场排队公告功能，在战场开始时发送聊天公告。默认值0（禁用），1（启用）"
+    "key": "Battleground.QueueAnnouncer.Start"
+    "value": 0
+  - "desc": "是否启用战场分数统计并存储到数据库中。默认值0（禁用），1（启用）"
+    "key": "Battleground.ScoreStatistics"
+    "value": 0
+  - "desc": "设置战场邀请类型。默认值0（普通模式：尽可能邀请玩家进入战场，不考虑阵营平衡）；1（实验模式：不允许邀请过多同一阵营的玩家）"
+    "key": "Battleground.InvitationType"
+    "value": 0
+  - "desc": "若某一阵营的玩家数量低于每队最低人数，战场将在该时长后提前结束（单位为毫秒）。默认值300000（5分钟）；值为0时禁用该功能（不推荐）"
+    "key": "BattleGround.PrematureFinishTimer"
+    "value": 300000
+  - "desc": "单一阵营的预制队伍在战场排队时，等待另一阵营预制队伍匹配的时长。默认值0（禁用预制队伍匹配，队伍始终以常规方式加入战场）；值为1800000时表示等待30分钟"
+    "key": "BattleGround.PremadeGroupWaitForMatch"
+    "value": 0
+  "name": "BATTLEGROUND CONFIG"
+- "items":
+  - "desc": "是否启用希利苏斯野外PvP玩法。默认值1（启用），0（禁用）"
+    "key": "OutdoorPvp.SIEnabled"
+    "value": 1
+  - "desc": "是否启用东瘟疫之地野外PvP玩法。默认值1（启用），0（禁用）"
+    "key": "OutdoorPvp.EPEnabled"
+    "value": 1
+  "name": "OUTDOOR PVP CONFIG"
+- "items":
+  - "desc": "组队时检查排队玩家的天赋。默认值为0（禁用 - 忽略天赋，使用职业优先级，例如战士为坦克、圣骑士为治疗者）；值为1时启用，会根据拥有更多天赋点数的天赋树来设定角色定位。"
+    "key": "LFG.Matchmaking"
+    "value": 0
+  - "desc": "地下城查找器（LFG）队列中的玩家停止使用匹配机制以更快找到队伍的时间（以秒为单位）。该配置仅在匹配机制启用时生效。默认值为600秒（即5分钟）。"
+    "key": "LFG.MatchmakingTimer"
+    "value": 600
+  "name": "MEETING STONE LFG CONFIG"
+- "items":
+  - "desc": "网络处理使用的线程数，建议每1000个连接使用1个线程。默认值为1。"
+    "key": "Network.Threads"
+    "value": 1
+  - "desc": "所使用的输出内核缓冲区大小（对应SO_SNDBUF套接字选项，可参考TCP手册）。默认值为-1，表示使用系统默认设置。"
+    "key": "Network.OutKBuff"
+    "value": -1
+  - "desc": "输出用的用户态缓冲区，这是为每个连接预留的内存大小。默认值为65536字节。"
+    "key": "Network.OutUBuff"
+    "value": 65536
+  - "desc": "TCP Nagle算法的设置项。默认值为0时启用Nagle算法，网络流量更少但延迟更高；值为1时启用TCP_NO_DELAY，禁用Nagle算法，网络流量更多但延迟更低。"
+    "key": "Network.TcpNodelay"
+    "value": 1
+  - "desc": "当检测到错误的数据包格式时是否踢出玩家。默认值为0，表示不踢出；值为1时表示踢出玩家。"
+    "key": "Network.KickOnBadPacket"
+    "value": 0
+  "name": "NETWORK CONFIG"
+- "items":
+  - "desc": "是否启用控制台功能。默认值为1，表示开启；值为0时表示关闭。"
+    "key": "Console.Enable"
+    "value": 1
+  - "desc": "是否启用远程控制台功能。默认值为0，表示关闭；值为1时表示开启。"
+    "key": "Ra.Enable"
+    "value": 0
+  - "desc": "远程控制台的默认IP地址，设置为0.0.0.0表示允许从任意地址访问远程控制台。"
+    "key": "Ra.IP"
+    "value": "0.0.0.0"
+  - "desc": "远程控制台的默认端口号。默认值为3443。"
+    "key": "Ra.Port"
+    "value": 3443
+  - "desc": "登录远程控制台所需的最低权限等级，默认值为3（管理员权限等级）。"
+    "key": "Ra.MinLevel"
+    "value": 3
+  - "desc": "当输入错误密码时是否踢出客户端。默认值为1，表示开启该功能；值为0时表示关闭。"
+    "key": "Ra.Secure"
+    "value": 1
+  - "desc": "是否禁止通过远程控制台（RA）执行仅控制台级别的命令。默认值为1，表示开启限制（不允许执行）；值为0时表示关闭限制（允许执行）。"
+    "key": "Ra.Restricted"
+    "value": 1
+  - "desc": "是否启用SOAP服务。默认值为0，表示关闭；值为1时表示开启。"
+    "key": "SOAP.Enabled"
+    "value": 0
+  - "desc": "SOAP服务绑定的IP地址，设置为0.0.0.0可允许从任意地址访问SOAP服务。默认值为127.0.0.1（仅本地可访问）。"
+    "key": "SOAP.IP"
+    "value": "127.0.0.1"
+  - "desc": "SOAP服务使用的端口号。默认值为7878。"
+    "key": "SOAP.Port"
+    "value": 7878
+  "name": "CONSOLE, REMOTE ACCESS AND SOAP"
+- "items":
+  - "desc": "角色删除的行为模式。默认值为0，表示将角色从数据库中彻底移除；值为1时为解除关联模式，角色会与账号解除关联，角色名被释放，且在游戏内显示为已删除状态。"
+    "key": "CharDelete.Method"
+    "value": 0
+  - "desc": "当角色未达到指定等级时，将按照CharDelete.Method=0的方式删除角色。默认值为0，表示所有角色都将使用指定的删除模式；值大于等于1时，仅达到该等级的角色会按指定模式删除，其余角色均按CharDelete.Method=0的方式删除。"
+    "key": "CharDelete.MinLevel"
+    "value": 0
+  - "desc": "定义角色在数据库中保留的天数，超过该天数后角色将被移除。默认值为30天；值为0时表示不删除任何角色，角色将永久保留在数据库中。"
+    "key": "CharDelete.KeepDays"
+    "value": 30
+  "name": "CharDelete Configuration"
+- "items":
+  - "desc": "启用或禁用指标日志记录功能（该功能要求核心编译时开启BUILD_METRICS选项）。默认值为0，表示禁用；值为1时表示启用。"
+    "key": "Metric.Enable"
+    "value": 0
+  - "desc": "存储指标数据的InfluxDB数据库的IP地址/主机名。默认值为'127.0.0.1'（本地地址）。"
+    "key": "Metric.Address"
+    "value": "127.0.0.1"
+  - "desc": "存储指标数据的InfluxDB数据库使用的端口号。默认值为8086。"
+    "key": "Metric.Port"
+    "value": 8086
+  - "desc": "存储指标数据的InfluxDB数据库名称。默认值为'perfd'。"
+    "key": "Metric.Database"
+    "value": "perfd"
+  - "desc": "访问存储指标数据的InfluxDB数据库所需的用户名。默认值为空字符串，表示无需用户名。"
+    "key": "Metric.Username"
+    "value": ""
+  - "desc": "访问存储指标数据的InfluxDB数据库所需的密码。默认值为空字符串，表示无需密码。"
+    "key": "Metric.Password"
+    "value": ""
+  "name": "METRICS CONFIGURATION -> Require core builded with BUILD_METRICS option"
+- "items":
+  - "desc": "调试用配置项1，无额外描述信息，默认值为0。"
+    "key": "Dummy.Debug1"
+    "value": 0
+  - "desc": "调试用配置项2，无额外描述信息，默认值为0。"
+    "key": "Dummy.Debug2"
+    "value": 0
+  "name": "Dummy Configuration"

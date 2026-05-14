@@ -1,0 +1,413 @@
+- items:
+  - desc: "禁用时，新接入的世界会话将不会初始化反作弊功能。如果在服务器运行期间启用此选项，已连接的会话仍将保持反作弊禁用状态。"
+    key: "AnticheatConf.Enable"
+    value: 1
+  - desc: "指纹历史记录表为每个指纹值存储的条目数量。最早的条目将被剔除。"
+    key: "AnticheatConf.FingerprintHistory"
+    value: 30
+  - desc: "允许在命令输出中包含客户端指纹信息所需的最低GM账号等级"
+    key: "AnticheatConf.FingerprintLevel"
+    value: 6
+  - desc: "踢出作弊者前需要等待的最短秒数"
+    key: "AnticheatConf.KickDelay.Min"
+    value: 30
+  - desc: "踢出作弊者前需要等待的最长秒数"
+    key: "AnticheatConf.KickDelay.Max"
+    value: 90
+  - desc: "封禁作弊者前需要等待的最短秒数"
+    key: "AnticheatConf.BanDelay.Min"
+    value: 30
+  - desc: "封禁作弊者前需要等待的最长秒数"
+    key: "AnticheatConf.BanDelay.Max"
+    value: 90
+  - desc: "IP封禁作弊者前需要等待的最短秒数"
+    key: "AnticheatConf.IPBanDelay.Min"
+    value: 30
+  - desc: "IP封禁作弊者前需要等待的最长秒数"
+    key: "AnticheatConf.IPBanDelay.Max"
+    value: 90
+  - desc: "对于批量封禁（BanWave），指定每周哪一天执行封禁操作。0 = 周日, 1 = 周一, 2 = 周二, 3 = 周三, 4 = 周四, 5 = 周五, 6 = 周六"
+    key: "AnticheatConf.BanWave.Day"
+    value: 1
+  - desc: "对于批量封禁（BanWave），指定每天的哪个小时执行封禁操作。有效值范围为0到23。"
+    key: "AnticheatConf.BanWave.Hour"
+    value: 10
+  - desc: "对于批量封禁（BanWave），指定小时内的哪一分钟执行封禁操作。有效值范围为0到59。"
+    key: "AnticheatConf.BanWave.Minute"
+    value: 0
+  - desc: "在服务器端验证逻辑中使用外推法预测移动轨迹。此方式结果更准确，但会增加计算开销。"
+    key: "AnticheatConf.Movement.UseExtrapolation"
+    value: 1
+  - desc: "对玩家移动应用多种启发式算法和合理性检查，以验证其移动速度是否合规。"
+    key: "AnticheatConf.Movement.SpeedHack.Enable"
+    value: 1
+  - desc: "检查玩家是否正在穿越过于陡峭的地形（注：此功能尚未实现！）"
+    key: "AnticheatConf.Movement.WallClimb.TickCount"
+    value: 0
+  - desc: "检查玩家是否正在穿越过于陡峭的地形（注：此功能尚未实现！）"
+    key: "AnticheatConf.Movement.WallClimb.TickAction"
+    value: 0
+  - desc: "检查玩家是否正在穿越过于陡峭的地形（注：此功能尚未实现！）"
+    key: "AnticheatConf.Movement.WallClimb.TotalCount"
+    value: 0
+  - desc: "检查玩家是否正在穿越过于陡峭的地形（注：此功能尚未实现！）"
+    key: "AnticheatConf.Movement.WallClimb.TotalAction"
+    value: 0
+  - desc: "检查玩家是否在无对应光环效果的情况下在水上行走"
+    key: "AnticheatConf.Movement.WaterWalk.TickCount"
+    value: 1
+  - desc: "检查玩家是否在无对应光环效果的情况下在水上行走"
+    key: "AnticheatConf.Movement.WaterWalk.TickAction"
+    value: 1
+  - desc: "检查玩家是否在无对应光环效果的情况下在水上行走"
+    key: "AnticheatConf.Movement.WaterWalk.TotalCount"
+    value: 0
+  - desc: "检查玩家是否在无对应光环效果的情况下在水上行走"
+    key: "AnticheatConf.Movement.WaterWalk.TotalAction"
+    value: 0
+  - desc: "检查玩家是否在无对应光环效果的情况下缓慢下落"
+    key: "AnticheatConf.Movement.SlowFall.TickCount"
+    value: 1
+  - desc: "检查玩家是否在无对应光环效果的情况下缓慢下落"
+    key: "AnticheatConf.Movement.SlowFall.TickAction"
+    value: 1
+  - desc: "检查玩家是否在无对应光环效果的情况下缓慢下落"
+    key: "AnticheatConf.Movement.SlowFall.TotalCount"
+    value: 0
+  - desc: "检查玩家是否在无对应光环效果的情况下缓慢下落"
+    key: "AnticheatConf.Movement.SlowFall.TotalAction"
+    value: 0
+  - desc: "检查玩家是否在无权限的情况下飞行"
+    key: "AnticheatConf.Movement.FlyHack.TickCount"
+    value: 1
+  - desc: "检查玩家是否在无权限的情况下飞行"
+    key: "AnticheatConf.Movement.FlyHack.TickAction"
+    value: 1
+  - desc: "检查玩家是否在无权限的情况下飞行"
+    key: "AnticheatConf.Movement.FlyHack.TotalCount"
+    value: 0
+  - desc: "检查玩家是否在无权限的情况下飞行"
+    key: "AnticheatConf.Movement.FlyHack.TotalAction"
+    value: 0
+  - desc: "检查玩家是否进入了禁止区域"
+    key: "AnticheatConf.Movement.Forbidden.TickCount"
+    value: 1
+  - desc: "检查玩家是否进入了禁止区域"
+    key: "AnticheatConf.Movement.Forbidden.TickAction"
+    value: 1
+  - desc: "检查玩家是否进入了禁止区域"
+    key: "AnticheatConf.Movement.Forbidden.TotalCount"
+    value: 0
+  - desc: "检查玩家是否进入了禁止区域"
+    key: "AnticheatConf.Movement.Forbidden.TotalAction"
+    value: 0
+  - desc: "监控玩家在前一次跳跃未完成时发起新的跳跃行为"
+    key: "AnticheatConf.Movement.MultiJump.TickCount"
+    value: 1
+  - desc: "监控玩家在前一次跳跃未完成时发起新的跳跃行为"
+    key: "AnticheatConf.Movement.MultiJump.TickAction"
+    value: 1
+  - desc: "监控玩家在前一次跳跃未完成时发起新的跳跃行为"
+    key: "AnticheatConf.Movement.MultiJump.TotalCount"
+    value: 0
+  - desc: "监控玩家在前一次跳跃未完成时发起新的跳跃行为"
+    key: "AnticheatConf.Movement.MultiJump.TotalAction"
+    value: 0
+  - desc: "监控客户端时钟回退情况。即使修改系统时钟，此情况也不应发生，因为客户端使用GetTickCount()和/或QueryPerformanceCounter()（用于跟踪系统启动后的流逝时间，绝不会回退！）"
+    key: "AnticheatConf.Movement.TimeBack.TickCount"
+    value: 1
+  - desc: "监控客户端时钟回退情况。即使修改系统时钟，此情况也不应发生，因为客户端使用GetTickCount()和/或QueryPerformanceCounter()（用于跟踪系统启动后的流逝时间，绝不会回退！）"
+    key: "AnticheatConf.Movement.TimeBack.TickAction"
+    value: 1
+  - desc: "监控客户端时钟回退情况。即使修改系统时钟，此情况也不应发生，因为客户端使用GetTickCount()和/或QueryPerformanceCounter()（用于跟踪系统启动后的流逝时间，绝不会回退！）"
+    key: "AnticheatConf.Movement.TimeBack.TotalCount"
+    value: 0
+  - desc: "监控客户端时钟回退情况。即使修改系统时钟，此情况也不应发生，因为客户端使用GetTickCount()和/或QueryPerformanceCounter()（用于跟踪系统启动后的流逝时间，绝不会回退！）"
+    key: "AnticheatConf.Movement.TimeBack.TotalAction"
+    value: 0
+  - desc: "监控玩家跳跃时横向速度超过其正常跑步速度的行为"
+    key: "AnticheatConf.Movement.FastJump.TickCount"
+    value: 1
+  - desc: "监控玩家跳跃时横向速度超过其正常跑步速度的行为"
+    key: "AnticheatConf.Movement.FastJump.TickAction"
+    value: 1
+  - desc: "监控玩家跳跃时横向速度超过其正常跑步速度的行为"
+    key: "AnticheatConf.Movement.FastJump.TotalCount"
+    value: 0
+  - desc: "监控玩家跳跃时横向速度超过其正常跑步速度的行为"
+    key: "AnticheatConf.Movement.FastJump.TotalAction"
+    value: 0
+  - desc: "监控玩家横向跳跃速度持续增加的行为"
+    key: "AnticheatConf.Movement.JumpSpeedChange.TickCount"
+    value: 1
+  - desc: "监控玩家横向跳跃速度持续增加的行为"
+    key: "AnticheatConf.Movement.JumpSpeedChange.TickAction"
+    value: 1
+  - desc: "监控玩家横向跳跃速度持续增加的行为"
+    key: "AnticheatConf.Movement.JumpSpeedChange.TotalCount"
+    value: 0
+  - desc: "监控玩家横向跳跃速度持续增加的行为"
+    key: "AnticheatConf.Movement.JumpSpeedChange.TotalAction"
+    value: 0
+  - desc: "监控客户端上报时间为零的情况"
+    key: "AnticheatConf.Movement.NullClientTime.TickCount"
+    value: 1
+  - desc: "监控客户端上报时间为零的情况"
+    key: "AnticheatConf.Movement.NullClientTime.TickAction"
+    value: 1
+  - desc: "监控客户端上报时间为零的情况"
+    key: "AnticheatConf.Movement.NullClientTime.TotalCount"
+    value: 0
+  - desc: "监控客户端上报时间为零的情况"
+    key: "AnticheatConf.Movement.NullClientTime.TotalAction"
+    value: 0
+  - desc: "监控玩家在被定身（Root）状态下的移动行为"
+    key: "AnticheatConf.Movement.RootMove.TickCount"
+    value: 1
+  - desc: "监控玩家在被定身（Root）状态下的移动行为"
+    key: "AnticheatConf.Movement.RootMove.TickAction"
+    value: 1
+  - desc: "监控玩家在被定身（Root）状态下的移动行为"
+    key: "AnticheatConf.Movement.RootMove.TotalCount"
+    value: 0
+  - desc: "监控玩家在被定身（Root）状态下的移动行为"
+    key: "AnticheatConf.Movement.RootMove.TotalAction"
+    value: 0
+  - desc: "监控玩家快速获取探索经验的行为"
+    key: "AnticheatConf.Movement.Explore.TickCount"
+    value: 3
+  - desc: "监控玩家快速获取探索经验的行为"
+    key: "AnticheatConf.Movement.Explore.TickAction"
+    value: 1
+  - desc: "监控玩家快速获取探索经验的行为"
+    key: "AnticheatConf.Movement.Explore.TotalCount"
+    value: 0
+  - desc: "监控玩家快速获取探索经验的行为"
+    key: "AnticheatConf.Movement.Explore.TotalAction"
+    value: 0
+  - desc: "监控玩家在高等级区域快速获取探索经验的行为"
+    key: "AnticheatConf.Movement.ExploreHigh.TickCount"
+    value: 1
+  - desc: "监控玩家在高等级区域快速获取探索经验的行为"
+    key: "AnticheatConf.Movement.ExploreHigh.TickAction"
+    value: 1
+  - desc: "监控玩家在高等级区域快速获取探索经验的行为"
+    key: "AnticheatConf.Movement.ExploreHigh.TotalCount"
+    value: 0
+  - desc: "监控玩家在高等级区域快速获取探索经验的行为"
+    key: "AnticheatConf.Movement.ExploreHigh.TotalAction"
+    value: 0
+  - desc: "监控玩家Z轴坐标值变化过快的行为"
+    key: "AnticheatConf.Movement.OverspeedZ.TickCount"
+    value: 1
+  - desc: "监控玩家Z轴坐标值变化过快的行为"
+    key: "AnticheatConf.Movement.OverspeedZ.TickAction"
+    value: 1
+  - desc: "监控玩家Z轴坐标值变化过快的行为"
+    key: "AnticheatConf.Movement.OverspeedZ.TotalCount"
+    value: 0
+  - desc: "监控玩家Z轴坐标值变化过快的行为"
+    key: "AnticheatConf.Movement.OverspeedZ.TotalAction"
+    value: 0
+  - desc: "监控玩家心跳包（Heartbeat）晚于预期到达的情况"
+    key: "AnticheatConf.Movement.HeartbeatSkip.TickCount"
+    value: 1
+  - desc: "监控玩家心跳包（Heartbeat）晚于预期到达的情况"
+    key: "AnticheatConf.Movement.HeartbeatSkip.TickAction"
+    value: 1
+  - desc: "监控玩家心跳包（Heartbeat）晚于预期到达的情况"
+    key: "AnticheatConf.Movement.HeartbeatSkip.TotalCount"
+    value: 0
+  - desc: "监控玩家心跳包（Heartbeat）晚于预期到达的情况"
+    key: "AnticheatConf.Movement.HeartbeatSkip.TotalAction"
+    value: 0
+  - desc: "监控客户端时钟运行过快的情况"
+    key: "AnticheatConf.Movement.ClockDesync.TickCount"
+    value: 1
+  - desc: "监控客户端时钟运行过快的情况"
+    key: "AnticheatConf.Movement.ClockDesync.TickAction"
+    value: 1
+  - desc: "监控客户端时钟运行过快的情况"
+    key: "AnticheatConf.Movement.ClockDesync.TotalCount"
+    value: 0
+  - desc: "监控客户端时钟运行过快的情况"
+    key: "AnticheatConf.Movement.ClockDesync.TotalAction"
+    value: 0
+  - desc: "检查坠落重置操作码（fall reset opcode）中的错误数据"
+    key: "AnticheatConf.Movement.BadFallReset.Enable"
+    value: 1
+  - desc: "触发惩罚所需的检测次数"
+    key: "AnticheatConf.Movement.BadFallReset.Threshold"
+    value: 1
+  - desc: "未通过此检查时执行的操作"
+    key: "AnticheatConf.Movement.BadFallReset.Penalty"
+    value: 11
+  - desc: "监控玩家声称处于传送载具（transport）上，但该载具不存在或玩家与载具距离过远的行为"
+    key: "AnticheatConf.Movement.FakeTransport.TickCount"
+    value: 1
+  - desc: "监控玩家声称处于传送载具（transport）上，但该载具不存在或玩家与载具距离过远的行为"
+    key: "AnticheatConf.Movement.FakeTransport.TickAction"
+    value: 1
+  - desc: "监控玩家声称处于传送载具（transport）上，但该载具不存在或玩家与载具距离过远的行为"
+    key: "AnticheatConf.Movement.FakeTransport.TotalCount"
+    value: 0
+  - desc: "监控玩家声称处于传送载具（transport）上，但该载具不存在或玩家与载具距离过远的行为"
+    key: "AnticheatConf.Movement.FakeTransport.TotalAction"
+    value: 0
+  - desc: "监控玩家声称登上距离过远的传送载具（transport）的行为"
+    key: "AnticheatConf.Movement.TeleToTransport.TickCount"
+    value: 1
+  - desc: "监控玩家声称登上距离过远的传送载具（transport）的行为"
+    key: "AnticheatConf.Movement.TeleToTransport.TickAction"
+    value: 1
+  - desc: "监控玩家声称登上距离过远的传送载具（transport）的行为"
+    key: "AnticheatConf.Movement.TeleToTransport.TotalCount"
+    value: 0
+  - desc: "监控玩家声称登上距离过远的传送载具（transport）的行为"
+    key: "AnticheatConf.Movement.TeleToTransport.TotalAction"
+    value: 0
+  - desc: "监控玩家异常传送的行为"
+    key: "AnticheatConf.Movement.Teleport.TickCount"
+    value: 1
+  - desc: "监控玩家异常传送的行为"
+    key: "AnticheatConf.Movement.Teleport.TickAction"
+    value: 1
+  - desc: "监控玩家异常传送的行为"
+    key: "AnticheatConf.Movement.Teleport.TotalCount"
+    value: 0
+  - desc: "监控玩家异常传送的行为"
+    key: "AnticheatConf.Movement.Teleport.TotalAction"
+    value: 0
+  - desc: "监控玩家进行远距离（超过150码）异常传送的行为"
+    key: "AnticheatConf.Movement.TeleportFar.TickCount"
+    value: 1
+  - desc: "监控玩家进行远距离（超过150码）异常传送的行为"
+    key: "AnticheatConf.Movement.TeleportFar.TickAction"
+    value: 1
+  - desc: "监控玩家进行远距离（超过150码）异常传送的行为"
+    key: "AnticheatConf.Movement.TeleportFar.TotalCount"
+    value: 0
+  - desc: "监控玩家进行远距离（超过150码）异常传送的行为"
+    key: "AnticheatConf.Movement.TeleportFar.TotalAction"
+    value: 0
+  - desc: "监控客户端声称拥有固定Z轴移动标志（fixed-Z movement flag）的行为，此标志对玩家而言是不可能存在的"
+    key: "AnticheatConf.Movement.FixedZ.TickCount"
+    value: 1
+  - desc: "监控客户端声称拥有固定Z轴移动标志（fixed-Z movement flag）的行为，此标志对玩家而言是不可能存在的"
+    key: "AnticheatConf.Movement.FixedZ.TickAction"
+    value: 1
+  - desc: "监控客户端声称拥有固定Z轴移动标志（fixed-Z movement flag）的行为，此标志对玩家而言是不可能存在的"
+    key: "AnticheatConf.Movement.FixedZ.TotalCount"
+    value: 0
+  - desc: "监控客户端声称拥有固定Z轴移动标志（fixed-Z movement flag）的行为，此标志对玩家而言是不可能存在的"
+    key: "AnticheatConf.Movement.FixedZ.TotalAction"
+    value: 0
+  - desc: "监控客户端以异常方式确认移动指令的行为"
+    key: "AnticheatConf.Movement.BadOrderAck.TickCount"
+    value: 1
+  - desc: "监控客户端以异常方式确认移动指令的行为"
+    key: "AnticheatConf.Movement.BadOrderAck.TickAction"
+    value: 1
+  - desc: "监控客户端以异常方式确认移动指令的行为"
+    key: "AnticheatConf.Movement.BadOrderAck.TotalCount"
+    value: 0
+  - desc: "监控客户端以异常方式确认移动指令的行为"
+    key: "AnticheatConf.Movement.BadOrderAck.TotalAction"
+    value: 0
+  - desc: "启用反垃圾信息系统"
+    key: "AnticheatConf.Antispam.Enable"
+    value: 1
+  - desc: "自动禁言被识别为垃圾信息发送者的账号"
+    key: "AnticheatConf.Antispam.Silence"
+    value: 0
+  - desc: "超过此等级后，垃圾信息过滤器将不再强制执行"
+    key: "AnticheatConf.Antispam.MaxLevel"
+    value: 25
+  - desc: "垃圾信息检查前对消息进行标准化处理时使用的标准化标志掩码"
+    key: "AnticheatConf.Antispam.NormalizeMask"
+    value: 0
+  - desc: "对近期消息进行垃圾信息分析的时间间隔（秒）"
+    key: "AnticheatConf.Antispam.AnalysisTimer"
+    value: 30
+  - desc: "仅基于发送速率判定为垃圾信息的每分钟最大消息数。设为0则禁用此检测。"
+    key: "AnticheatConf.Antispam.MaxRate"
+    value: 30
+  - desc: "消息速率检查的宽限期（秒），宽限期内不检查是否超过垃圾信息最大允许值"
+    key: "AnticheatConf.Antispam.RateGracePeriod"
+    value: 45
+  - desc: "私聊和邮件收件人中唯一收件人的最大百分比，超过则判定为垃圾信息。设为0则禁用此检测。"
+    key: "AnticheatConf.Antispam.MaxUniquePercentage"
+    value: 90
+  - desc: "触发唯一收件人百分比检查所需的最少私聊或邮件数量。警告：设为0不会禁用此检查！如需禁用，请将Antispam.MaxUniquePercentage设为0"
+    key: "AnticheatConf.Antispam.MinUniqueMessages"
+    value: 100
+  - desc: "触发GM通知所需的黑名单条目命中次数。设为0则禁用此功能。"
+    key: "AnticheatConf.Antispam.BlacklistNotify"
+    value: 5
+  - desc: "同一会话触发第二次GM通知前必须经过的分钟数"
+    key: "AnticheatConf.Antispam.BlacklistNotifyCooldown"
+    value: 10
+  - desc: "将账号判定为垃圾信息发送者并执行禁言（需启用自动禁言）所需的黑名单条目命中次数。设为0则禁用此功能。"
+    key: "AnticheatConf.Antispam.BlacklistSilence"
+    value: 15
+  - desc: "允许在游戏内添加反垃圾信息黑名单所需的最低GM账号等级"
+    key: "AnticheatConf.Antispam.BlacklistLevel"
+    value: 5
+  - desc: "缓存条目过期前必须经过的秒数"
+    key: "AnticheatConf.Antispam.CacheExpiration"
+    value: 3600
+  - desc: "根据Damerau-Levenshtein距离算法，判定两个字符串为唯一所需的最小距离"
+    key: "AnticheatConf.Antispam.UniquenessThreshold"
+    value: 5
+  - desc: "触发消息重复检查所需发送的最少聊天消息数"
+    key: "AnticheatConf.Antispam.MinRepetitionMessages"
+    value: 5
+  - desc: "触发GM通知所需的消息重复百分比。设为0则禁用此功能。"
+    key: "AnticheatConf.Antispam.RepetitionNotify"
+    value: 50
+  - desc: "触发账号禁言所需的消息重复百分比。设为0则禁用此功能。"
+    key: "AnticheatConf.Antispam.RepetitionSilence"
+    value: 0
+  - desc: "移动距离（码）降低消息重复权重的系数。设为0.0则不调整。"
+    key: "AnticheatConf.Antispam.RepetitionDistanceScale"
+    value: 1.0
+  - desc: "在线时长（秒）增加消息重复权重的系数。设为0.0则不调整。"
+    key: "AnticheatConf.Antispam.RepetitionTimeScale"
+    value: 0.0
+  - desc: "忽略总移动距离前必须经过的秒数。设为0则禁用此功能。"
+    key: "AnticheatConf.Antispam.RepetitionMovementTimeout"
+    value: 60
+  - desc: "与全局反作弊类似，若Warden禁用，创建世界会话时将不会初始化Warden。修改此设置对已存在的世界会话无影响。"
+    key: "AnticheatConf.Warden.Enable"
+    value: 1
+  - desc: "Warden模块所在的目录"
+    key: "AnticheatConf.Warden.ModuleDir"
+    value: "warden_modules"
+  - desc: "等待客户端回复Warden请求的超时时间（秒）"
+    key: "AnticheatConf.Warden.Timeout"
+    value: 30
+  - desc: "每次Warden请求的时间间隔（秒）"
+    key: "AnticheatConf.Warden.ScanFrequency"
+    value: 15
+  - desc: "每次请求发送的最大扫描次数（若请求会溢出客户端缓冲区则发送更少次数）"
+    key: "AnticheatConf.Warden.ScanCount"
+    value: 10
+  - desc: "强制执行非日志类操作所需的最低等级"
+    key: "AnticheatConf.Warden.MinimumLevel"
+    value: 25
+  - desc: "向客户端发送高级扫描所需的最低等级。此举是为了避免向低等级、一次性账号的外挂作者泄露检测方法。"
+    key: "AnticheatConf.Warden.MinimumAdvancedLevel"
+    value: 18
+  - desc: "Warden检测到可疑的EndScene钩子时执行的操作"
+    key: "AnticheatConf.Warden.SuspiciousEndSceneHookAction"
+    value: 1
+  - desc: "这些值遵循与移动启发式算法相同的规则"
+    key: "AnticheatConf.Warden.TickCount"
+    value: 1
+  - desc: "这些值遵循与移动启发式算法相同的规则"
+    key: "AnticheatConf.Warden.TickAction"
+    value: 1
+  - desc: "这些值遵循与移动启发式算法相同的规则"
+    key: "AnticheatConf.Warden.TotalCount"
+    value: 0
+  name: "反作弊配置"
